@@ -1,245 +1,906 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl"><head><meta charset="utf-8">
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>תרגול למבחן – כיתה יא 5 יחידות</title>
+<title>מספרים מרוכבים, תרגול למבחן י״ב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700&family=Noto+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#faf8f4;--card:#fff;--tx:#222;--mu:#666;--ac:#1d5fa8;--ln:#ddd;--ans:#eef5ec}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#171717;--card:#222;--tx:#eee;--mu:#aaa;--ac:#7db4ee;--ln:#444;--ans:#1f2d1f}}
-html{scroll-padding-top:60px}
-body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.9 system-ui,Arial,sans-serif}
-header,main{max-width:760px;margin:auto;padding:0 14px}
-h1{font-size:22px;margin:16px 0 6px}
-nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--ln);z-index:2}
-nav a,nav button{font:inherit;font-size:15px;padding:4px 12px;border:1px solid var(--ac);border-radius:16px;color:var(--ac);background:none;text-decoration:none;cursor:pointer}
-h2{font-size:20px;margin:28px 0 4px;color:var(--ac)}
-h3{font-size:15px;color:var(--mu);margin:16px 0 6px}
-article{background:var(--card);border:1px solid var(--ln);border-radius:10px;padding:12px 14px;margin:8px 0}
-article b{color:var(--ac)}
-i{font-style:normal;direction:ltr;unicode-bidi:isolate;display:inline-block;font-size:1.08em}
-details{margin-top:8px}
-summary{cursor:pointer;color:var(--ac);font-weight:600}
-.a{background:var(--ans);border-radius:8px;padding:8px 12px;margin-top:6px}
-.a p{margin:4px 0}
-svg{display:block;margin:8px auto;max-width:360px;width:100%;direction:ltr}svg text{fill:var(--tx);font:12px system-ui}.ax{stroke:var(--mu);fill:none}.ds{stroke:var(--mu);stroke-dasharray:4 3;fill:none}.cv{stroke:var(--ac);stroke-width:2;fill:none}.pt{fill:var(--ac)}.ho{fill:var(--card);stroke:var(--ac);stroke-width:1.8}svg .tk{font-size:11px;text-anchor:start}svg .e{text-anchor:end}ol{list-style:hebrew;padding-inline-start:30px;margin:4px 0}
-nav button.on{background:var(--ac);color:var(--bg)}section[hidden]{display:none}
-.ab{display:flex;gap:8px;margin-top:8px}.ab button{flex:1;font:inherit;font-size:15px;padding:5px;border:1px solid var(--ac);border-radius:8px;background:none;color:var(--ac);cursor:pointer}.ab button.on{background:var(--ac);color:var(--bg)}.p{border-radius:8px;padding:6px 12px;margin-top:6px}.p.f{background:var(--ans)}.p.s{border:1px solid var(--ln)}.p p{margin:3px 0}.p .m{text-align:center}.p h4{font-size:15px;margin:8px 0 2px;color:var(--ac)}
-</style></head><body>
-<header><h1>תרגול למבחן – כיתה יא, 5 יחידות</h1>
-<p style="margin:0;color:var(--mu)">פתרו קודם בכתב, ורק אז לחצו "תשובה". התרגילים מדורגים בכל נושא.</p></header>
-<header><nav><button data-t="p" onclick="show('p')">מציאת פרמטר</button><button data-t="k" onclick="show('k')">הרכבות וגרפים</button><button data-t="s" onclick="show('s')">סדרה הנדסית</button></nav></header>
-<main>
-<section id="p"><h2>מציאת פרמטר – מנה ושורש</h2>
-<p style="margin:4px 0;color:var(--mu)">בכל תרגיל נתון אחר. מצאו את הפרמטר בלבד, ללא חקירה מלאה.</p>
-<article><b>1.</b> נתונה $f(x)=\frac{x}{\sqrt{x-a}}$. לפונקציה יש נקודת קיצון ב־$x=6$. מצאו את $a$.
-<div class="p f" hidden><p>$a=3$</p></div><div class="p s" hidden><p>נגזור (נגזרת מנה):</p><p class=m>$f'(x)=\frac{\sqrt{x-a}-x\cdot\frac{1}{2\sqrt{x-a}}}{x-a}$</p><p>נכפול מונה ומכנה ב־$2\sqrt{x-a}$:</p><p class=m>$f'(x)=\frac{2(x-a)-x}{2(x-a)^{3/2}}=\frac{x-2a}{2(x-a)^{3/2}}$</p><p>בנקודת קיצון הנגזרת מתאפסת, לכן $f'(6)=0$:</p><p class=m>$6-2a=0$</p><p class=m>$a=3$</p><p>בדיקה: תחום ההגדרה הוא $x&gt;3$, הנקודה $x=6$ בתחום, והנגזרת $\frac{x-6}{2(x-3)^{3/2}}$ מחליפה סימן ב־$x=6$ – אכן קיצון.</p></div></article>
-<article><b>2.</b> הגרף של $f(x)=\frac{\sqrt{x+a}}{x-1}$ עובר דרך הנקודה $(2,3)$. מצאו את $a$.
-<div class="p f" hidden><p>$a=7$</p></div><div class="p s" hidden><p>הנקודה $(2,3)$ על הגרף, לכן $f(2)=3$:</p><p class=m>$\frac{\sqrt{2+a}}{2-1}=3$</p><p class=m>$\sqrt{2+a}=3$</p><p>נעלה בריבוע:</p><p class=m>$2+a=9$</p><p class=m>$a=7$</p><p>בדיקה: $x=2$ בתחום ההגדרה ($x\ge-7$) ו־$\sqrt9=3$ ✓.</p></div></article>
-<article><b>3.</b> ל־$f(x)=\frac{\sqrt{x+1}}{x^2-a}$, $a&gt;0$, יש אסימפטוטה אנכית ב־$x=2$. מצאו את $a$.
-<div class="p f" hidden><p>$a=4$</p></div><div class="p s" hidden><p>אסימפטוטה אנכית ב־$x=2$ פירושה שהמכנה מתאפס שם והמונה אינו מתאפס.</p><p>המכנה מתאפס ב־$x=2$:</p><p class=m>$2^2-a=0$</p><p class=m>$a=4$</p><p>בדיקה: המונה ב־$x=2$ הוא $\sqrt3\neq0$, לכן זו אסימפטוטה ולא חור.</p><p>שימו לב: המכנה $x^2-4$ מתאפס גם ב־$x=-2$, אך $x=-2$ מחוץ לתחום ההגדרה ($x\ge-1$), ולכן אין שם אסימפטוטה.</p></div></article>
-<article><b>4.</b> ל־$f(x)=\frac{\sqrt{ax^2+1}}{x+1}$, $a&gt;0$, יש אסימפטוטה אופקית $y=2$ כש־$x\to+\infty$. מצאו את $a$.
-<div class="p f" hidden><p>$a=4$</p></div><div class="p s" hidden><p>אסימפטוטה אופקית כש־$x\to+\infty$ היא הגבול של הפונקציה:</p><p class=m>$\lim_{x\to\infty}\frac{\sqrt{ax^2+1}}{x+1}$</p><p>עבור $x&gt;0$ מתקיים $\sqrt{x^2}=x$, לכן נחלק מונה ומכנה ב־$x$:</p><p class=m>$=\lim_{x\to\infty}\frac{\sqrt{a+\frac{1}{x^2}}}{1+\frac1x}=\sqrt a$</p><p>לפי הנתון $y=2$:</p><p class=m>$\sqrt a=2$</p><p class=m>$a=4$</p></div></article>
-<article><b>5.</b> תחום ההגדרה של $f(x)=\frac{1}{\sqrt{x^2-ax}}$, $a&gt;0$, הוא $x&lt;0$ או $x&gt;5$. מצאו את $a$.
-<div class="p f" hidden><p>$a=5$</p></div><div class="p s" hidden><p>הביטוי שבתוך השורש נמצא גם במכנה, לכן הוא חייב להיות חיובי:</p><p class=m>$x^2-ax&gt;0$</p><p>נפרק לגורמים:</p><p class=m>$x(x-a)&gt;0$</p><p>שורשי הביטוי $x=0$ ו־$x=a$, והפרבולה "מחייכת" (כי $a&gt;0$), ולכן הפתרון הוא $x&lt;0$ או $x&gt;a$.</p><p>לפי הנתון תחום ההגדרה הוא $x&lt;0$ או $x&gt;5$, ולכן:</p><p class=m>$a=5$</p></div></article>
-<article><b>6.</b> לפונקציה $f(x)=\frac{x^2-ax}{(x-3)\sqrt{x+1}}$ יש חור ב־$x=3$. מצאו את $a$.
-<div class="p f" hidden><p>$a=3$ (והחור הוא $\left(3,\frac32\right)$)</p></div><div class="p s" hidden><p>חור ב־$x=3$ נוצר כשהגורם $(x-3)$ שבמכנה מצטמצם, כלומר המונה חייב להתאפס ב־$x=3$:</p><p class=m>$3^2-3a=0$</p><p class=m>$a=3$</p><p>בדיקה: נציב $a=3$ ונפרק את המונה:</p><p class=m>$f(x)=\frac{x(x-3)}{(x-3)\sqrt{x+1}}=\frac{x}{\sqrt{x+1}},\quad x\neq3$</p><p>ערך הפונקציה בנקודת החור: $\frac{3}{\sqrt4}=\frac32$, כלומר חור ב־$\left(3,\frac32\right)$.</p></div></article>
-<article><b>7.</b> השיפוע של המשיק לגרף $f(x)=\frac{x+a}{\sqrt x}$ בנקודה שבה $x=4$ הוא $\frac18$. מצאו את $a$.
-<div class="p f" hidden><p>$a=2$</p></div><div class="p s" hidden><p>נכתוב $f(x)=(x+a)x^{-1/2}$ ונגזור (נגזרת מכפלה):</p><p class=m>$f'(x)=x^{-1/2}-\frac12(x+a)x^{-3/2}$</p><p>נוציא גורם משותף $x^{-3/2}$:</p><p class=m>$f'(x)=x^{-3/2}\left(x-\frac{x+a}{2}\right)=\frac{x-a}{2x^{3/2}}$</p><p>השיפוע ב־$x=4$ הוא $\frac18$:</p><p class=m>$\frac{4-a}{2\cdot8}=\frac18$</p><p class=m>$4-a=2$</p><p class=m>$a=2$</p></div></article>
-<article><b>8.</b> ל־$f(x)=\frac{\sqrt{x}}{x+a}$, $a&gt;0$, יש מקסימום וערכו $\frac14$. מצאו את $a$.
-<div class="p f" hidden><p>$a=4$</p></div><div class="p s" hidden><p>קודם נמצא את נקודת המקסימום. נגזור (נגזרת מנה):</p><p class=m>$f'(x)=\frac{\frac{1}{2\sqrt x}(x+a)-\sqrt x}{(x+a)^2}$</p><p>נכפול מונה ומכנה ב־$2\sqrt x$:</p><p class=m>$f'(x)=\frac{(x+a)-2x}{2\sqrt x\,(x+a)^2}=\frac{a-x}{2\sqrt x\,(x+a)^2}$</p><p>הנגזרת מתאפסת ב־$x=a$, חיובית משמאלו ושלילית מימינו, ולכן שם מקסימום.</p><p>ערך המקסימום:</p><p class=m>$f(a)=\frac{\sqrt a}{2a}=\frac{1}{2\sqrt a}$</p><p>לפי הנתון:</p><p class=m>$\frac{1}{2\sqrt a}=\frac14$</p><p class=m>$\sqrt a=2$</p><p class=m>$a=4$</p></div></article>
-<article><b>9.</b> ל־$f(x)=\frac{1}{\sqrt{x^2-4x+a}}$ יש אסימפטוטה אנכית אחת בדיוק. מצאו את $a$.
-<div class="p f" hidden><p>$a=4$</p></div><div class="p s" hidden><p>אסימפטוטה אנכית נוצרת בשורש של הטרינום שבתוך השורש (שם המכנה מתאפס והפונקציה מוגדרת מצד אחד).</p><p>נבחן את הטרינום $x^2-4x+a$ לפי הדיסקרימיננטה:</p><p>אם $\Delta&gt;0$ – שני שורשים ושתי אסימפטוטות.</p><p>אם $\Delta&lt;0$ – אין שורשים והטרינום חיובי תמיד, ולכן אין אסימפטוטה.</p><p>אם $\Delta=0$ – שורש כפול ואסימפטוטה אחת בדיוק.</p><p class=m>$\Delta=16-4a=0$</p><p class=m>$a=4$</p><p>בדיקה: $f(x)=\frac{1}{\sqrt{(x-2)^2}}=\frac{1}{|x-2|}$, ויש אסימפטוטה אחת: $x=2$.</p></div></article>
-<article><b>10.</b> נתונה $f(x)=\frac{\sqrt{ax^2+1}}{x+b}$, $a&gt;0$. האסימפטוטה האנכית של הגרף והאסימפטוטה האופקית שלו שמעל ציר $x$ נחתכות בנקודה $(2,3)$. מצאו את $a$ ואת $b$.
-<div class="p f" hidden><p>$a=9,\ b=-2$</p></div><div class="p s" hidden><p>אסימפטוטה אנכית: המכנה מתאפס והמונה אינו מתאפס (המונה $\sqrt{ax^2+1}$ חיובי תמיד):</p><p class=m>$x+b=0\ \Rightarrow\ x=-b$</p><p>אסימפטוטה אופקית: נחשב גבול כש־$x\to+\infty$ (עבור $x&gt;0$ מתקיים $\sqrt{x^2}=x$), ונחלק מונה ומכנה ב־$x$:</p><p class=m>$\lim_{x\to\infty}\frac{\sqrt{ax^2+1}}{x+b}=\lim_{x\to\infty}\frac{\sqrt{a+\frac{1}{x^2}}}{1+\frac bx}=\sqrt a$</p><p>האסימפטוטה השנייה, כש־$x\to-\infty$, היא $y=-\sqrt a$ (מתחת לציר $x$), ולכן האסימפטוטה שמעל ציר $x$ היא $y=\sqrt a$.</p><p>נקודת החיתוך של האסימפטוטות היא $(-b,\sqrt a)$. לפי הנתון היא $(2,3)$:</p><p class=m>$-b=2\ \Rightarrow\ b=-2$</p><p class=m>$\sqrt a=3\ \Rightarrow\ a=9$</p><p>בדיקה: ב־$f(x)=\frac{\sqrt{9x^2+1}}{x-2}$ המונה ב־$x=2$ הוא $\sqrt{37}\neq0$, ולכן $x=2$ אסימפטוטה אנכית ✓.</p></div></article>
-<article><b>11.</b> ל־$f(x)=\sqrt{x}+\frac{a}{x}$ יש נקודת פיתול ב־$x=4$. מצאו את $a$.
-<div class="p f" hidden><p>$a=1$</p></div><div class="p s" hidden><p>נכתוב את הפונקציה בצורת חזקות:</p><p class=m>$f(x)=x^{1/2}+a\,x^{-1}$</p><p>נגזור פעמיים:</p><p class=m>$f'(x)=\frac12x^{-1/2}-a\,x^{-2}$</p><p class=m>$f''(x)=-\frac14x^{-3/2}+2a\,x^{-3}$</p><p>בנקודת פיתול הנגזרת השנייה מתאפסת, ולכן $f''(4)=0$:</p><p class=m>$-\frac14\cdot\frac{1}{4^{3/2}}+\frac{2a}{4^3}=0$</p><p class=m>$-\frac{1}{32}+\frac{a}{32}=0$</p><p class=m>$a=1$</p><p>בדיקה: עבור $a=1$ מתקבל</p><p class=m>$f''(x)=\frac{8-x^{3/2}}{4x^3}$</p><p>הנגזרת השנייה חיובית ב־$0&lt;x&lt;4$ ושלילית ב־$x&gt;4$, כלומר היא מחליפה סימן ב־$x=4$ – אכן נקודת פיתול.</p></div></article>
-</section>
-<section id="k" hidden><h2>הרכבות וגרפים – קריאה מגרף בלבד</h2>
-<p style="margin:4px 0;color:var(--mu)">בתרגילים אלה נתון רק הגרף (ללא ביטוי אלגברי). בכל תרגיל הגדירו $g(x)=\sqrt{f(x)}$ ו־$h(x)=\frac{1}{f(x)}$ בהתאם לשאלה.</p>
-<article><b>1.</b> בשרטוט גרף הפונקציה $f$. נגדיר $g(x)=\sqrt{f(x)}$ ו־$h(x)=\frac{1}{f(x)}$.
-<svg id=g0 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g$, את נקודות הקיצון שלה ואת תחומי העלייה והירידה. סרטטו את $g$.</li><li>מצאו את תחום ההגדרה של $h$, אסימפטוטות, קיצון ותחומי עלייה וירידה. סרטטו את $h$.</li></ol>
-<div class="p f" hidden><p>$g$: תחום – כל $x$; מינימום $(1,1)$; יורדת ב־$x&lt;1$, עולה ב־$x&gt;1$.</p><p>$h$: תחום – כל $x$; אסימפטוטה $y=0$; מקסימום $(1,1)$; עולה ב־$x&lt;1$, יורדת ב־$x&gt;1$.</p></div><div class="p s" hidden><ol>
-<li>$f&gt;0$ תמיד ⇒ תחום $g$: כל $x$. מינימום $(1,1)$ ($\sqrt1=1$); יורדת ב־$x&lt;1$, עולה ב־$x&gt;1$. ב־$x=0$: $g=\sqrt2$.</li>
-<li>תחום $h$: כל $x$; אין אסימפטוטה אנכית. אסימפטוטה אופקית $y=0$ ($f\to\infty$), הגרף מעליה. מקסימום $(1,1)$; עולה ב־$x&lt;1$, יורדת ב־$x&gt;1$. ב־$x=0$: $h=\frac12$.</li></ol></div></article>
-
-<article><b>2.</b> בשרטוט גרף הפונקציה $f$ (חותך את ציר $x$ ב־$-1$ וב־$3$).
-<svg id=g1 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g(x)=\sqrt{f(x)}$, קיצון, ותחומי עלייה וירידה. מה קורה למשיק בקצות התחום?</li><li>מצאו את תחום ההגדרה של $h(x)=\frac{1}{f(x)}$, אסימפטוטות וקיצון.</li><li>מצאו את תחומי העלייה והירידה של $h$ וסרטטו אותה.</li></ol>
-<div class="p f" hidden><p>$g$: תחום $-1\le x\le3$; מקסימום $(1,2)$; עולה ב־$-1&lt;x&lt;1$, יורדת ב־$1&lt;x&lt;3$; משיק אנכי בקצוות.</p><p>$h$: תחום $x\neq-1,3$; אסימפטוטות $x=-1,\ x=3,\ y=0$; מינימום מקומי $\left(1,\frac14\right)$; יורדת ב־$x&lt;-1$ וב־$-1&lt;x&lt;1$, עולה ב־$1&lt;x&lt;3$ וב־$x&gt;3$.</p></div><div class="p s" hidden><ol>
-<li>תחום $g$: $-1\le x\le3$ (שם $f\ge0$). מקסימום $(1,2)$. עולה ב־$-1&lt;x&lt;1$, יורדת ב־$1&lt;x&lt;3$. ב־$x=-1$ וב־$x=3$ ($g=0$) משיק אנכי.</li>
-<li>תחום $h$: $x\neq-1,3$. אסימפטוטות אנכיות $x=-1$, $x=3$; אופקית $y=0$ ($f\to-\infty$, $h\to0^-$). מינימום מקומי $\left(1,\frac14\right)$.</li>
-<li>$h$ הפוכה ב"מגמה" ל־$f$: יורדת ב־$x&lt;-1$ וב־$-1&lt;x&lt;1$; עולה ב־$1&lt;x&lt;3$ וב־$x&gt;3$. ב־$-1&lt;x&lt;3$ היא חיובית; מחוץ לתחום זה שלילית.</li></ol></div></article>
-
-<article><b>3.</b> בשרטוט גרף הפונקציה $f$: נוגעת בציר $x$ ב־$(-1,0)$, חותכת אותו ב־$(2,0)$, ויש לה מינימום $(1,-4)$.
-<svg id=g2 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g(x)=\sqrt{f(x)}$. מה מיוחד ב־$x=-1$?</li><li>מצאו את תחומי העלייה והירידה של $g$ ואת התנהגותה ב־$x=2$.</li><li>מצאו את תחום ההגדרה של $h(x)=\frac{1}{f(x)}$ ואת כל האסימפטוטות. התייחסו להתנהגות משני צדי כל אסימפטוטה אנכית.</li><li>מצאו קיצון ותחומי עלייה וירידה של $h$, וסרטטו.</li></ol>
-<div class="p f" hidden><p>$g$: תחום $\{-1\}\cup[2,\infty)$ (הנקודה $(-1,0)$ מבודדת); עולה ב־$x&gt;2$; ב־$x=2$ משיק אנכי.</p><p>$h$: תחום $x\neq-1,2$; אסימפטוטות $x=-1,\ x=2,\ y=0$; מקסימום מקומי $\left(1,-\frac14\right)$; יורדת ב־$x&lt;-1$, עולה ב־$-1&lt;x&lt;1$, יורדת ב־$1&lt;x&lt;2$ וב־$x&gt;2$.</p></div><div class="p s" hidden><ol>
-<li>$f\ge0$ רק ב־$x=-1$ (נקודה בודדת) וב־$x\ge2$. תחום $g$: $\{-1\}\cup[2,\infty)$. ב־$x=-1$ הנקודה $(-1,0)$ מבודדת.</li>
-<li>$g$ עולה ב־$x&gt;2$ (כי $f$ עולה שם), $g(2)=0$ עם משיק אנכי.</li>
-<li>תחום $h$: $x\neq-1,2$. אסימפטוטות אנכיות: $x=-1$ ($h\to-\infty$ משני הצדדים, כי $f\le0$ סביבה), $x=2$ ($-\infty$ משמאל, $+\infty$ מימין). אופקית $y=0$ ($0^-$ כש־$x\to-\infty$, $0^+$ כש־$x\to\infty$).</li>
-<li>מקסימום מקומי $\left(1,-\frac14\right)$. $h$ יורדת ב־$x&lt;-1$, עולה ב־$-1&lt;x&lt;1$, יורדת ב־$1&lt;x&lt;2$ וב־$x&gt;2$.</li></ol></div></article>
-
-<article><b>4.</b> בשרטוט גרף הפונקציה $f$ עם אסימפטוטות $x=1$ ו־$y=1$. הגרף חותך את ציר $x$ ב־$(-2,0)$ ואת ציר $y$ ב־$(0,-2)$.
-<svg id=g3 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g(x)=\sqrt{f(x)}$, אסימפטוטות ותחומי עלייה וירידה. מה קורה ב־$x=-2$?</li><li>מצאו את תחום ההגדרה של $h(x)=\frac{1}{f(x)}$ ואת האסימפטוטות. האם יש לה חור? מצאו אותו.</li><li>מצאו את תחומי העלייה והירידה של $h$ וסרטטו אותה.</li></ol>
-<div class="p f" hidden><p>$g$: תחום $x\le-2$ או $x&gt;1$; אסימפטוטות $x=1,\ y=1$; יורדת בשני התחומים; ב־$(-2,0)$ משיק אנכי.</p><p>$h$: תחום $x\neq-2,1$; אסימפטוטות $x=-2,\ y=1$; חור $(1,0)$; עולה בשני התחומים; חיתוך עם ציר $y$: $\left(0,-\frac12\right)$.</p></div><div class="p s" hidden><ol>
-<li>$f\ge0$ ב־$x\le-2$ וב־$x&gt;1$ ⇒ תחום $g$. אסימפטוטות: $x=1$ ($g\to+\infty$ מימין), $y=1$ (מלמטה ב־$-\infty$, מלמעלה ב־$+\infty$). $f$ יורדת בכל ענף ⇒ $g$ יורדת בשני התחומים. ב־$(-2,0)$ קצה תחום עם משיק אנכי.</li>
-<li>תחום $h$: $x\neq1$ ($f$ לא מוגדרת) ו־$x\neq-2$ ($f=0$). אסימפטוטה אנכית $x=-2$ ($+\infty$ משמאל, $-\infty$ מימין); אופקית $y=1$. ב־$x=1$ $f\to\pm\infty$ ולכן $h\to0$: חור ב־$(1,0)$. אין חיתוך עם ציר $x$ (במקומו חור).</li>
-<li>$h$ עולה ב־$x&lt;-2$ וב־$x&gt;-2$ ($x\neq1$), כי $f$ יורדת בכל ענף. חיתוך עם ציר $y$: $\left(0,-\frac12\right)$.</li></ol></div></article>
-
-<article><b>5.</b> בשרטוט גרף הפונקציה $f$: פרבולה החותכת את ציר $x$ ב־$-1$ וב־$3$, עם קדקוד $(1,-4)$ וחור בנקודה $(2,-3)$.
-<svg id=g4 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g(x)=\sqrt{f(x)}$. האם החור ב־$f$ משפיע על $g$?</li><li>מצאו את תחומי העלייה והירידה של $g$.</li><li>מצאו את תחום ההגדרה של $h(x)=\frac{1}{f(x)}$, אסימפטוטות, חור וקיצון.</li><li>מצאו את תחומי העלייה והירידה של $h$ וסרטטו.</li></ol>
-<div class="p f" hidden><p>$g$: תחום $x\le-1$ או $x\ge3$ (החור לא משפיע); יורדת ב־$x\le-1$, עולה ב־$x\ge3$.</p><p>$h$: תחום $x\neq-1,2,3$; אסימפטוטות $x=-1,\ x=3,\ y=0$; חור $\left(2,-\frac13\right)$; מקסימום מקומי $\left(1,-\frac14\right)$; עולה ב־$x&lt;-1$ וב־$-1&lt;x&lt;1$, יורדת ב־$1&lt;x&lt;3$ (ללא $x=2$) וב־$x&gt;3$.</p></div><div class="p s" hidden><ol>
-<li>$f\ge0$ ב־$x\le-1$ וב־$x\ge3$ ⇒ תחום $g$. $x=2$ מחוץ לתחום, ולכן החור לא משפיע על $g$.</li>
-<li>$g$ יורדת ב־$x\le-1$ ועולה ב־$x\ge3$ (בהתאם ל־$f$). מינימום $g=0$ בשני הקצוות, עם משיקים אנכיים.</li>
-<li>תחום $h$: $x\neq-1,\ 3,\ 2$. אסימפטוטות אנכיות $x=-1$, $x=3$; אופקית $y=0$ (מלמעלה). חור: $\left(2,-\frac13\right)$. מקסימום מקומי $\left(1,-\frac14\right)$.</li>
-<li>$h$ עולה ב־$x&lt;-1$ וב־$-1&lt;x&lt;1$; יורדת ב־$1&lt;x&lt;3$ (ללא $x=2$) וב־$x&gt;3$.</li></ol></div></article>
-
-<article><b>6.</b> בשרטוט גרף הפונקציה $f$ עם אסימפטוטות $x=-1$ ו־$y=1$, חור ב־$\left(2,\frac23\right)$, ועוברת דרך $(0,0)$ ו־$(-2,2)$.
-<svg id=g5 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g(x)=\sqrt{f(x)}$, את החור שלה ואת האסימפטוטות.</li><li>מצאו את תחומי העלייה והירידה של $g$.</li><li>מצאו את תחום ההגדרה של $h(x)=\frac{1}{f(x)}$, את האסימפטוטות ואת כל החורים.</li><li>מצאו את תחומי העלייה והירידה של $h$ וסרטטו.</li></ol>
-<div class="p f" hidden><p>$g$: תחום $x&lt;-1$ או $x\ge0$, ללא $x=2$; חור $\left(2,\frac{\sqrt6}{3}\right)$; אסימפטוטות $x=-1,\ y=1$; עולה בשני התחומים.</p><p>$h$: תחום $x\neq0,-1,2$; אסימפטוטות $x=0,\ y=1$; חורים $(-1,0)$ ו־$\left(2,\frac32\right)$; יורדת ב־$x&lt;0$ וב־$x&gt;0$ (ללא החורים).</p></div><div class="p s" hidden><ol>
-<li>$f\ge0$ ב־$x&lt;-1$ וב־$x\ge0$; בלי $x=2$ ⇒ תחום $g$. חור: $\left(2,\sqrt{\frac23}\right)=\left(2,\frac{\sqrt6}{3}\right)$. אסימפטוטות: $x=-1$ ($+\infty$ משמאל), $y=1$ (מלמעלה ב־$-\infty$, מלמטה ב־$+\infty$). ב־$(0,0)$ קצה תחום עם משיק אנכי.</li>
-<li>$f$ עולה בכל ענף ⇒ $g$ עולה ב־$x&lt;-1$ וב־$x\ge0$ (ללא $x=2$).</li>
-<li>תחום $h$: $x\neq0,-1,2$. אסימפטוטה אנכית $x=0$ (שם $f=0$); אופקית $y=1$. חורים: $(-1,0)$ (כי $f\to\infty$ ב־$x=-1$) ו־$\left(2,\frac32\right)$ ($h=\frac{1}{2/3}$). אין חיתוך עם ציר $x$.</li>
-<li>$h$ יורדת בכל ענף (כי $f$ עולה): $x&lt;0$ (ללא $x=-1$) ו־$x&gt;0$ (ללא $x=2$).</li></ol></div></article>
-
-<article><b>7.</b> בשרטוט גרף הפונקציה $f$, המוגדרת רק בתחום $1&lt;x\le5$. ל־$f$ אסימפטוטה אנכית $x=1$, מינימום $(3,4)$ וקצה $(5,5)$.<svg id=g6 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g(x)=\sqrt{f(x)}$, אסימפטוטות, קיצון ותחומי עלייה וירידה.</li><li>מצאו את תחום ההגדרה של $h(x)=\frac{1}{f(x)}$. האם יש ל־$h$ אסימפטוטה אנכית? נמקו.</li><li>מצאו קיצון ותחומי עלייה וירידה של $h$, וסרטטו.</li></ol>
-<div class="p f" hidden><p>$g$: תחום $1&lt;x\le5$; אסימפטוטה $x=1$; מינימום $(3,2)$; יורדת ב־$1&lt;x&lt;3$, עולה ב־$3&lt;x\le5$.</p><p>$h$: תחום $1&lt;x\le5$; אין אסימפטוטה אנכית (קצה פתוח $(1,0)$); מקסימום $\left(3,\frac14\right)$; עולה ב־$1&lt;x&lt;3$, יורדת ב־$3&lt;x\le5$.</p></div><div class="p s" hidden><ol><li>תחום $g$: $1&lt;x\le5$ ($f&gt;0$). אסימפטוטה אנכית $x=1$ ($g\to+\infty$). מינימום $(3,2)$; יורדת ב־$1&lt;x&lt;3$, עולה ב־$3&lt;x\le5$. קצה $(5,\sqrt5)$.</li>
-<li>תחום $h$: $1&lt;x\le5$. אין אסימפטוטה אנכית: כש־$x\to1^+$ $f\to\infty$, ולכן $h\to0$ (קצה פתוח $(1,0)$).</li>
-<li>מקסימום $\left(3,\frac14\right)$. $h$ עולה ב־$1&lt;x&lt;3$, יורדת ב־$3&lt;x\le5$; קצה $\left(5,\frac15\right)$.</li></ol></div></article>
-
-<article><b>8.</b> בשרטוט גרף הפונקציה $f$ עם אסימפטוטה אופקית $y=0$ (ציר $x$). לגרף מקסימום $(1,2)$, מינימום $(-1,-2)$, והוא עובר דרך הראשית.
-<svg id=g7 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחום ההגדרה של $g(x)=\sqrt{f(x)}$, אסימפטוטות, קיצון ותחומי עלייה וירידה.</li><li>מצאו את תחום ההגדרה של $h(x)=\frac{1}{f(x)}$. האם ל־$h$ יש אסימפטוטה אופקית? נמקו, ומצאו אסימפטוטה אנכית.</li><li>מצאו קיצון ותחומי עלייה וירידה של $h$, וסרטטו.</li></ol>
-<div class="p f" hidden><p>$g$: תחום $x\ge0$; אסימפטוטה $y=0$; מקסימום $(1,\sqrt2)$; עולה ב־$0\le x&lt;1$, יורדת ב־$x&gt;1$.</p><p>$h$: תחום $x\neq0$; אסימפטוטה אנכית $x=0$, אין אופקית; מינימום מקומי $\left(1,\frac12\right)$, מקסימום מקומי $\left(-1,-\frac12\right)$; עולה ב־$x&lt;-1$ וב־$x&gt;1$, יורדת ב־$-1&lt;x&lt;0$ וב־$0&lt;x&lt;1$.</p></div><div class="p s" hidden><ol>
-<li>$f\ge0$ ב־$x\ge0$ ⇒ תחום $g$. אסימפטוטה אופקית $y=0$ כש־$x\to\infty$. מקסימום $(1,\sqrt2)$; עולה ב־$0\le x&lt;1$, יורדת ב־$x&gt;1$. ב־$(0,0)$ קצה תחום עם משיק אנכי.</li>
-<li>תחום $h$: $x\neq0$. אסימפטוטה אנכית $x=0$. אין אופקית: כש־$f\to0$ ($x\to\pm\infty$) $h\to\pm\infty$.</li>
-<li>מינימום מקומי $\left(1,\frac12\right)$, מקסימום מקומי $\left(-1,-\frac12\right)$. $h$ עולה ב־$x&lt;-1$ וב־$x&gt;1$; יורדת ב־$-1&lt;x&lt;0$ וב־$0&lt;x&lt;1$.</li></ol></div></article>
-
-<article><b>9.</b> בשרטוט גרף הנגזרת $f'$ של פונקציה $f$ המוגדרת לכל $x$ ($f'$ נוגעת בציר $x$ ב־$(3,0)$ ובעלת מקסימום מקומי $(1,4)$).
-<svg id=g8 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחומי העלייה והירידה של $f$.</li><li>מצאו את נקודות הקיצון של $f$ וסוגן.</li><li>מצאו את נקודות הפיתול של $f$ ואת תחומי הקעירות.</li><li>הסבירו מדוע ב־$x=3$ אין קיצון ל־$f$ אך יש פיתול.</li><li>נתון $f(0)=1$. סרטטו סקיצה של $f$.</li></ol>
-<div class="p f" hidden><p>$f$ יורדת ב־$x&lt;0$ ועולה ב־$x&gt;0$; מינימום ב־$(0,1)$; פיתול ב־$x=1$ וב־$x=3$; קעורה כלפי מעלה ב־$x&lt;1$ וב־$x&gt;3$, כלפי מטה ב־$1&lt;x&lt;3$.</p></div><div class="p s" hidden><ol>
-<li>$f'&lt;0$ ב־$x&lt;0$ ⇒ יורדת; $f'\ge0$ ב־$x&gt;0$ ⇒ עולה.</li>
-<li>ב־$x=0$ $f'$ עוברת מ־$-$ ל־$+$ ⇒ מינימום ב־$x=0$ (עם הנתון בסעיף ה: $(0,1)$).</li>
-<li>$f''$ היא שיפוע $f'$. ב־$x=1$ ל־$f'$ מקסימום ו־$f''$ מחליפה סימן ($+$ ל־$-$); ב־$x=3$ ל־$f'$ מינימום ו־$f''$ מחליפה סימן ($-$ ל־$+$). פיתול ב־$x=1$ ו־$x=3$. קעורה כלפי מעלה ב־$x&lt;1$ וב־$x&gt;3$; כלפי מטה ב־$1&lt;x&lt;3$.</li>
-<li>$f'(3)=0$ אך $f'$ לא מחליפה סימן (חיובית משני הצדדים), לכן אין קיצון. הקעירות מתחלפת ⇒ פיתול עם משיק אופקי.</li>
-<li>הגרף יורד עד $(0,1)$, עולה בקעירות מעלה עד $x=1$, ממשיך לעלות בקעירות מטה עד $x=3$ (שם משיק אופקי ופיתול), ואז ממשיך לעלות בקעירות מעלה.</li></ol></div></article>
-
-<article><b>10.</b> בשרטוט גרף הנגזרת השנייה $f''$ של פונקציה $f$ (פרבולה החותכת את ציר $x$ ב־$-1$ וב־$2$). ידוע כי $f'(1)=0$.
-<svg id=g9 viewBox="0 0 300 200"></svg>
-<ol><li>מצאו את תחומי הקעירות של $f$ ואת נקודות הפיתול שלה.</li><li>באילו תחומים $f'$ עולה? מצאו את נקודות הקיצון המקומי של $f'$.</li><li>קבעו אם בנקודה $x=1$ יש ל־$f$ מקסימום מקומי או מינימום מקומי, ונמקו.</li></ol>
-<div class="p f" hidden><p>קעורה כלפי מעלה ב־$x&lt;-1$ וב־$x&gt;2$, כלפי מטה ב־$-1&lt;x&lt;2$; פיתול ב־$x=-1$ וב־$x=2$; $f'$ עולה ב־$x&lt;-1$ וב־$x&gt;2$, עם מקסימום מקומי ב־$x=-1$ ומינימום מקומי ב־$x=2$; ב־$x=1$ ל־$f$ מקסימום מקומי.</p></div><div class="p s" hidden><ol>
-<li>$f''&gt;0$ ב־$x&lt;-1$ וב־$x&gt;2$ ⇒ קעורה כלפי מעלה; $f''&lt;0$ ב־$-1&lt;x&lt;2$ ⇒ קעורה כלפי מטה. פיתול ב־$x=-1$ וב־$x=2$.</li>
-<li>$f'$ עולה כש־$f''&gt;0$: $x&lt;-1$ ו־$x&gt;2$. ב־$x=-1$ מקסימום מקומי של $f'$ ($f''$ מ־$+$ ל־$-$), ב־$x=2$ מינימום מקומי ($f''$ מ־$-$ ל־$+$).</li>
-<li>$f'(1)=0$ ו־$f''(1)&lt;0$ (הגרף מתחת לציר) ⇒ מקסימום מקומי של $f$.</li></ol></div></article>
-
-</section>
-<section id="s" hidden><h2>סדרה הנדסית – סכום סופי ואיבר כללי</h2>
-<h3>איבר כללי</h3>
-<article><b>1.</b> בסדרה הנדסית $a_2=6,\ a_5=48$. א. מצאו $q$, $a_1$ ואת האיבר הכללי. ב. האם 768 הוא איבר בסדרה? באיזה מקום? ג. האם 1000 הוא איבר בסדרה?
-<div class="p f" hidden><p>$q=2,\ a_1=3,\ a_n=3\cdot2^{n-1}$; 768 הוא האיבר ה־9; 1000 אינו איבר בסדרה.</p></div><div class="p s" hidden><h4>א.</h4><p>נבטא את האיברים לפי $a_n=a_1q^{n-1}$:</p><p class=m>$a_2=a_1q=6$</p><p class=m>$a_5=a_1q^4=48$</p><p>נחלק את המשוואה השנייה בראשונה:</p><p class=m>$q^3=\frac{48}{6}=8$</p><p class=m>$q=2$</p><p>נציב במשוואה הראשונה:</p><p class=m>$a_1\cdot2=6\ \Rightarrow\ a_1=3$</p><p class=m>$a_n=3\cdot2^{n-1}$</p><h4>ב.</h4><p>נבדוק מתי $a_n=768$:</p><p class=m>$3\cdot2^{n-1}=768$</p><p class=m>$2^{n-1}=256=2^8$</p><p class=m>$n-1=8\ \Rightarrow\ n=9$</p><p>768 הוא האיבר התשיעי.</p><h4>ג.</h4><p class=m>$3\cdot2^{n-1}=1000\ \Rightarrow\ 2^{n-1}=\frac{1000}{3}$</p><p>אין $n$ טבעי שמקיים זאת (זו אינה חזקה שלמה של 2), ולכן 1000 אינו איבר בסדרה.</p></div></article>
-<article><b>2.</b> בסדרה הנדסית $a_3=18,\ a_5=162$ והמנה שלילית. מצאו את $q$, $a_1$, האיבר הכללי ואת $a_8$.
-<div class="p f" hidden><p>$q=-3,\ a_1=2,\ a_n=2(-3)^{n-1},\ a_8=-4374$</p></div><div class="p s" hidden><p class=m>$a_3=a_1q^2=18$</p><p class=m>$a_5=a_1q^4=162$</p><p>נחלק את השנייה בראשונה:</p><p class=m>$q^2=9\ \Rightarrow\ q=\pm3$</p><p>לפי הנתון המנה שלילית, לכן $q=-3$.</p><p class=m>$a_1\cdot9=18\ \Rightarrow\ a_1=2$</p><p class=m>$a_n=2\cdot(-3)^{n-1}$</p><p class=m>$a_8=2\cdot(-3)^7=-4374$</p></div></article>
-<article><b>3.</b> בסדרה הנדסית $a_3=8,\ a_6=1$. מצאו את $q$, $a_1$, את האיבר הכללי, ובאיזה מקום נמצא האיבר $\frac{1}{16}$.
-<div class="p f" hidden><p>$q=\frac12,\ a_1=32,\ a_n=2^{6-n}$; האיבר $\frac1{16}$ הוא האיבר ה־10.</p></div><div class="p s" hidden><p class=m>$a_3=a_1q^2=8$</p><p class=m>$a_6=a_1q^5=1$</p><p>נחלק את השנייה בראשונה:</p><p class=m>$q^3=\frac18\ \Rightarrow\ q=\frac12$</p><p class=m>$a_1\cdot\frac14=8\ \Rightarrow\ a_1=32$</p><p class=m>$a_n=32\cdot\left(\frac12\right)^{n-1}=2^5\cdot2^{-(n-1)}=2^{6-n}$</p><p>נחפש מקום שבו האיבר הוא $\frac1{16}=2^{-4}$:</p><p class=m>$2^{6-n}=2^{-4}$</p><p class=m>$6-n=-4\ \Rightarrow\ n=10$</p></div></article>
-<article><b>4.</b> נתון האיבר הכללי $a_n=5\cdot3^{n-2}$. מצאו את $a_1$ ואת $q$, ובאיזה מקום נמצא האיבר 405.
-<div class="p f" hidden><p>$a_1=\frac53,\ q=3$; האיבר 405 הוא האיבר ה־6.</p></div><div class="p s" hidden><p>נציב $n=1$:</p><p class=m>$a_1=5\cdot3^{-1}=\frac53$</p><p>המנה היא היחס בין איבר לקודמו:</p><p class=m>$q=\frac{a_{n+1}}{a_n}=\frac{5\cdot3^{n-1}}{5\cdot3^{n-2}}=3$</p><p>נחפש מקום שבו $a_n=405$:</p><p class=m>$5\cdot3^{n-2}=405$</p><p class=m>$3^{n-2}=81=3^4$</p><p class=m>$n-2=4\ \Rightarrow\ n=6$</p></div></article>
-<h3>הוכחה שסדרה היא הנדסית</h3>
-<article><b>5.</b> הוכיחו שהסדרה $a_n=4\cdot3^{n+1}$ הנדסית, ומצאו את $a_1$ ואת $q$.
-<div class="p f" hidden><p>הסדרה הנדסית, $q=3$, $a_1=36$.</p></div><div class="p s" hidden><p>כדי להוכיח שסדרה הנדסית, צריך להראות שהיחס בין איבר לקודמו קבוע (אינו תלוי ב־$n$):</p><p class=m>$\frac{a_{n+1}}{a_n}=\frac{4\cdot3^{n+2}}{4\cdot3^{n+1}}=3$</p><p>היחס קבוע, ולכן הסדרה הנדסית עם $q=3$.</p><p class=m>$a_1=4\cdot3^2=36$</p></div></article>
-<article><b>6.</b> הוכיחו שהסדרה $a_n=5\cdot2^{3n-1}$ הנדסית, ומצאו את $a_1$ ואת $q$.
-<div class="p f" hidden><p>הסדרה הנדסית, $q=8$, $a_1=20$.</p></div><div class="p s" hidden><p>נחשב את היחס בין איבר לקודמו. באיבר ה־$(n+1)$ מציבים $n+1$ בכל מקום שבו יש $n$:</p><p class=m>$\frac{a_{n+1}}{a_n}=\frac{5\cdot2^{3(n+1)-1}}{5\cdot2^{3n-1}}=\frac{2^{3n+2}}{2^{3n-1}}$</p><p>בחילוק חזקות בעלות אותו בסיס מחסרים מעריכים:</p><p class=m>$=2^{(3n+2)-(3n-1)}=2^3=8$</p><p>היחס קבוע, ולכן הסדרה הנדסית עם $q=8$.</p><p class=m>$a_1=5\cdot2^{3-1}=20$</p></div></article>
-<article><b>7.</b> הוכיחו שהסדרה $a_n=\frac{3^{2n}}{5^{n+1}}$ הנדסית, ומצאו את $a_1$ ואת $q$.
-<div class="p f" hidden><p>הסדרה הנדסית, $q=\frac95$, $a_1=\frac9{25}$.</p></div><div class="p s" hidden><p class=m>$\frac{a_{n+1}}{a_n}=\frac{3^{2(n+1)}}{5^{(n+1)+1}}\cdot\frac{5^{n+1}}{3^{2n}}$</p><p>נפריד לפי בסיסים:</p><p class=m>$=\frac{3^{2n+2}}{3^{2n}}\cdot\frac{5^{n+1}}{5^{n+2}}=3^2\cdot\frac15=\frac95$</p><p>היחס קבוע, ולכן הסדרה הנדסית עם $q=\frac95$.</p><p class=m>$a_1=\frac{3^2}{5^2}=\frac{9}{25}$</p></div></article>
-<article><b>8.</b> הראו שהסדרה $a_n=2\cdot3^{2n}-1$ אינה הנדסית.
-<div class="p f" hidden><p>הסדרה אינה הנדסית.</p></div><div class="p s" hidden><p>כדי להראות שסדרה אינה הנדסית מספיק למצוא שני יחסים עוקבים שונים. נחשב את שלושת האיברים הראשונים:</p><p class=m>$a_1=2\cdot3^2-1=17$</p><p class=m>$a_2=2\cdot3^4-1=161$</p><p class=m>$a_3=2\cdot3^6-1=1457$</p><p>נבדוק את היחסים:</p><p class=m>$\frac{a_2}{a_1}=\frac{161}{17}\approx9.47$</p><p class=m>$\frac{a_3}{a_2}=\frac{1457}{161}\approx9.05$</p><p>היחסים שונים, ולכן הסדרה אינה הנדסית.</p><p>הסיבה: ה־$-1$ מפריע, והיחס $\frac{2\cdot9^{n+1}-1}{2\cdot9^n-1}$ תלוי ב־$n$.</p></div></article>
-<h3>מציאת האיבר הכללי כשנתון סכום</h3>
-<article><b>9.</b> סכום $n$ האיברים הראשונים בסדרה הוא $S_n=2^n-1$. מצאו את $a_n$ והוכיחו שהסדרה הנדסית.
-<div class="p f" hidden><p>$a_n=2^{n-1}$, הסדרה הנדסית עם $q=2$.</p></div><div class="p s" hidden><p>נשתמש בקשרים $a_1=S_1$ ו־$a_n=S_n-S_{n-1}$ (עבור $n\ge2$).</p><p class=m>$a_1=S_1=2-1=1$</p><p class=m>$a_n=S_n-S_{n-1}=(2^n-1)-(2^{n-1}-1)$</p><p class=m>$=2^n-2^{n-1}=2^{n-1}(2-1)=2^{n-1}$</p><p>בדיקה ל־$n=1$: $2^0=1=a_1$ ✓, ולכן הנוסחה נכונה לכל $n$.</p><p class=m>$\frac{a_{n+1}}{a_n}=\frac{2^n}{2^{n-1}}=2$</p><p>היחס קבוע, ולכן הסדרה הנדסית עם $q=2$.</p></div></article>
-<article><b>10.</b> סכום $n$ האיברים הראשונים בסדרה הוא $S_n=3^{n+1}-3$. מצאו את $a_n$, את $a_1$ ואת $q$.
-<div class="p f" hidden><p>$a_n=2\cdot3^n,\ a_1=6,\ q=3$</p></div><div class="p s" hidden><p class=m>$a_1=S_1=3^2-3=6$</p><p class=m>$a_n=S_n-S_{n-1}=(3^{n+1}-3)-(3^n-3)$</p><p class=m>$=3^{n+1}-3^n=3^n(3-1)=2\cdot3^n$</p><p>בדיקה ל־$n=1$: $2\cdot3=6=a_1$ ✓, ולכן הנוסחה נכונה לכל $n$.</p><p class=m>$q=\frac{a_{n+1}}{a_n}=3$</p></div></article>
-<article><b>11.</b> סכום $n$ האיברים הראשונים בסדרה הוא $S_n=3^n+1$. מצאו את $a_n$. האם הסדרה הנדסית?
-<div class="p f" hidden><p>$a_1=4$ ו־$a_n=2\cdot3^{n-1}$ ל־$n\ge2$; הסדרה אינה הנדסית.</p></div><div class="p s" hidden><p class=m>$a_1=S_1=3+1=4$</p><p>לכל $n\ge2$:</p><p class=m>$a_n=S_n-S_{n-1}=(3^n+1)-(3^{n-1}+1)=3^{n-1}(3-1)=2\cdot3^{n-1}$</p><p>נציב $n=1$ בנוסחה: מקבלים $2\cdot3^0=2$, אבל $a_1=4$. הנוסחה אינה מתאימה לאיבר הראשון.</p><p>נחשב את האיברים הראשונים:</p><p class=m>$a_1=4,\quad a_2=6,\quad a_3=18$</p><p class=m>$\frac{a_2}{a_1}=\frac32\neq3=\frac{a_3}{a_2}$</p><p>הסדרה אינה הנדסית (רק מהאיבר השני ואילך היא הנדסית עם $q=3$).</p></div></article>
-<article><b>12.</b> סכום $n$ האיברים הראשונים בסדרה הוא $S_n=2^{3n+1}-2$. מצאו את $a_n$ והוכיחו שהסדרה הנדסית.
-<div class="p f" hidden><p>$a_n=7\cdot2^{3n-2}$, הסדרה הנדסית עם $q=8$.</p></div><div class="p s" hidden><p class=m>$a_1=S_1=2^4-2=14$</p><p class=m>$a_n=S_n-S_{n-1}=(2^{3n+1}-2)-(2^{3(n-1)+1}-2)=2^{3n+1}-2^{3n-2}$</p><p>נוציא גורם משותף $2^{3n-2}$:</p><p class=m>$=2^{3n-2}(2^3-1)=7\cdot2^{3n-2}$</p><p>בדיקה ל־$n=1$: $7\cdot2=14=a_1$ ✓, ולכן הנוסחה נכונה לכל $n$.</p><p class=m>$\frac{a_{n+1}}{a_n}=\frac{7\cdot2^{3n+1}}{7\cdot2^{3n-2}}=2^3=8$</p><p>היחס קבוע, ולכן הסדרה הנדסית עם $q=8$.</p></div></article>
-<h3>שלושה איברים עם נעלמים</h3>
-<article><b>13.</b> המספרים $x+1,\ x+4,\ x+10$ הם שלושה איברים עוקבים בסדרה הנדסית. מצאו את $x$, את המנה ואת האיברים.
-<div class="p f" hidden><p>$x=2$; האיברים $3,6,12$; $q=2$.</p></div><div class="p s" hidden><p>בסדרה הנדסית האיבר האמצעי בריבוע שווה למכפלת שני השכנים שלו:</p><p class=m>$(x+4)^2=(x+1)(x+10)$</p><p class=m>$x^2+8x+16=x^2+11x+10$</p><p class=m>$6=3x$</p><p class=m>$x=2$</p><p>האיברים: $3,\ 6,\ 12$, והמנה $q=\frac63=2$ (בדיקה: $\frac{12}{6}=2$ ✓).</p></div></article>
-<article><b>14.</b> המספרים $x,\ 6,\ x+5$ הם שלושה איברים עוקבים בסדרה הנדסית. מצאו את $x$ ואת האיברים (כל האפשרויות).
-<div class="p f" hidden><p>$x=4$ (האיברים $4,6,9$, $q=\frac32$) או $x=-9$ (האיברים $-9,6,-4$, $q=-\frac23$).</p></div><div class="p s" hidden><p>האיבר האמצעי בריבוע שווה למכפלת השכנים:</p><p class=m>$6^2=x(x+5)$</p><p class=m>$x^2+5x-36=0$</p><p>נפרק לגורמים:</p><p class=m>$(x+9)(x-4)=0$</p><p>קיבלנו שני פתרונות, $x=4$ או $x=-9$. נבדוק כל אחד:</p><p>עבור $x=4$ האיברים הם $4,\ 6,\ 9$ והמנה $q=\frac64=\frac32$ (בדיקה: $\frac96=\frac32$ ✓).</p><p>עבור $x=-9$ האיברים הם $-9,\ 6,\ -4$ והמנה $q=\frac{6}{-9}=-\frac23$ (בדיקה: $\frac{-4}{6}=-\frac23$ ✓).</p></div></article>
-
-
-<h3>סכום סופי</h3>
-<article><b>15.</b> בסדרה הנדסית $a_3=12,\ a_6=96$. מצאו $q$, $a_1$, את האיבר הכללי ואת $a_7$.
-<div class="p f" hidden><p>$q=2,\ a_1=3,\ a_n=3\cdot2^{n-1},\ a_7=192$</p></div><div class="p s" hidden><p class=m>$a_3=a_1q^2=12$</p><p class=m>$a_6=a_1q^5=96$</p><p>נחלק את השנייה בראשונה:</p><p class=m>$q^3=8\ \Rightarrow\ q=2$</p><p class=m>$a_1\cdot4=12\ \Rightarrow\ a_1=3$</p><p class=m>$a_n=3\cdot2^{n-1}$</p><p class=m>$a_7=3\cdot2^6=192$</p></div></article>
-<article><b>16.</b> בסדרה $a_1=3,\ q=2$: א. חשבו את $S_8$. ב. כמה איברים צריך לסכום כדי לקבל 381?
-<div class="p f" hidden><p>$S_8=765$; $n=7$.</p></div><div class="p s" hidden><p>נוסחת הסכום של סדרה הנדסית: $S_n=\frac{a_1(q^n-1)}{q-1}$.</p><h4>א.</h4><p class=m>$S_8=\frac{3(2^8-1)}{2-1}=3\cdot255=765$</p><h4>ב.</h4><p class=m>$\frac{3(2^n-1)}{2-1}=381$</p><p class=m>$2^n-1=127$</p><p class=m>$2^n=128=2^7$</p><p class=m>$n=7$</p></div></article>
-<article><b>17.</b> בסדרה הנדסית עולה $a_2=6,\ a_5=162$. מצאו את $a_1, q$ ואת סכום 6 האיברים הראשונים.
-<div class="p f" hidden><p>$a_1=2,\ q=3,\ S_6=728$</p></div><div class="p s" hidden><p class=m>$a_2=a_1q=6$</p><p class=m>$a_5=a_1q^4=162$</p><p>נחלק את השנייה בראשונה:</p><p class=m>$q^3=27\ \Rightarrow\ q=3$</p><p class=m>$a_1=\frac63=2$</p><p class=m>$S_6=\frac{2(3^6-1)}{3-1}=3^6-1=728$</p></div></article>
-<article><b>18.</b> (מקומות אחרונים) בסדרה בת 10 איברים $a_1=1,\ q=2$. מצאו את סכום 4 האיברים האחרונים.
-<div class="p f" hidden><p>$960$</p></div><div class="p s" hidden><p>ארבעת האיברים האחרונים $a_7,a_8,a_9,a_{10}$ מהווים סדרה הנדסית בעלת אותה מנה.</p><p>האיבר הראשון שלהם:</p><p class=m>$a_7=1\cdot2^6=64$</p><p>ארבעה איברים עם $q=2$:</p><p class=m>$S=\frac{64(2^4-1)}{2-1}=64\cdot15=960$</p><p>בדיקה: $64+128+256+512=960$ ✓.</p></div></article>
-<article><b>19.</b> (זוגיים ואי־זוגיים) בסדרה בת 12 איברים $a_1=2,\ q=2$. מצאו את סכום האיברים במקומות האי־זוגיים, במקומות הזוגיים, ואת הסכום הכולל.
-<div class="p f" hidden><p>אי־זוגיים: $2730$; זוגיים: $5460$; סכום כולל: $8190$.</p></div><div class="p s" hidden><p>נפרק לשתי סדרות.</p><p>מקומות אי־זוגיים: $a_1,a_3,\dots,a_{11}$ – 6 איברים. האיבר הראשון $a_1=2$ והמנה $q^2=4$:</p><p class=m>$S_{\text{odd}}=\frac{2(4^6-1)}{4-1}=\frac{2\cdot4095}{3}=2730$</p><p>מקומות זוגיים: $a_2,a_4,\dots,a_{12}$ – 6 איברים. האיבר הראשון $a_2=4$ והמנה גם כן $4$:</p><p class=m>$S_{\text{even}}=\frac{4(4^6-1)}{4-1}=\frac{4\cdot4095}{3}=5460$</p><p>הסכום הכולל:</p><p class=m>$2730+5460=8190$</p><p>בדיקה: $\frac{2(2^{12}-1)}{2-1}=8190$ ✓.</p></div></article>
-<article><b>20.</b> בסדרה הנדסית בת 8 איברים סכום האיברים במקומות האי־זוגיים הוא 85 ובזוגיים 170. מצאו את $q$, $a_1$ ואת סכום שני האיברים האמצעיים.
-<div class="p f" hidden><p>$q=2,\ a_1=1$; סכום שני האיברים האמצעיים: $24$.</p></div><div class="p s" hidden><p>כל איבר במקום זוגי הוא איבר במקום אי־זוגי כפול $q$ ($a_{2k}=q\cdot a_{2k-1}$), ולכן:</p><p class=m>$S_{\text{even}}=q\cdot S_{\text{odd}}$</p><p class=m>$170=q\cdot85\ \Rightarrow\ q=2$</p><p>מקומות אי־זוגיים: 4 איברים עם מנה $q^2=4$:</p><p class=m>$a_1\cdot\frac{4^4-1}{4-1}=85$</p><p class=m>$85a_1=85\ \Rightarrow\ a_1=1$</p><p>בסדרה בת 8 איברים האיברים האמצעיים הם $a_4$ ו־$a_5$:</p><p class=m>$a_4=2^3=8,\quad a_5=2^4=16$</p><p class=m>$a_4+a_5=24$</p></div></article>
-<article><b>21.</b> (מנה שלילית) בסדרה בת 7 איברים $a_1=1,\ q=-2$. מצאו את הסכום הכולל, סכום האי־זוגיים וסכום הזוגיים.
-<div class="p f" hidden><p>סכום כולל: $43$; אי־זוגיים: $85$; זוגיים: $-42$.</p></div><div class="p s" hidden><p>הסכום הכולל:</p><p class=m>$S_7=\frac{1\cdot((-2)^7-1)}{-2-1}=\frac{-129}{-3}=43$</p><p>מקומות אי־זוגיים: $a_1,a_3,a_5,a_7$ – 4 איברים, מנה $q^2=4$:</p><p class=m>$\frac{4^4-1}{4-1}=85$</p><p>מקומות זוגיים: $a_2,a_4,a_6$ – 3 איברים, $a_2=-2$, מנה $4$:</p><p class=m>$\frac{-2(4^3-1)}{4-1}=-42$</p><p>בדיקה: $85+(-42)=43$ ✓.</p></div></article>
-<article><b>22.</b> שלושה מספרים ברצף הנדסי, סכומם 21 ומכפלתם 216. מצאו אותם.
-<div class="p f" hidden><p>$3,6,12$ (או באופן הפוך $12,6,3$).</p></div><div class="p s" hidden><p>נסמן את שלושת המספרים $\frac bq,\ b,\ bq$ ($b$ האמצעי).</p><p>מכפלה:</p><p class=m>$\frac bq\cdot b\cdot bq=b^3=216\ \Rightarrow\ b=6$</p><p>סכום:</p><p class=m>$\frac6q+6+6q=21$</p><p>נכפול ב־$q$ ונסדר:</p><p class=m>$6+6q+6q^2=21q$</p><p class=m>$6q^2-15q+6=0$</p><p>נחלק ב־3:</p><p class=m>$2q^2-5q+2=0$</p><p class=m>$q=\frac{5\pm3}{4}$</p><p>קיבלנו $q=2$ או $q=\frac12$.</p><p>עבור $q=2$ המספרים הם $3,6,12$. עבור $q=\frac12$ המספרים הם $12,6,3$ – אותם מספרים בסדר הפוך.</p></div></article>
-<h3>סכום מקומות אחרונים</h3>
-<article><b>23.</b> בסדרה הנדסית בת 9 איברים $a_1=3,\ q=2$. מצאו את סכום 5 האיברים האחרונים.
-<div class="p f" hidden><p>$1488$</p></div><div class="p s" hidden><p>חמשת האיברים האחרונים $a_5,a_6,\dots,a_9$ מהווים סדרה הנדסית באותה מנה, בת 5 איברים.</p><p>האיבר הראשון שלהם:</p><p class=m>$a_5=3\cdot2^4=48$</p><p class=m>$S=\frac{48(2^5-1)}{2-1}=48\cdot31=1488$</p><p>בדיקה בדרך אחרת – סכום כל הסדרה פחות סכום ארבעת האיברים הראשונים:</p><p class=m>$S_9-S_4=3(2^9-1)-3(2^4-1)=1533-45=1488$ ✓</p></div></article>
-<article><b>24.</b> בסדרה הנדסית בת 6 איברים סכום שלושת האיברים הראשונים הוא 14 וסכום שלושת האיברים האחרונים הוא 112. מצאו את $q$, את $a_1$ ואת כל האיברים.
-<div class="p f" hidden><p>$q=2,\ a_1=2$; האיברים: $2,4,8,16,32,64$.</p></div><div class="p s" hidden><p>כל איבר בשלושת האחרונים הוא האיבר המקביל בשלושת הראשונים כפול $q^3$:</p><p class=m>$a_4=a_1q^3,\quad a_5=a_2q^3,\quad a_6=a_3q^3$</p><p>לכן סכום שלושת האחרונים הוא $q^3$ כפול סכום שלושת הראשונים:</p><p class=m>$112=q^3\cdot14$</p><p class=m>$q^3=8\ \Rightarrow\ q=2$</p><p>סכום שלושת הראשונים:</p><p class=m>$a_1(1+2+4)=14$</p><p class=m>$7a_1=14\ \Rightarrow\ a_1=2$</p><p>האיברים: $2,\ 4,\ 8,\ 16,\ 32,\ 64$.</p><p>בדיקה: $16+32+64=112$ ✓.</p></div></article>
-<h3>סכום ריבועי האיברים וריבוע הסכום</h3>
-<article><b>25.</b> בסדרה הנדסית בת 5 איברים $a_1=2,\ q=3$. מצאו את סכום ריבועי האיברים.
-<div class="p f" hidden><p>$29524$</p></div><div class="p s" hidden><p>ריבועי האיברים מהווים סדרה חדשה: $a_n^2=a_1^2\cdot\left(q^2\right)^{n-1}$ – גם היא הנדסית.</p><p>האיבר הראשון שלה $a_1^2=4$ והמנה $q^2=9$:</p><p class=m>$S=\frac{4(9^5-1)}{9-1}=\frac{4\cdot59048}{8}=29524$</p><p>בדיקה: $4+36+324+2916+26244=29524$ ✓.</p></div></article>
-<article><b>26.</b> בסדרה הנדסית בת 4 איברים $a_1=1,\ q=3$. א. מצאו את סכום האיברים ואת ריבוע הסכום. ב. מצאו את סכום ריבועי האיברים. ג. מצאו את ההפרש בין ריבוע הסכום לסכום הריבועים.
-<div class="p f" hidden><p>סכום האיברים $40$; ריבוע הסכום $1600$; סכום הריבועים $820$; ההפרש $780$.</p></div><div class="p s" hidden><h4>א.</h4><p class=m>$S=\frac{3^4-1}{3-1}=40$</p><p class=m>$S^2=40^2=1600$</p><h4>ב.</h4><p>הריבועים מהווים סדרה הנדסית עם $a_1^2=1$ ומנה $q^2=9$:</p><p class=m>$\frac{9^4-1}{9-1}=\frac{6560}{8}=820$</p><h4>ג.</h4><p class=m>$1600-820=780$</p><p>שימו לב: ריבוע הסכום אינו שווה לסכום הריבועים. ההפרש הוא פעמיים סכום המכפלות של כל זוגות האיברים.</p></div></article>
-<article><b>27.</b> סכום שלושת האיברים של סדרה הנדסית הוא 21 וסכום ריבועי האיברים הוא 189. מצאו את האיברים.
-<div class="p f" hidden><p>$3,6,12$ (או באופן הפוך $12,6,3$).</p></div><div class="p s" hidden><p>נסמן את האיברים $a,\ aq,\ aq^2$.</p><p class=m>$a(1+q+q^2)=21$</p><p class=m>$a^2(1+q^2+q^4)=189$</p><p>נשתמש בזהות $1+q^2+q^4=(1+q+q^2)(1-q+q^2)$:</p><p class=m>$a^2(1+q+q^2)(1-q+q^2)=189$</p><p>נחלק את המשוואה השנייה בריבוע הראשונה ($21^2=441$):</p><p class=m>$\frac{1-q+q^2}{1+q+q^2}=\frac{189}{441}=\frac37$</p><p>נכפול במכנים ונסדר:</p><p class=m>$7-7q+7q^2=3+3q+3q^2$</p><p class=m>$4q^2-10q+4=0$</p><p class=m>$2q^2-5q+2=0$</p><p>קיבלנו $q=2$ או $q=\frac12$.</p><p>עבור $q=2$: $7a=21$, כלומר $a=3$ – האיברים $3,6,12$.</p><p>עבור $q=\frac12$: $\frac74a=21$, כלומר $a=12$ – האיברים $12,6,3$.</p><p>בדיקה: $9+36+144=189$ ✓.</p></div></article>
-<h3>שינוי סימנים במקומות זוגיים או אי־זוגיים</h3>
-<article><b>28.</b> בסדרה הנדסית בת 6 איברים $a_1=2,\ q=2$. משנים את סימני האיברים במקומות הזוגיים. מצאו את סכום הסדרה החדשה.
-<div class="p f" hidden><p>$-42$</p></div><div class="p s" hidden><p>אחרי שינוי הסימן באיברים הזוגיים מתקבלת הסדרה:</p><p class=m>$2,\ -4,\ 8,\ -16,\ 32,\ -64$</p><p>זו סדרה הנדסית עם $a_1=2$ ומנה $-2$ (המנה המקורית בסימן הפוך):</p><p class=m>$S=\frac{2\left((-2)^6-1\right)}{-2-1}=\frac{2\cdot63}{-3}=-42$</p><p>בדיקה בדרך אחרת – סכום האי־זוגיים פחות סכום הזוגיים:</p><p class=m>$S_o=2+8+32=42,\quad S_e=4+16+64=84$</p><p class=m>$42-84=-42$ ✓</p></div></article>
-<article><b>29.</b> בסדרה הנדסית בת 7 איברים $a_1=1,\ q=2$. משנים את סימני האיברים במקומות האי־זוגיים. מצאו את סכום הסדרה החדשה.
-<div class="p f" hidden><p>$-43$</p></div><div class="p s" hidden><p>משנים סימן באיברים $a_1,a_3,a_5,a_7$. הסדרה החדשה:</p><p class=m>$-1,\ 2,\ -4,\ 8,\ -16,\ 32,\ -64$</p><p>זו סדרה הנדסית עם $a_1=-1$ ומנה $-2$:</p><p class=m>$S=\frac{-1\cdot\left((-2)^7-1\right)}{-2-1}=\frac{-1\cdot(-129)}{-3}=-43$</p><p>בדיקה בדרך אחרת – סכום הזוגיים פחות סכום האי־זוגיים:</p><p class=m>$(2+8+32)-(1+4+16+64)=42-85=-43$ ✓</p></div></article>
-<article><b>30.</b> בסדרה הנדסית בת 4 איברים סכום האיברים הוא 90. אחרי ששינו את סימני האיברים במקומות הזוגיים, סכום הסדרה הוא 30. מצאו את הסדרה.
-<div class="p f" hidden><p>$48,\ 24,\ 12,\ 6$</p></div><div class="p s" hidden><p>נסמן ב־$S_o$ את סכום האיברים במקומות האי־זוגיים וב־$S_e$ את סכום האיברים במקומות הזוגיים.</p><p>הסכום המקורי:</p><p class=m>$S_o+S_e=90$</p><p>אחרי שינוי הסימן באיברים הזוגיים:</p><p class=m>$S_o-S_e=30$</p><p>נחבר ונחסר את המשוואות:</p><p class=m>$S_o=60,\quad S_e=30$</p><p>כל איבר זוגי הוא האיבר האי־זוגי שלפניו כפול $q$, ולכן:</p><p class=m>$q=\frac{S_e}{S_o}=\frac{30}{60}=\frac12$</p><p>במקומות האי־זוגיים שני איברים ($a_1,a_3$) עם מנה $q^2=\frac14$:</p><p class=m>$a_1\left(1+\frac14\right)=60$</p><p class=m>$a_1=48$</p><p>הסדרה: $48,\ 24,\ 12,\ 6$.</p><p>בדיקה: $48+24+12+6=90$ ו־$48-24+12-6=30$ ✓.</p></div></article>
-
-</section>
-</main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+:root{--paper:#F5F7FC;--grid:#E6E9F3;--surface:#FFFFFF;--ink:#1A2242;--muted:#5A6383;--line:#D5DBEA;--re:#0D7A69;--re-soft:#E0F2EE;--im:#B3306A;--im-soft:#F9E5EE;--bad:#B42318;--bad-soft:#FCEBE9;--warn-soft:#FFF4D6;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0F1328;--grid:#171D38;--surface:#171C36;--ink:#E6E9F6;--muted:#9AA3C4;--line:#2A3155;--re:#3CC6AE;--re-soft:#123430;--im:#F27BA8;--im-soft:#3A1A2B;--bad:#FF8B80;--bad-soft:#3B1D1E;--warn-soft:#3A3115;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0F1328;--grid:#171D38;--surface:#171C36;--ink:#E6E9F6;--muted:#9AA3C4;--line:#2A3155;--re:#3CC6AE;--re-soft:#123430;--im:#F27BA8;--im-soft:#3A1A2B;--bad:#FF8B80;--bad-soft:#3B1D1E;--warn-soft:#3A3115;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px;color:var(--ink);font:400 17px/1.65 "Assistant",system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:24px 18px 64px}
+h1,h2,h3{font-family:"Frank Ruhl Libre","David Libre",Georgia,serif;font-weight:700;line-height:1.2;margin:0}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:6px 0 2px}
+.hero h1{font-size:clamp(2.2rem,8.5vw,3.2rem);letter-spacing:-.01em}
+.sub{margin:.3rem 0 0;color:var(--muted);font-size:1.05rem}
+.hero-plane{width:112px;height:112px;flex:none;overflow:visible}
+.intro{margin:18px 0 4px;max-width:60ch}
+.grp{margin-top:30px}
+.grp h2{font-size:1.35rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.3em .8em;margin-bottom:10px}
+.form{font-size:1rem;color:var(--muted);font-weight:400;font-family:"Noto Serif",serif}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.alg{--gc:var(--re)}.trig{--gc:var(--im)}.geo{--gc:var(--muted)}.exam{--gc:var(--ink)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:right;background:none;border:0;border-top:1px solid var(--line);padding:14px 18px;color:inherit;font:inherit;cursor:pointer;position:relative}
+.row:first-child{border-top:0}
+.row::before{content:"";position:absolute;inset-inline-start:0;top:12px;bottom:12px;width:3px;border-radius:0 2px 2px 0;background:var(--gc)}
+.row:hover{background:color-mix(in srgb,var(--gc) 7%,transparent)}
+.rt{display:flex;flex-direction:column}
+.rn{font-weight:700;font-size:1.08rem}
+.rd{color:var(--muted);font-size:.95rem}
+.rp{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.95rem;flex:none}
+.tip{margin-top:26px;color:var(--muted);font-size:.95rem}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.back{background:none;border:0;color:var(--ink);font:inherit;font-weight:600;padding:8px 0;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.reset{color:var(--muted);font-weight:400;margin-top:8px}
+.score{color:var(--muted);font-size:.95rem}
+.ttl{font-size:1.85rem;margin-bottom:12px}
+.ttl.small{font-size:1.3rem}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--surface);padding:3px;margin-bottom:16px}
+.seg button{border:0;background:none;font:inherit;font-weight:600;color:var(--muted);padding:6px 16px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 20px}
+.prompt p{margin:0 0 .4em}
+.eq{font-family:"Noto Serif","Times New Roman",serif;direction:ltr;text-align:center;font-size:1.15rem;margin:.5em 0;overflow-x:auto;overflow-y:hidden;padding:6px 0;line-height:1.5}
+.part{display:inline-block;white-space:nowrap}
+.prompt .eq{font-size:1.32rem;margin:.6em 0 .8em}
+.m{font-family:"Noto Serif","Times New Roman",serif;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.m i,.eq i{font-style:italic}
+sup,sub{font-size:.68em;line-height:0}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;font-size:.92em;margin:0 .1em;line-height:1.2}
+.fr>span:first-child{border-bottom:1px solid currentColor;padding:0 .25em .1em}
+.fr>span:last-child{padding:.1em .25em 0}
+.rad{border-top:1px solid currentColor;padding:0 .08em}
+.ov{display:inline-block;border-top:1px solid currentColor;line-height:1.1;padding-top:.04em;margin-top:.14em}
+.fr .ov{margin-top:.22em}
+.answer{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+.arow{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.alab{font-size:1.15rem;min-width:2.4em;text-align:right}
+.ai{width:6.4em;font:400 1.1rem "Noto Serif","Times New Roman",serif;direction:ltr;text-align:center;padding:.45em .4em;border:1.5px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+.ai::placeholder{color:var(--muted);font:400 .85rem "Assistant",sans-serif}
+.ai:focus{outline:2px solid var(--ink);outline-offset:1px}
+.ai:disabled{opacity:.85}
+.in-re{border-bottom:3px solid var(--re)}.in-im{border-bottom:3px solid var(--im)}
+.ai[aria-invalid="true"]{border-color:var(--bad);background:var(--bad-soft)}
+.op{font-family:"Noto Serif",serif;font-size:1.2rem}
+.hint{text-align:center;color:var(--muted);font-size:.9rem;margin:4px 0}
+.keys{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.key{min-width:44px;height:40px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;font:400 1.15rem "Noto Serif",serif;cursor:pointer}
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:0;background:var(--ink);color:var(--paper);font:700 1rem "Assistant",sans-serif;padding:.75em 1.5em;border-radius:10px;cursor:pointer}
+.btn.ghost{background:none;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible,.row:focus-visible,.seg button:focus-visible,.key:focus-visible,.ch:focus-visible,.back:focus-visible,summary:focus-visible{outline:2px solid var(--re);outline-offset:2px}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px}
+.ch{border:1.5px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:.7em .5em;font:inherit;font-size:1.05rem;cursor:pointer}
+.ch:disabled{cursor:default}
+.choices.wide{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.ch[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink);background:var(--surface)}
+.sub{margin:4px 0 16px}.sub:last-child{margin-bottom:4px}
+.sq{margin:0 0 8px;font-weight:600}
+.multi-ans{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.ch.right{border-color:var(--re);background:var(--re-soft)}.ch.wrong{border-color:var(--bad);background:var(--bad-soft)}
+#res{scroll-margin-top:12px}
+.fb{margin-top:16px;padding:10px 14px;border-radius:10px}
+.fb.ok{background:var(--re-soft);border-inline-start:4px solid var(--re)}
+.fb.no{background:var(--bad-soft);border-inline-start:4px solid var(--bad)}
+.fb.warn{background:var(--warn-soft)}
+.final{margin:12px 0 0;font-size:1.05rem}
+.final>span{color:var(--muted)}
+.sol{margin-top:12px;padding:12px 16px;border-radius:12px;background:var(--paper);border:1px solid var(--line)}
+.sol h3{font-size:1.1rem;margin-bottom:4px}
+.sol p{margin:.5em 0}
+.note{color:var(--muted);font-size:.95rem}
+.lbl{font-weight:700;margin-top:.9em!important}
+.plane{display:block;width:min(220px,72%);margin:10px auto 2px;overflow:visible}
+.ax-re{stroke:var(--re);stroke-width:1.5}.ax-im{stroke:var(--im);stroke-width:1.5}
+.axl{font:italic 12px "Noto Serif",serif}.axl.re{fill:var(--re)}.axl.im{fill:var(--im)}
+.vec{stroke:var(--ink);stroke-width:2}.pt{fill:var(--ink)}
+.ptl{fill:var(--ink);font:italic 15px "Noto Serif",serif}
+.arc{fill:none;stroke:var(--muted);stroke-width:1.5}
+.hc{fill:none;stroke:var(--line);stroke-width:1.2;stroke-dasharray:3 4}
+.hero-arc{fill:none;stroke:var(--im);stroke-width:2.2;stroke-dasharray:17;stroke-dashoffset:17;animation:draw 1.3s cubic-bezier(.2,.7,.2,1) .25s forwards}
+.hero-vec{transform-box:view-box;transform-origin:60px 64px;animation:spin 1.3s cubic-bezier(.2,.7,.2,1) .25s both}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes spin{from{transform:rotate(60deg)}to{transform:rotate(0deg)}}
+@media (prefers-reduced-motion:reduce){.hero-arc{animation:none;stroke-dashoffset:0}.hero-vec{animation:none}}
+.dots{display:flex;gap:4px;margin:0 0 14px}
+.dots span{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.dots .ok{background:var(--re)}.dots .no{background:var(--bad)}.dots .cur{background:var(--ink)}
+.big{font-family:"Frank Ruhl Libre",serif;font-size:3.2rem;font-weight:700;margin:0 0 10px;line-height:1}
+.sum{list-style:none;padding:0;margin:14px 0}
+.sum li{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--line)}
+.sum li:first-child{border-top:0}
+.yes{color:var(--re);font-weight:600}.nope{color:var(--bad);font-weight:600}
+.again{display:flex;flex-wrap:wrap;gap:8px}
+.bq{margin-top:16px}
+.bq h3{font-size:1.25rem;margin-bottom:6px}
+.bq>p{margin:.3em 0}
+.parts{list-style-type:hebrew;padding-inline-start:1.6em;margin:10px 0 0}
+.parts li{margin:14px 0}
+details{margin-top:6px}
+summary{cursor:pointer;color:var(--re);font-weight:600;width:fit-content}
+.ex{margin-top:14px}
+.exn{font-size:1.1rem;color:var(--muted);margin-bottom:6px;font-family:"Assistant",sans-serif;font-weight:700}
+.ex .actions,.parts .actions{margin-top:10px}
+.tog{padding:.55em 1.1em;font-size:.95rem}
+.tog[aria-expanded="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.final-box{margin-top:12px;padding:10px 14px;border-radius:10px;background:var(--re-soft);border-inline-start:4px solid var(--re)}
+.final-box>.al{color:var(--muted);margin-inline-end:.3em}
+.subs{list-style-type:hebrew;padding-inline-start:1.6em;margin:6px 0 0}
+.subs li{margin:4px 0}
+.more{margin-top:26px;text-align:center}.more .actions{justify-content:center}.more p{margin:0;color:var(--muted)}
+.parts .sol h3,.ex .sol h3{font-size:1.05rem}
+@media (max-width:440px){.wrap{padding:16px 14px 48px}.eq{font-size:1.05rem}.prompt .eq{font-size:1.18rem}.ai{width:5.4em}.hero-plane{width:86px;height:86px}.panel{padding:16px 14px 18px}.sol{padding:10px 12px}.ttl{font-size:1.6rem}}
+</style>
+</head>
+<body>
+<main class="wrap" id="app"></main>
 <script>
-document.addEventListener('click',function(e){var b=e.target.closest('.ab button');if(!b)return;var p=b.closest('article').querySelector('.p.'+b.dataset.k);p.hidden=!p.hidden;b.classList.toggle('on',!p.hidden)});
-function show(id){document.querySelectorAll('section').forEach(function(e){e.hidden=e.id!=id});document.querySelectorAll('nav [data-t]').forEach(function(b){b.classList.toggle('on',b.dataset.t==id)});window.scrollTo(0,0)}
-show(['p','k','s'].indexOf(location.hash.slice(1))<0?'p':location.hash.slice(1));
-var mn=document.querySelector('main');mn.innerHTML=mn.innerHTML.replace(/\$(.+?)\$/g,'<i>$1</i>');document.querySelectorAll('article').forEach(function(a){var p=a.querySelector('.p');if(p){var d=document.createElement('div');d.className='ab';d.innerHTML='<button data-k="f">תשובה סופית</button><button data-k="s">פתרון מלא</button>';a.insertBefore(d,p)}});
-var GR=[
-[function(x){return (x-1)*(x-1)+1},[-2,4],[-1,6],[[1,1,'(1,1)'],[0,2,'(0,2)']]],
-[function(x){return -(x-1)*(x-1)+4},[-2.5,4.5],[-3,5],[[1,4,'(1,4)'],[-1,0,''],[3,0,'']]],
-[function(x){return (x+1)*(x+1)*(x-2)},[-2.5,3.2],[-5,5],[[-1,0,''],[2,0,''],[1,-4,'(1,−4)'],[0,-2,'(0,−2)']]],
-[function(x){return (x+2)/(x-1)},[-5,5],[-5,6],[[-2,0,''],[0,-2,'(0,−2)']],{va:[1],ha:[1]}],
-[function(x){return x*x-2*x-3},[-2.5,4.5],[-5,5],[[1,-4,'(1,−4)'],[-1,0,''],[3,0,'']],{ho:[[2,-3,'(2,−3)']]}],
-[function(x){return x/(x+1)},[-5,5],[-3,5],[[0,0,''],[-2,2,'(−2,2)']],{va:[-1],ha:[1],ho:[[2,2/3,'(2,⅔)']]}],
-[function(x){return x>1&&x<=5?(x-1)+4/(x-1):NaN},[-1,6],[-1,8],[[3,4,'(3,4)'],[5,5,'(5,5)']],{va:[1]}],
-[function(x){return 4*x/(x*x+1)},[-5,5],[-3,3],[[1,2,'(1,2)'],[-1,-2,'(−1,−2)'],[0,0,'']],{ha:[0]}],
-[function(x){return x*(x-3)*(x-3)},[-1,4.5],[-3,6],[[1,4,'(1,4)'],[0,0,''],[3,0,'']],{t:'y = f ′(x)'}],
-[function(x){return (x+1)*(x-2)},[-2.5,3.5],[-3,5],[[-1,0,''],[2,0,''],[0,-2,'(0,−2)']],{t:'y = f ″(x)'}]];
-GR.forEach(function(g,n){var f=g[0],xr=g[1],yr=g[2],o=g[4]||{},W=300,H=200,p=26,R=Math.round,sx=(W-2*p)/(xr[1]-xr[0]),sy=(H-2*p)/(yr[1]-yr[0]),X=function(x){return R(p+(x-xr[0])*sx)},Y=function(y){return R(H-p-(y-yr[0])*sy)},h='<path class=ax d="M18 '+Y(0)+'H282M'+X(0)+' 182V18"/><text x=282 y='+(Y(0)+14)+'>x</text><text x='+(X(0)+6)+' y=16>y</text>',k,d='',up=0,px=xr[0],va=o.va||[],i,x,y;
-for(k=Math.ceil(xr[0]);k<=xr[1];k++)if(k)h+='<path class=ax d="M'+X(k)+' '+(Y(0)-2)+'v4"/><text class=tk x='+X(k)+' y='+(Y(0)+14)+'>'+k+'</text>';
-for(k=Math.ceil(yr[0]);k<=yr[1];k++)if(k)h+='<path class=ax d="M'+(X(0)-2)+' '+Y(k)+'h4"/><text class="tk e" x='+(X(0)-5)+' y='+(Y(k)+3)+'>'+k+'</text>';
-va.forEach(function(a){h+='<path class=ds d="M'+X(a)+' 18V182"/><text class=tk x='+(X(a)+3)+' y=192>x='+a+'</text>'});
-(o.ha||[]).forEach(function(b){h+='<path class=ds d="M18 '+Y(b)+'H282"/><text class=tk x=252 y='+(Y(b)-4)+'>y='+b+'</text>'});
-for(i=0;i<=300;i++){x=xr[0]+(xr[1]-xr[0])*i/300;if(va.some(function(a){return px<a&&a<=x}))up=0;px=x;if(va.some(function(a){return Math.abs(x-a)<1e-9})){up=0;continue}y=f(x);if(y>=yr[0]&&y<=yr[1]){d+=(up?' ':'M')+X(x)+' '+Y(y);up=1}else up=0}
-h+='<path class=cv d="'+d+'"/>';
-g[3].forEach(function(m){h+='<circle cx='+X(m[0])+' cy='+Y(m[1])+' r=3 class=pt /><text class=tk x='+(X(m[0])+6)+' y='+(Y(m[1])-6)+'>'+m[2]+'</text>'});
-(o.ho||[]).forEach(function(m){h+='<circle cx='+X(m[0])+' cy='+Y(m[1])+' r=3.5 class=ho /><text class=tk x='+(X(m[0])+6)+' y='+(Y(m[1])-6)+'>'+m[2]+'</text>'});
-h+='<text class=tk x=210 y=14>'+(o.t||'y = f(x)')+'</text>';
-document.getElementById('g'+n).innerHTML=h});
-if(window.katex)document.querySelectorAll('i').forEach(function(e){try{katex.render(e.textContent,e,{output:'mathml',throwOnError:false})}catch(x){}});
+// ---------- utilities
+const ri=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+const nz=k=>{let v=0;while(!v)v=ri(-k,k);return v};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=ri(0,i);[a[i],a[j]]=[a[j],a[i]]}return a};
+const gcd=(a,b)=>{a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a};
+const norm=t=>((t%360)+360)%360;
+const MINUS='\u2212';
+
+class F{constructor(n,d=1){if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;this.n=n/g;this.d=d/g}
+ add(o){o=fr(o);return new F(this.n*o.d+o.n*this.d,this.d*o.d)}
+ sub(o){o=fr(o);return new F(this.n*o.d-o.n*this.d,this.d*o.d)}
+ mul(o){o=fr(o);return new F(this.n*o.n,this.d*o.d)}
+ div(o){o=fr(o);return new F(this.n*o.d,this.d*o.n)}
+ neg(){return new F(-this.n,this.d)}
+ get v(){return this.n/this.d}
+ z(){return this.n===0}}
+const fr=x=>x instanceof F?x:new F(x);
+class C{constructor(re,im){this.re=fr(re);this.im=fr(im)}
+ add(o){return new C(this.re.add(o.re),this.im.add(o.im))}
+ sub(o){return new C(this.re.sub(o.re),this.im.sub(o.im))}
+ mul(o){return new C(this.re.mul(o.re).sub(this.im.mul(o.im)),this.re.mul(o.im).add(this.im.mul(o.re)))}
+ conj(){return new C(this.re,this.im.neg())}
+ neg(){return new C(this.re.neg(),this.im.neg())}
+ abs2(){return this.re.mul(this.re).add(this.im.mul(this.im))}
+ div(o){const d=o.abs2(),t=this.mul(o.conj());return new C(t.re.div(d),t.im.div(d))}}
+const rc=k=>new C(nz(k),nz(k));
+const pw=(c,n)=>{let r=new C(1,0);for(let i=0;i<n;i++)r=r.mul(c);return r};
+const IP=[new C(1,0),new C(0,1),new C(-1,0),new C(0,-1)];
+
+// ---------- plain math markup -> HTML
+const ZB='<span class="ov"><i>z</i></span>';
+const FN=new Set(['sin','cos','tan','cis','Re','Im']);
+function T(s){
+ s=String(s);
+ s=s.replace(/zb/g,'\u0001').replace(/>=/g,'\u2265').replace(/<=/g,'\u2264');
+ s=s.replace(/\[([^|\[\]]*)\|([^\[\]]*)\]/g,'\u000E$1\u000F$2\u0010');
+ s=s.replace(/√(\d+)/g,'\u0002$1\u0003');
+ s=s.replace(/\^\{([^}]*)\}/g,'\u0004$1\u0005').replace(/\^(\d+|[a-z])/g,'\u0004$1\u0005');
+ s=s.replace(/_\{([^}]*)\}/g,'\u0006$1\u0007').replace(/_(\d)/g,'\u0006$1\u0007');
+ s=s.replace(/[A-Za-z]+/g,w=>FN.has(w)?w:`<i>${w}</i>`);
+ s=s.replace(/-/g,MINUS).replace(/\*/g,'·');
+ return s.replace(/\u0001/g,ZB).replace(/\u0002/g,'√<span class="rad">').replace(/\u0003/g,'</span>')
+  .replace(/\u0004/g,'<sup>').replace(/\u0005/g,'</sup>').replace(/\u0006/g,'<sub>').replace(/\u0007/g,'</sub>')
+  .replace(/\u000E/g,'<span class="fr"><span>').replace(/\u000F/g,'</span><span>').replace(/\u0010/g,'</span></span>');
+}
+const M=s=>`<span class="m">${T(s)}</span>`;
+const E=s=>`<div class="eq">${T(s).split(/ {3}/).map(p=>p.split(' = ').map((q,j)=>`<span class="part">${j?'= ':''}${q}</span>`).join(' ')).join(' ')}</div>`;
+
+// plain formatters
+const pFm=f=>f.d===1?String(Math.abs(f.n)):`[${Math.abs(f.n)}|${f.d}]`;
+const pF=f=>{f=fr(f);return (f.n<0?'-':'')+pFm(f)};
+function pT(list){let o='';for(const [c0,suf] of list){const c=fr(c0);if(c.z())continue;const neg=c.n<0;const mag=(suf&&Math.abs(c.n)===1&&c.d===1)?'':pFm(c);o+=o?` ${neg?'-':'+'} ${mag}${suf}`:`${neg?'-':''}${mag}${suf}`}return o||'0'}
+const pC=c=>pT([[c.re,''],[c.im,'i']]);
+const pP=c=>`(${pC(c)})`;
+const pPn=c=>pC(c).startsWith('-')?pP(c):pC(c);
+const pN=f=>{f=fr(f);return f.n<0?`(${pF(f)})`:pF(f)};
+const pSq=f=>pN(f)+'^2';
+const pCo=c=>c.im.z()?pN(c.re):(c.re.z()?pPn(c):pP(c));
+
+// surds  value = c*sqrt(k)
+const S=(c,k=1)=>({c:fr(c),k});
+const sv=s=>s.c.v*Math.sqrt(s.k);
+const sq=s=>s.c.mul(s.c).mul(s.k);
+const sAbs=s=>S(new F(Math.abs(s.c.n),s.c.d),s.k);
+function mulS(a,b){if(a.k===1)return S(a.c.mul(b.c),b.k);if(b.k===1)return S(a.c.mul(b.c),a.k);if(a.k===b.k)return S(a.c.mul(b.c).mul(a.k),1);return S(a.c.mul(b.c),a.k*b.k)}
+function pSm(s,suf){const n=Math.abs(s.c.n),d=s.c.d;let num=s.k===1?String(n):(n===1?'':n)+'√'+s.k;if(suf&&s.k===1&&n===1)num='';return d===1?num:`[${num||'1'}|${d}]`}
+function pTS(list){let o='';for(const [s,suf] of list){if(s.c.z())continue;const neg=s.c.n<0;const mag=pSm(s,suf);const sf=(suf&&s.k>1)?' '+suf:suf;o+=o?` ${neg?'-':'+'} ${mag}${sf}`:`${neg?'-':''}${mag}${sf}`}return o||'0'}
+const pSC=(a,b)=>pTS([[a,''],[b,'i']]);
+const pSv=s=>pTS([[s,'']]);
+const pSp=s=>{const t=pSv(s);return t.startsWith('-')?`(${t})`:t};
+
+// trig tables
+const h=new F(1,2);
+const REF={0:[S(1),S(0)],30:[S(h,3),S(h)],45:[S(h,2),S(h,2)],60:[S(h),S(h,3)],90:[S(0),S(1)]};
+function cs(t){t=norm(t);let ref,sc=1,ss=1;if(t<=90)ref=t;else if(t<=180){ref=180-t;sc=-1}else if(t<=270){ref=t-180;sc=-1;ss=-1}else{ref=360-t;ss=-1}
+ const [c,s]=REF[ref];return [S(c.c.mul(sc),c.k),S(s.c.mul(ss),s.k)]}
+const refOf=t=>{t=norm(t);return t<=90?t:t<=180?180-t:t<=270?t-180:360-t};
+const quad=(x,y)=>x>0?(y>0?1:4):(y>0?2:3);
+const QN=['','הראשון','השני','השלישי','הרביעי'];
+const QX=(q,a)=>['',`${a}°`,`180° - ${a}°`,`180° + ${a}°`,`360° - ${a}°`][q];
+const TAN={30:'[√3|3]',45:'1',60:'√3'};
+const fmtA=x=>Number.isInteger(x)?String(x):x.toFixed(2);
+const pA=t=>t<0?`(-${fmtA(-t)}°)`:`${fmtA(t)}°`;
+const isOne=r=>r.k===1&&r.c.n===1&&r.c.d===1;
+let CIS=false;
+function pPol(r,t){const R=isOne(r)?'':pSm(r);const a=pA(t);if(CIS)return `${R}cis ${a}`;return R?`${R}(cos ${a} + i sin ${a})`:`cos ${a} + i sin ${a}`}
+const AX45=[0,90,180,270,45,135,225,315],A30=[30,60,120,150,210,240,300,330];
+
+// ---------- answers
+const cset=list=>({type:'cset',vals:list.map(c=>[c.re.v,c.im.v]),show:list.map(c=>M(pC(c))).join('<span class="sep">,</span> ')});
+const csetS=list=>({type:'cset',vals:list.map(([a,b])=>[sv(a),sv(b)]),show:list.map(([a,b])=>M(pSC(a,b))).join(', ')});
+const reals=fields=>({type:'reals',fields,show:fields.map(f=>M(`${f.label} = ${f.disp??f.v}`)).join(', ')});
+const polar=(r,th,show,approx=false)=>({type:'polar',r,th,approx,show:M(show)});
+
+// ---------- plane diagram
+function plane(pts,ang=true){
+ let Mx=1;pts.forEach(p=>Mx=Math.max(Mx,Math.abs(p.x),Math.abs(p.y)));const k=82/Mx,cx=120,cy=110;
+ let s=`<svg class="plane" viewBox="0 0 240 220" direction="ltr" role="img" aria-label="הנקודה במישור המרוכב">`;
+ s+=`<line x1="14" y1="${cy}" x2="226" y2="${cy}" class="ax-re"/><line x1="${cx}" y1="208" x2="${cx}" y2="12" class="ax-im"/>`;
+ s+=`<text x="226" y="${cy-7}" text-anchor="end" class="axl re">Re</text><text x="${cx+7}" y="22" class="axl im">Im</text>`;
+ pts.forEach(p=>{const X=cx+p.x*k,Y=cy-p.y*k;
+  if(ang&&pts.length===1&&(p.x||p.y)){let a=Math.atan2(p.y,p.x);if(a<0)a+=2*Math.PI;if(a>0.02){const rr=20,ex=cx+rr*Math.cos(a),ey=cy-rr*Math.sin(a);s+=`<path d="M ${cx+rr} ${cy} A ${rr} ${rr} 0 ${a>Math.PI?1:0} 0 ${ex.toFixed(2)} ${ey.toFixed(2)}" class="arc"/>`}}
+  s+=`<line x1="${cx}" y1="${cy}" x2="${X.toFixed(2)}" y2="${Y.toFixed(2)}" class="vec"/><circle cx="${X.toFixed(2)}" cy="${Y.toFixed(2)}" r="4.5" class="pt"/>`;
+  if(p.lab)s+=`<text x="${(X+(p.x>=0?9:-9)).toFixed(2)}" y="${(Y+(p.y>=0?-7:16)).toFixed(2)}" text-anchor="${p.x>=0?'start':'end'}" class="ptl">${p.lab}</text>`});
+ return s+'</svg>';
+}
+
+// ---------- step helpers
+function mulSteps(z1,z2){const a=z1.re,b=z1.im,c=z2.re,d=z2.im;
+ return E(`${pP(z1)}${pP(z2)} = ${pT([[a.mul(c),''],[a.mul(d),'i'],[b.mul(c),'i'],[b.mul(d),'i^2']])}`)+E(`= ${pT([[a.mul(c),''],[b.mul(d).neg(),''],[a.mul(d),'i'],[b.mul(c),'i']])} = ${pC(z1.mul(z2))}`)}
+function sqSteps(z){const a=z.re,b=z.im;
+ return E(`${pP(z)}^2 = ${pSq(a)} + 2*${pN(a)}*${pN(b)}i + ${pSq(b)}i^2`)+E(`= ${pT([[a.mul(a),''],[a.mul(b).mul(2),'i'],[b.mul(b).neg(),'']])} = ${pC(z.mul(z))}`)}
+function divSteps(z1,z2){const cj=z2.conj(),num=z1.mul(cj),den=z2.abs2();
+ return `<p>כופלים את המונה ואת המכנה בצמוד של המכנה, ${M(pC(cj))}:</p>`+E(`[${pC(z1)}|${pC(z2)}] = [${pP(z1)}${pP(cj)}|${pP(z2)}${pP(cj)}] = [${pC(num)}|${pF(den)}]`)+E(`= ${pC(z1.div(z2))}`)+`<p class="note">במכנה: ${M(`${pP(z2)}${pP(cj)} = ${pSq(z2.re)} + ${pSq(z2.im)} = ${pF(den)}`)}</p>`}
+function coefP(p,sym,first){
+ const one=c=>Math.abs(c.n)===1&&c.d===1;
+ if(p.im.z()){const c=p.re,neg=c.n<0,mag=(sym&&one(c))?'':pFm(c);return first?`${neg?'-':''}${mag}${sym}`:` ${neg?'-':'+'} ${mag}${sym}`}
+ if(p.re.z()){const c=p.im,neg=c.n<0,mag=one(c)?'':pFm(c);return first?`${neg?'-':''}${mag}i${sym}`:` ${neg?'-':'+'} ${mag}i${sym}`}
+ return (first?'':' + ')+pP(p)+sym}
+
+// ---------- generators: arithmetic
+function oddPowEx(big){
+ const b=big?pick([new C(2,2),new C(2,-2),new C(-1,1),new C(-1,-1),new C(1,1),new C(1,-1)]):pick([new C(1,1),new C(1,-1),new C(-1,1),new C(-1,-1)]);
+ const n=big?pick([7,9,11,13]):pick([3,5,7]),k=(n-1)/2,s2=b.mul(b),pk=pw(s2,k),r=pk.mul(b);
+ return {prompt:'<p>חשבו:</p>'+E(`${pP(b)}^{${n}}`),ans:cset([r]),
+  sol:`<p>המעריך אי־זוגי, ולכן מפרידים גורם אחד ומעלים בריבוע את השאר:</p>`+E(`${pP(b)}^{${n}} = (${pP(b)}^2)^{${k}}*${pP(b)}`)+
+   '<p>מחשבים את הריבוע:</p>'+sqSteps(b)+'<p>ולכן:</p>'+E(`(${pC(s2)})^{${k}} = ${pN(s2.im)}^{${k}}*i^{${k}} = ${pC(pk)}`)+
+   E(`${pP(b)}^{${n}} = ${pCo(pk)}*${pP(b)} = ${pC(r)}`)}}
+function cubeEx(){const z=new C(nz(3),nz(3)),s2=z.mul(z),r=s2.mul(z);
+ return {prompt:'<p>חשבו:</p>'+E(`${pP(z)}^3`),ans:cset([r]),sol:`<p>מחשבים קודם את הריבוע, ואחר כך כופלים עוד פעם ב־${M(pP(z))}:</p>`+sqSteps(z)+E(`${pP(z)}^3 = ${pP(s2)}${pP(z)}`)+mulSteps(s2,z)}}
+function ratioPowEx(gen){
+ let a,b;if(gen){a=ri(1,5);b=ri(1,5);if(a===b)b=a+1}else{a=1;b=1}
+ const sg=pick([1,-1]),num=new C(a,sg*b),den=new C(b,-sg*a),q=num.div(den),n=pick([5,7,9,11,13,15,17,19,21,23,25,27]).valueOf(),r=pw(q,n%4+4).mul(new C(1,0));
+ const val=IP[((sg>0?n:3*n)%4)];
+ return {prompt:'<p>חשבו:</p>'+E(`([${pC(num)}|${pC(den)}])^{${n}}`),ans:cset([val]),
+  sol:'<p>מחשבים קודם את המנה שבתוך הסוגריים:</p>'+divSteps(num,den)+`<p>לכן צריך לחשב ${M(`(${pC(q)})^{${n}}`)}:</p>`+
+   (sg>0?E(`${n} = 4*${Math.floor(n/4)} + ${n%4}   ⇒   i^{${n}} = i^{${n%4}} = ${pC(val)}`)
+        :E(`(-i)^{${n}} = (-1)^{${n}}*i^{${n}} = -i^{${n}}`)+E(`${n} = 4*${Math.floor(n/4)} + ${n%4}   ⇒   -i^{${n}} = -(${pC(IP[n%4])}) = ${pC(val)}`))}}
+function genArith(L){
+ const SEQ={1:['addsub','mul','sq','odd','cube','odd','mul','cube'],2:['div','odd','pow','ratio','div','odd','pow','odd'],3:['odd','sqdiv','ratio','onei','odd','ratio','sqdiv','odd']};
+ const ck='ar'+L;lastBank[ck]=(lastBank[ck]??-1)+1;const v=SEQ[L][lastBank[ck]%8];
+ if(L===1){
+  if(v==='cube')return cubeEx();
+  if(v==='odd')return oddPowEx(false);
+  if(v==='sq'){const z=rc(6);return {prompt:'<p>חשבו:</p>'+E(`${pP(z)}^2`),ans:cset([z.mul(z)]),sol:`<p>משתמשים בנוסחת הכפל המקוצר ובכך ש־${M('i^2 = -1')}:</p>`+sqSteps(z)}}
+  const z1=rc(6),z2=rc(6);
+  if(v==='addsub'){const op=pick(['+','-']),r=op==='+'?z1.add(z2):z1.sub(z2);
+   return {prompt:'<p>חשבו:</p>'+E(`${pP(z1)} ${op} ${pP(z2)}`),ans:cset([r]),
+    sol:`<p>${op==='+'?'מחברים':'מחסרים'} בנפרד את החלקים הממשיים ואת החלקים המדומים:</p>`+E(`(${pF(z1.re)} ${op} ${pN(z2.re)}) + (${pF(z1.im)} ${op} ${pN(z2.im)})i = ${pC(r)}`)}}
+  return {prompt:'<p>חשבו:</p>'+E(`${pP(z1)}${pP(z2)}`),ans:cset([z1.mul(z2)]),sol:`<p>פותחים סוגריים (כל איבר בכל איבר) ומציבים ${M('i^2 = -1')}:</p>`+mulSteps(z1,z2)}}
+ if(L===2){
+  if(v==='odd')return oddPowEx(Math.random()<.5);
+  if(v==='ratio')return ratioPowEx(false);
+  if(v==='div'){const z2=rc(4),z1=Math.random()<.6?rc(3).mul(z2):rc(6);
+   return {prompt:'<p>חשבו:</p>'+E(`[${pC(z1)}|${pC(z2)}]`),ans:cset([z1.div(z2)]),sol:divSteps(z1,z2)}}
+  let n1=ri(10,99),n2=ri(10,99);while(n2===n1)n2=ri(10,99);const op=pick(['+','-']),a=IP[n1%4],b=IP[n2%4],r=op==='+'?a.add(b):a.sub(b);
+  const line=n=>E(`${n} = 4*${Math.floor(n/4)} + ${n%4}   ⇒   i^{${n}} = i^{${n%4}} = ${pC(IP[n%4])}`);
+  return {prompt:'<p>חשבו:</p>'+E(`i^{${n1}} ${op} i^{${n2}}`),ans:cset([r]),
+   sol:`<p>מכיוון ש־${M('i^4 = 1')}, מחלקים את המעריך ב־4 ונשארים רק עם השארית:</p>`+line(n1)+line(n2)+E(`${pC(a)} ${op} ${pPn(b)} = ${pC(r)}`)}}
+ if(v==='odd')return oddPowEx(true);
+ if(v==='ratio')return ratioPowEx(true);
+ if(v==='sqdiv'){const z1=rc(4),z2=rc(3),s=z1.mul(z1);
+  return {prompt:'<p>חשבו:</p>'+E(`[${pP(z1)}^2|${pC(z2)}]`),ans:cset([s.div(z2)]),sol:'<p>קודם מחשבים את המונה:</p>'+sqSteps(z1)+divSteps(s,z2)}}
+ const b1=pick([new C(1,1),new C(1,-1)]),n=pick([4,6,8,10]),useDen=Math.random()<.5,b2=pick([new C(1,1),new C(1,-1)]);
+ const s1=b1.mul(b1),num=pw(s1,n/2),s2=b2.mul(b2),r=useDen?num.div(s2):num;
+ let sol='<p>מתחילים מהריבוע:</p>'+E(`${pP(b1)}^2 = 1 ${b1.im.n>0?'+':'-'} 2i + i^2 = ${pC(s1)}`)+'<p>ולכן:</p>'+
+  E(`${pP(b1)}^{${n}} = (${pP(b1)}^2)^{${n/2}} = ${pP(s1)}^{${n/2}} = ${pN(s1.im)}^{${n/2}}*i^{${n/2}} = ${pC(num)}`);
+ if(useDen)sol+='<p>במכנה:</p>'+E(`${pP(b2)}^2 = ${pC(s2)}`)+divSteps(num,s2);
+ return {prompt:'<p>חשבו:</p>'+(useDen?E(`[${pP(b1)}^{${n}}|${pP(b2)}^2]`):E(`${pP(b1)}^{${n}}`)),ans:cset([r]),sol};
+}
+
+// ---------- conjugate
+function genConj(L){
+ if(L===1){const z=rc(6),zb=z.conj();lastBank.cj1=(lastBank.cj1??-1)+1;const v=['zz','sum','zb2','diff','zbw','zdz','sqbar','comb'][lastBank.cj1%8];
+  const given=`<p>נתון ${M(`z = ${pC(z)}`)}. חשבו:</p>`,cl=`<p>הצמוד: ${M(`zb = ${pC(zb)}`)}.</p>`;
+  if(v==='zz')return {prompt:given+E('z*zb'),ans:cset([new C(z.abs2(),0)]),sol:cl+`<p>מכפלה של מספר בצמוד שלו היא תמיד ממשית ושווה ל־${M('|z|^2')}:</p>`+E(`${pP(z)}${pP(zb)} = ${pSq(z.re)} + ${pSq(z.im)} = ${pF(z.abs2())}`)};
+  if(v==='sum')return {prompt:given+E('z + zb'),ans:cset([new C(z.re.mul(2),0)]),sol:cl+'<p>החלקים המדומים מתבטלים:</p>'+E(`${pP(z)} + ${pP(zb)} = 2*${pN(z.re)} = ${pF(z.re.mul(2))}`)};
+  if(v==='diff')return {prompt:given+E('z - zb'),ans:cset([new C(0,z.im.mul(2))]),sol:cl+'<p>החלקים הממשיים מתבטלים:</p>'+E(`${pP(z)} - ${pP(zb)} = 2*${pN(z.im)}i = ${pC(new C(0,z.im.mul(2)))}`)};
+  if(v==='zbw'){const w=rc(4);return {prompt:`<p>נתונים ${M(`z = ${pC(z)}`)} ו־${M(`w = ${pC(w)}`)}. חשבו:</p>`+E('zb*w'),ans:cset([zb.mul(w)]),sol:cl+mulSteps(zb,w)}}
+  if(v==='zb2')return {prompt:given+E('(zb)^2'),ans:cset([zb.mul(zb)]),sol:'<p>קודם מחשבים את הצמוד, ואז מעלים בריבוע.</p>'+cl+sqSteps(zb)};
+  if(v==='sqbar'){const s2=z.mul(z);return {prompt:given+'<div class="eq"><span class="part"><span class="ov"><i>z</i><sup>2</sup></span></span></div>',ans:cset([s2.conj()]),
+   sol:'<p>הקו מעל כל הביטוי, ולכן קודם מעלים בריבוע ורק אחר כך לוקחים צמוד:</p>'+sqSteps(z)+`<p>הצמוד של התוצאה: ${M(pC(s2.conj()))}.</p><p class="note">אפשר לבדוק: יוצא אותו דבר כמו ${M('(zb)^2')}. הצמוד של ריבוע שווה לריבוע של הצמוד.</p>`}}
+  if(v==='comb'){const a=pick([2,3,-2,4]),b=pick([3,-3,2,-1,1].filter(x=>x!==a)),r=z.mul(new C(a,0)).add(zb.mul(new C(b,0)));
+   const ex=`${a}z ${b>0?'+':'-'} ${Math.abs(b)===1?'':Math.abs(b)}zb`;
+   return {prompt:given+E(ex),ans:cset([r]),sol:cl+E(`${a}${pP(z)} ${b>0?'+':'-'} ${Math.abs(b)===1?'':Math.abs(b)}${pP(zb)} = ${pC(z.mul(new C(a,0)))} ${b>0?'+':'-'} ${pP(zb.mul(new C(Math.abs(b),0)))}`)+E(`= ${pC(r)}`)}}
+  return {prompt:given+E('[z|zb]'),ans:cset([z.div(zb)]),sol:cl+divSteps(z,zb)}}
+ if(L===2){let p,q;do{p=Math.random()<.5?new C(nz(4),0):rc(3);q=pick([()=>new C(nz(4),0),()=>new C(0,nz(3)),()=>rc(3)])()}while(p.abs2().v===q.abs2().v);
+  const x=nz(5),y=nz(5),z=new C(x,y),r=p.mul(z).add(q.mul(z.conj()));
+  const p1=p.re,p2=p.im,q1=q.re,q2=q.im,lin=(a,b)=>pT([[a,'x'],[b,'y']]);
+  const lhs=coefP(p,'z',true)+coefP(q,'zb',false);
+  return {prompt:`<p>מצאו את המספר המרוכב ${M('z')} המקיים:</p>`+E(`${lhs} = ${pC(r)}`),ans:cset([z]),
+   sol:`<p>נציב ${M('z = x + yi')}, ולכן ${M('zb = x - yi')}. מפרקים כל איבר לחלק ממשי ולחלק מדומה:</p>`+
+    E(`${pCo(p)}(x + yi) = (${lin(p1,p2.neg())}) + (${lin(p2,p1)})i`)+E(`${pCo(q)}(x - yi) = (${lin(q1,q2)}) + (${lin(q2,q1.neg())})i`)+
+    '<p>משווים חלקים ממשיים וחלקים מדומים בשני האגפים:</p>'+E(`${lin(p1.add(q1),q2.sub(p2))} = ${pF(r.re)}`)+E(`${lin(p2.add(q2),p1.sub(q1))} = ${pF(r.im)}`)+
+    `<p>פותרים את מערכת המשוואות ומקבלים ${M(`x = ${x}`)}, ${M(`y = ${y}`)}.</p>`+E(`z = ${pC(z)}`)}}
+ const tr=pick([[3,4],[4,3],[5,12],[12,5],[6,8],[8,6],[0,ri(2,7)]]),x=tr[0]*pick([1,-1]),y=tr[1]*pick([1,-1]),r=Math.round(Math.hypot(x,y)),A=x+r,bar=Math.random()<.5,B=bar?-y:y;
+ const rhs=pC(new C(A,B)),y2=y*y;
+ return {prompt:`<p>מצאו את המספר המרוכב ${M('z')} המקיים:</p>`+E(`${bar?'zb':'z'} + |z| = ${rhs}`),ans:cset([new C(x,y)]),
+  sol:`<p>נציב ${M('z = x + yi')}, ואז ${M('|z| = √(x^2 + y^2)')}:</p>`+E(`x ${bar?'-':'+'} yi + √(x^2 + y^2) = ${rhs}`)+
+   `<p>החלקים המדומים: ${M(bar?`-y = ${B}`:`y = ${B}`)}, ולכן ${M(`y = ${y}`)}.</p><p>החלקים הממשיים:</p>`+
+   E(`x + √(x^2 + ${y2}) = ${A}   ⇒   √(x^2 + ${y2}) = ${A} - x`)+
+   `<p>מעלים בריבוע (בתנאי ${M(`${A} - x >= 0`)}):</p>`+E(`x^2 + ${y2} = ${A*A} - ${2*A}x + x^2   ⇒   ${2*A}x = ${A*A-y2}   ⇒   x = ${pF(new F(A*A-y2,2*A))}`)+
+   `<p>בדיקת התנאי: ${M(`${A} - (${x}) = ${r} >= 0`)}, מתקיים.</p>`+E(`z = ${pC(new C(x,y))}`)};
+}
+
+// ---------- equations
+function genEq(L){
+ if(L===1){const mm=ri(-4,4),n=ri(1,6),b=-2*mm,c=mm*mm+n*n,D=b*b-4*c,ni=n===1?'i':n+'i';
+  const top=(b?`${-b} `:'')+`± ${2*n}i`,res=mm?`${mm} ± ${ni}`:`±${ni}`;
+  return {prompt:'<p>פתרו במספרים מרוכבים:</p>'+E(`${pT([[1,'z^2'],[b,'z'],[c,'']])} = 0`),ans:cset([new C(mm,n),new C(mm,-n)]),
+   sol:E(`Δ = b^2 - 4ac = ${b*b} - ${4*c} = ${D}`)+`<p>הדיסקרימיננטה שלילית, ולכן ${M(`√Δ = ±${2*n}i`)} (כי ${M(`(${2*n}i)^2 = ${D}`)}).</p>`+E(`z_{1,2} = [${top}|2] = ${res}`)}}
+ if(L===2){const p=nz(5),q=nz(5),A=p*p-q*q,B=2*p*q,N=p*p+q*q,w=new C(A,B);
+  return {prompt:`<p>מצאו את כל המספרים ${M('z')} המקיימים:</p>`+E(`z^2 = ${pC(w)}`),ans:cset([new C(p,q),new C(-p,-q)]),
+   sol:`<p>נציב ${M('z = x + yi')}:</p>`+E(`(x + yi)^2 = x^2 - y^2 + 2xyi = ${pC(w)}`)+'<p>משווים חלקים:</p>'+E(`x^2 - y^2 = ${A},   2xy = ${B}`)+
+    `<p>בנוסף ${M('|z|^2 = |w|')}:</p>`+E(`x^2 + y^2 = √(${pSq(A)} + ${pSq(B)}) = √${N*N} = ${N}`)+
+    '<p>מחברים ומחסרים את המשוואה הראשונה והשלישית:</p>'+E(`2x^2 = ${A} + ${N} = ${2*p*p}   ⇒   x = ±${Math.abs(p)}`)+E(`2y^2 = ${N} - ${pN(A)} = ${2*q*q}   ⇒   y = ±${Math.abs(q)}`)+
+    `<p>מ־${M(`2xy = ${B}`)} נובע ש${p*q>0?`ל־${M('x')} ול־${M('y')} אותו סימן`:`ל־${M('x')} ול־${M('y')} סימנים הפוכים`}:</p>`+E(`z_1 = ${pC(new C(p,q))},   z_2 = ${pC(new C(-p,-q))}`)}}
+ const v=pick(['cplx','cplx','root','mod']);
+ if(v==='cplx'){let r1,r2,B,Cc;do{r1=new C(ri(-3,3),ri(-3,3));r2=new C(ri(-3,3),ri(-3,3));B=r1.add(r2).neg();Cc=r1.mul(r2)}while(r1.sub(r2).abs2().v===0||B.abs2().v===0||Cc.abs2().v===0||(B.im.z()&&Cc.im.z()));
+  const four=new C(4,0),D=B.mul(B).sub(Cc.mul(four)),d=r1.sub(r2);
+  return {prompt:'<p>פתרו במספרים מרוכבים:</p>'+E(`z^2${coefP(B,'z',false)}${coefP(Cc,'',false)} = 0`),ans:cset([r1,r2]),
+   sol:E(`Δ = ${pP(B)}^2 - 4*${pP(Cc)} = ${pP(B.mul(B))} - ${pP(Cc.mul(four))} = ${pC(D)}`)+
+    `<p>מחפשים ${M('u = x + yi')} כך ש־${M('u^2 = Δ')} (באותה דרך כמו במשוואה ${M('z^2 = w')}):</p>`+
+    E(`x^2 - y^2 = ${pF(D.re)},   2xy = ${pF(D.im)},   x^2 + y^2 = |Δ| = ${pF(d.abs2())}`)+E(`⇒   u = ±${pP(d)}`)+
+    '<p>לפי נוסחת השורשים:</p>'+E(`z_{1,2} = [${pC(B.neg())} ± ${pP(d)}|2]`)+E(`z_1 = ${pC(r1)},   z_2 = ${pC(r2)}`)}}
+ if(v==='root'){const mm=nz(4),n=nz(5),c=mm*mm+n*n,b=-2*mm,z1=new C(mm,n);
+  return {prompt:`<p>המספר ${M(`z_1 = ${pC(z1)}`)} הוא פתרון של המשוואה ${M('z^2 + bz + c = 0')}, כאשר ${M('b')} ו־${M('c')} ממשיים. מצאו את ${M('b')} ואת ${M('c')}.</p>`,
+   ans:reals([{label:'b',v:b},{label:'c',v:c}]),
+   sol:`<p>במשוואה עם מקדמים ממשיים, אם ${M('z_1')} פתרון אז גם הצמוד שלו פתרון: ${M(`z_2 = ${pC(z1.conj())}`)}.</p><p>לפי נוסחאות ויאטה:</p>`+
+    E(`z_1 + z_2 = ${2*mm} = -b   ⇒   b = ${b}`)+E(`z_1*z_2 = ${pSq(mm)} + ${pSq(n)} = ${c} = c`)}}
+ const x0=nz(4),y0=nz(4),A=2*x0*x0,B=2*x0*y0;
+ return {prompt:`<p>מצאו את כל המספרים ${M('z')} המקיימים:</p>`+E(`z^2 + |z|^2 = ${pC(new C(A,B))}`),ans:cset([new C(x0,y0),new C(-x0,-y0)]),
+  sol:`<p>נציב ${M('z = x + yi')}: ${M('z^2 = x^2 - y^2 + 2xyi')} ו־${M('|z|^2 = x^2 + y^2')}. בחיבור ${M('y^2')} מתבטל:</p>`+E(`2x^2 + 2xyi = ${pC(new C(A,B))}`)+
+   E(`2x^2 = ${A}   ⇒   x = ±${Math.abs(x0)}`)+E(`2xy = ${B}   ⇒   y = [${B/2}|x]`)+`<p>לכל ערך של ${M('x')} יש ${M('y')} מתאים:</p>`+E(`z_1 = ${pC(new C(x0,y0))},   z_2 = ${pC(new C(-x0,-y0))}`)};
+}
+
+// ---------- number of solutions bank
+const CNT=['0','1','2','3','4','אינסוף'];
+const BANK=[
+ {L:1,q:'zb = -z',a:'אינסוף',sol:`<p>נציב ${M('z = x + yi')}:</p>`+E('x - yi = -x - yi')+`<p>מקבלים ${M('2x = 0')}, כלומר ${M('x = 0')}, ואין שום תנאי על ${M('y')}. כל מספר מדומה טהור (וגם 0) הוא פתרון.</p>`},
+ {L:1,q:'z^3 = -z',a:'3',sol:E('z^3 + z = 0   ⇒   z(z^2 + 1) = 0')+`<p>${M('z = 0')} או ${M('z^2 = -1')}, כלומר ${M('z = ±i')}. שלושה פתרונות: ${M('0, i, -i')}.</p>`},
+ {L:1,q:'z*zb + z = 0',a:'2',sol:`<p>${M('z*zb = x^2 + y^2')}, ולכן:</p>`+E('x^2 + y^2 + x + yi = 0')+`<p>חלק מדומה: ${M('y = 0')}. חלק ממשי: ${M('x^2 + x = 0')}, כלומר ${M('x = 0')} או ${M('x = -1')}. שני פתרונות: ${M('0, -1')}.</p>`},
+ {L:1,q:'z^2 = |z|^2',a:'אינסוף',sol:E('x^2 - y^2 + 2xyi = x^2 + y^2')+`<p>חלק ממשי: ${M('-y^2 = y^2')}, כלומר ${M('y = 0')}, ואז גם ${M('2xy = 0')}. כל מספר ממשי הוא פתרון.</p>`},
+ {L:1,q:'z^2 = 2i',a:'2',sol:E('x^2 - y^2 = 0,   2xy = 2')+`<p>מהמשוואה הראשונה ${M('y = ±x')}, ומ־${M('xy = 1')} חייב ${M('y = x')} ו־${M('x^2 = 1')}. הפתרונות: ${M('1 + i')} ו־${M('-1 - i')}. (למשוואה ${M('z^2 = w')} עם ${M('w ≠ 0')} יש תמיד שני פתרונות.)</p>`},
+ {L:2,q:'z + |z| = 1 + i',a:'1',sol:`<p>חלק מדומה: ${M('y = 1')}. חלק ממשי:</p>`+E('x + √(x^2 + 1) = 1   ⇒   √(x^2 + 1) = 1 - x')+`<p>בריבוע: ${M('x^2 + 1 = 1 - 2x + x^2')}, כלומר ${M('x = 0')}, והתנאי ${M('1 - x >= 0')} מתקיים. פתרון יחיד: ${M('z = i')}.</p>`},
+ {L:2,q:'z + |z| = -2',a:'0',sol:`<p>חלק מדומה: ${M('y = 0')}, ואז המשוואה היא ${M('x + |x| = -2')}. אבל ${M('x + |x| >= 0')} לכל ${M('x')} ממשי, ולכן אין פתרון.</p>`},
+ {L:2,q:'z*|z| = 4i',a:'1',sol:`<p>נסמן ${M('t = |z|')}. ${M('t = 0')} לא מתאים (אגף שמאל יהיה 0), ולכן ${M('z = [4i|t]')} ומכאן ${M('|z| = [4|t]')}.</p><p>אבל ${M('|z| = t')}, ולכן ${M('t^2 = 4')}, ${M('t = 2')}, ו־${M('z = 2i')}. פתרון יחיד.</p>`},
+ {L:2,q:'z*zb = z + zb',a:'אינסוף',sol:E('x^2 + y^2 = 2x')+`<p>שני האגפים ממשיים, ולכן יש רק משוואה אחת בשני נעלמים: ${M('(x - 1)^2 + y^2 = 1')}. זה מעגל, וכל נקודה עליו היא פתרון.</p>`},
+ {L:2,q:'z^2 - 2z + a = 0',pre:`<p>עבור אילו ערכים של הפרמטר הממשי ${M('a')} יש למשוואה שני פתרונות שאינם ממשיים?</p>`,opts:['a > 1','a < 1','a >= 1','a > 4'],a:'a > 1',sol:E('Δ = 4 - 4a < 0   ⇒   a > 1')+`<p>ב־${M('a = 1')} יש פתרון ממשי יחיד ${M('z = 1')}, ולכן הוא לא נכלל.</p>`},
+ {L:2,q:'z^2 + az + 4 = 0',pre:`<p>עבור אילו ערכים של הפרמטר הממשי ${M('a')} הפתרונות של המשוואה אינם ממשיים?</p>`,opts:['-4 < a < 4','a > 4','a < -4 או a > 4','-2 < a < 2'],a:'-4 < a < 4',sol:E('Δ = a^2 - 16 < 0   ⇒   -4 < a < 4')},
+ {L:3,q:'z^2 = zb',a:'4',sol:E('x^2 - y^2 + 2xyi = x - yi')+`<p>חלק מדומה: ${M('2xy = -y')}, כלומר ${M('y(2x + 1) = 0')}.</p><p>אם ${M('y = 0')}: ${M('x^2 = x')}, ולכן ${M('x = 0')} או ${M('x = 1')}.</p><p>אם ${M('x = -[1|2]')}: ${M('[1|4] - y^2 = -[1|2]')}, ולכן ${M('y = ±[√3|2]')}.</p><p>סך הכול ארבעה פתרונות: ${M('0, 1, -[1|2] ± [√3|2]i')}.</p>`},
+ {L:3,q:'z^2 + |z| = 0',a:'3',sol:E('x^2 - y^2 + √(x^2 + y^2) + 2xyi = 0')+`<p>חלק מדומה: ${M('xy = 0')}.</p><p>אם ${M('x = 0')}: ${M('-y^2 + |y| = 0')}, ולכן ${M('y = 0')} או ${M('y = ±1')}.</p><p>אם ${M('y = 0')}: ${M('x^2 + |x| = 0')}, ולכן רק ${M('x = 0')}.</p><p>שלושה פתרונות: ${M('0, i, -i')}.</p>`},
+ {L:3,q:'z^2 + zb = 0',a:'4',sol:E('x^2 - y^2 + x + (2xy - y)i = 0')+`<p>חלק מדומה: ${M('y(2x - 1) = 0')}.</p><p>אם ${M('y = 0')}: ${M('x^2 + x = 0')}, ולכן ${M('x = 0')} או ${M('x = -1')}.</p><p>אם ${M('x = [1|2]')}: ${M('[3|4] - y^2 = 0')}, ולכן ${M('y = ±[√3|2]')}.</p><p>ארבעה פתרונות.</p>`},
+ {L:3,q:'z^2 = -|z|^2',a:'אינסוף',sol:E('x^2 - y^2 + 2xyi = -x^2 - y^2')+`<p>חלק ממשי: ${M('2x^2 = 0')}, כלומר ${M('x = 0')}, ואז גם ${M('2xy = 0')}. כל מספר מדומה טהור הוא פתרון.</p>`},
+ {L:3,q:'z*zb + 2z = 3 + 4i',a:'1',sol:E('x^2 + y^2 + 2x + 2yi = 3 + 4i')+`<p>חלק מדומה: ${M('y = 2')}. חלק ממשי: ${M('x^2 + 4 + 2x = 3')}, כלומר ${M('(x + 1)^2 = 0')} ו־${M('x = -1')}. פתרון יחיד: ${M('z = -1 + 2i')}.</p>`},
+];
+const lastBank={};
+
+
+// ---------- parametric investigation (חקירת משוואה עם פרמטר)
+const NONE='אין ערך כזה';
+const LAB={one:'פתרון יחיד',none:'אין פתרון',inf:'אינסוף פתרונות',two:'שני פתרונות',nonreal:'שני פתרונות שאינם ממשיים',real2:'שני פתרונות ממשיים'};
+const isHeb=x=>!/[a-z0-9]/i.test(x);
+const optH=x=>{if(isHeb(x))return x;const m=x.match(/^(.*) (או|וגם) (.*)$/);if(m)return `${M(m[1])} ${m[2]} ${M(m[3])}`;if(x.startsWith('לכל '))return 'לכל '+M(x.slice(4));return M(x)};
+function mkMulti(subs){
+ return {type:'multi',subs:subs.map(s=>{const o=shuffle([...new Set(s.opts)]);const lab=LAB[s.k]||s.k;
+  return {q:s.k==='none'?`עבור אילו ערכי ${M('m')} אין למשוואה פתרון?`:(s.q||`עבור אילו ערכי ${M('m')} יש למשוואה ${lab}?`),opts:o.map(optH),correct:o.indexOf(s.correct)}}),
+  show:'<span class="multi-ans">'+subs.map(s=>`<span>${s.short||LAB[s.k]}: ${optH(s.correct)}</span>`).join('')+'</span>'}}
+const pIntro=real=>`<p>נתונה המשוואה הבאה, כאשר ${M('m')} פרמטר ${real?'ממשי':'מרוכב'} ו־${M('z')} הנעלם:</p>`;
+const mMinus=p=>{const s=pC(p.neg());return s.startsWith('-')?`m - ${s.slice(1)}`:`m + ${s}`}; // m - p
+const cases=list=>list.map(([cond,txt])=>`<p><strong>${cond}</strong> ${txt}</p>`).join('');
+
+// A: (m^2 - a^2)z = m ∓ a   (real m)
+function famA(){const a=ri(1,5),sg=pick([1,-1]),inf=sg*a,non=-inf,A2=a*a,rhs=`m ${sg>0?'-':'+'} ${a}`,v=non-sg*a;
+ const eq=`(m^2 - ${A2})z = ${rhs}`;
+ return {prompt:pIntro(true)+E(eq),ans:mkMulti([
+   {k:'one',correct:`m ≠ ±${a}`,opts:[`m ≠ ±${a}`,`m ≠ ${inf}`,`m ≠ ${non}`,'לכל m']},
+   {k:'none',correct:`m = ${non}`,opts:[`m = ${non}`,`m = ${inf}`,`m = ±${a}`,NONE]},
+   {k:'inf',correct:`m = ${inf}`,opts:[`m = ${inf}`,`m = ${non}`,`m = ±${a}`,NONE]}]),
+  sol:`<p>מפרקים את המקדם של ${M('z')}:</p>`+E(`(m - ${a})(m + ${a})z = ${rhs}`)+`<p>המקדם מתאפס רק כאשר ${M(`m = ±${a}`)}, ולכן בודקים את שני הערכים האלה בנפרד.</p>`+
+   cases([[`${M(`m ≠ ±${a}`)}:`,`מחלקים במקדם ומקבלים ${M(`z = [1|m ${sg>0?'+':'-'} ${a}]`)}. פתרון יחיד.`],
+    [`${M(`m = ${inf}`)}:`,`המשוואה היא ${M('0*z = 0')}. כל ${M('z')} מקיים אותה: אינסוף פתרונות.`],
+    [`${M(`m = ${non}`)}:`,`המשוואה היא ${M(`0*z = ${v}`)}. אין ${M('z')} שמקיים אותה: אין פתרון.`]])}}
+
+// B: (m^2 + a^2)z = m ∓ ai   (complex m)
+function famB(){const a=ri(1,3),sg=pick([1,-1]),ai=a===1?'i':a+'i',A2=a*a,inf=(sg>0?'':'-')+ai,non=(sg>0?'-':'')+ai,rhs=`m ${sg>0?'-':'+'} ${ai}`,v=(sg>0?'-':'')+2*a+'i';
+ const eq=`(m^2 + ${A2})z = ${rhs}`;
+ return {prompt:pIntro(false)+E(eq),ans:mkMulti([
+   {k:'one',correct:`m ≠ ±${ai}`,opts:[`m ≠ ±${ai}`,`m ≠ ±${a}`,'לכל m',`m ≠ ${inf}`]},
+   {k:'none',correct:`m = ${non}`,opts:[`m = ${non}`,`m = ${inf}`,`m = -${a}`,NONE]},
+   {k:'inf',correct:`m = ${inf}`,opts:[`m = ${inf}`,`m = ${non}`,`m = ${a}`,NONE]},
+   {k:'real',short:`כאשר ${M('m')} ממשי`,q:`ואם ${M('m')} היה ממשי, כמה פתרונות היו למשוואה?`,correct:'פתרון יחיד לכל m',opts:['פתרון יחיד לכל m','לפעמים אין פתרון','לפעמים אינסוף פתרונות']}]),
+  sol:`<p>מכיוון ש־${M('i^2 = -1')}, אפשר לפרק במרוכבים:</p>`+E(`m^2 + ${A2} = m^2 - (${ai})^2 = (m - ${ai})(m + ${ai})`)+`<p>המקדם של ${M('z')} מתאפס כאשר ${M(`m = ±${ai}`)}.</p>`+
+   cases([[`${M(`m ≠ ±${ai}`)}:`,`${M(`z = [1|m ${sg>0?'+':'-'} ${ai}]`)}. פתרון יחיד.`],
+    [`${M(`m = ${inf}`)}:`,`${M('0*z = 0')}: אינסוף פתרונות.`],
+    [`${M(`m = ${non}`)}:`,`${M(`0*z = ${v}`)}: אין פתרון.`],
+    [`אם ${M('m')} ממשי:`,`${M(`m^2 + ${A2} > 0`)} תמיד, ולכן תמיד יש פתרון יחיד. הערכים המיוחדים קיימים רק כש־${M('m')} מרוכב.`]])}}
+
+// C: mz + a·zb = c   (real m)
+function famC(){const a=ri(1,3),t=pick(['re','im','both']),p=t==='im'?0:nz(6),q=t==='re'?0:nz(6),c=new C(p,q);
+ const nonC=t==='both'?`m = ±${a}`:t==='re'?`m = -${a}`:`m = ${a}`,infC=t==='both'?NONE:t==='re'?`m = ${a}`:`m = -${a}`;
+ const set=[`m = ${a}`,`m = -${a}`,`m = ±${a}`,NONE];
+ const az=a===1?'':a;
+ const caseA=q===0?['אינסוף פתרונות',`${M(`0*y = 0`)} מתקיים לכל ${M('y')}, ו־${M(`x = [${p}|${2*a}]`)}. אינסוף פתרונות.`]:['',`${M(`0*y = ${q}`)} לא מתקיים: אין פתרון.`];
+ const caseB=p===0?['',`${M(`0*x = 0`)} מתקיים לכל ${M('x')}, ו־${M(`y = [${q}|${-2*a}]`)}. אינסוף פתרונות.`]:['',`${M(`0*x = ${p}`)} לא מתקיים: אין פתרון.`];
+ return {prompt:pIntro(true)+E(`mz + ${az}zb = ${pC(c)}`),ans:mkMulti([
+   {k:'one',correct:`m ≠ ±${a}`,opts:[`m ≠ ±${a}`,`m ≠ ${a}`,`m ≠ -${a}`,'לכל m']},
+   {k:'none',correct:nonC,opts:set},{k:'inf',correct:infC,opts:set}]),
+  sol:`<p>נציב ${M('z = x + yi')} ו־${M('zb = x - yi')}:</p>`+E(`m(x + yi) + ${az}(x - yi) = (m + ${a})x + (m - ${a})yi = ${pC(c)}`)+'<p>משווים חלקים ממשיים ומדומים:</p>'+E(`(m + ${a})x = ${p},   (m - ${a})y = ${q}`)+
+   cases([[`${M(`m ≠ ±${a}`)}:`,`לכל משוואה פתרון אחד: ${M(`x = [${p}|m + ${a}]`)}, ${M(`y = [${q}|m - ${a}]`)}. פתרון יחיד.`],
+    [`${M(`m = ${a}`)}:`,caseA[1]],[`${M(`m = -${a}`)}:`,caseB[1]]])}}
+
+// E1: (m - a)z^2 + 2kz + 1 = 0  (real m)
+function famE1(){const a=ri(-3,3),k=ri(1,3),b=a+k*k,lead=a===0?'m':`(m ${a>0?'-':'+'} ${Math.abs(a)})`;
+ return {prompt:pIntro(true)+E(`${lead}z^2 + ${2*k}z + 1 = 0`),ans:mkMulti([
+   {k:'one',correct:`m = ${a} או m = ${b}`,opts:[`m = ${a} או m = ${b}`,`m = ${b}`,`m = ${a}`,`m ≠ ${a}`]},
+   {k:'none',correct:NONE,opts:[NONE,`m = ${a}`,`m = ${b}`,`m > ${b}`]},
+   {k:'nonreal',correct:`m > ${b}`,opts:[`m > ${b}`,`m < ${b}`,`${a} < m < ${b}`,`m > ${a}`]}]),
+  sol:`<p>קודם בודקים מתי המקדם של ${M('z^2')} מתאפס:</p>`+cases([[`${M(`m = ${a}`)}:`,`המשוואה הופכת לליניארית ${M(`${2*k}z + 1 = 0`)}, ולכן ${M(`z = -[1|${2*k}]`)}. פתרון יחיד.`]])+
+   `<p>אם ${M(`m ≠ ${a}`)} זו משוואה ריבועית:</p>`+E(`Δ = ${2*k}^2 - 4(${a===0?'m':`m ${a>0?'-':'+'} ${Math.abs(a)}`}) = ${4*k*k+4*a} - 4m`)+
+   cases([[`${M('Δ = 0')}:`,`${M(`m = ${b}`)}, פתרון יחיד (כפול).`],[`${M('Δ < 0')}:`,`${M(`m > ${b}`)}, שני פתרונות שאינם ממשיים.`],[`${M('Δ > 0')}:`,`${M(`m < ${b}`)} (ו־${M(`m ≠ ${a}`)}), שני פתרונות ממשיים.`]])+
+   '<p>אין ערך שעבורו אין פתרון: משוואה ריבועית תמיד פתירה במספרים מרוכבים, וגם המקרה הליניארי פתיר.</p>'}}
+
+// E2: z^2 - 2mz + n^2 = 0  (real m)
+function famE2(){const n=ri(1,5),n2=n*n;
+ return {prompt:pIntro(true)+E(`z^2 - 2mz + ${n2} = 0`),ans:mkMulti([
+   {k:'one',correct:`m = ±${n}`,opts:[`m = ±${n}`,`m = ${n}`,`m = 0`,NONE]},
+   {k:'none',correct:NONE,opts:[NONE,`-${n} < m < ${n}`,`m = ±${n}`,`m = 0`]},
+   {k:'nonreal',correct:`-${n} < m < ${n}`,opts:[`-${n} < m < ${n}`,`m > ${n}`,`m < -${n} או m > ${n}`,`m > 0`]}]),
+  sol:`<p>המקדם של ${M('z^2')} הוא 1, ולכן תמיד זו משוואה ריבועית:</p>`+E(`Δ = 4m^2 - ${4*n2} = 4(m^2 - ${n2})`)+
+   cases([[`${M('Δ = 0')}:`,`${M(`m = ±${n}`)}, פתרון יחיד ${M('z = m')}.`],[`${M('Δ < 0')}:`,`${M(`-${n} < m < ${n}`)}, שני פתרונות שאינם ממשיים.`],[`${M('Δ > 0')}:`,`${M(`m < -${n}`)} או ${M(`m > ${n}`)}, שני פתרונות ממשיים.`]])+
+   '<p>אין ערך שעבורו אין פתרון: למשוואה ריבועית תמיד יש פתרון במרוכבים.</p>'}}
+
+// F1: (m - p)z^2 + 2kz + 1 = 0  (complex m)
+function famF1(){const p=Math.random()<.5?new C(0,nz(3)):rc(2),k=ri(1,2),P=pC(p),Q=pC(p.add(new C(k*k,0)));
+ return {prompt:pIntro(false)+E(`(${mMinus(p)})z^2 + ${2*k}z + 1 = 0`),ans:mkMulti([
+   {k:'one',correct:`m = ${P} או m = ${Q}`,opts:[`m = ${P} או m = ${Q}`,`m = ${Q}`,`m = ${P}`,NONE]},
+   {k:'none',correct:NONE,opts:[NONE,`m = ${P}`,`m = ${Q}`]},
+   {k:'two',correct:`m ≠ ${P} וגם m ≠ ${Q}`,opts:[`m ≠ ${P} וגם m ≠ ${Q}`,`m ≠ ${P}`,'לכל m',NONE]}]),
+  sol:cases([[`${M(`m = ${P}`)}:`,`המקדם של ${M('z^2')} מתאפס, והמשוואה ${M(`${2*k}z + 1 = 0`)} ליניארית: ${M(`z = -[1|${2*k}]`)}. פתרון יחיד.`]])+
+   `<p>אחרת זו משוואה ריבועית:</p>`+E(`Δ = ${4*k*k} - 4(${mMinus(p)})`)+cases([[`${M('Δ = 0')}:`,`${M(`m - ${pP(p)} = ${k*k}`)}, כלומר ${M(`m = ${Q}`)}. פתרון יחיד (כפול).`],[`${M('Δ ≠ 0')}:`,'שני פתרונות שונים.']])+
+   '<p>כאן לא שואלים אם הפתרונות ממשיים, כי המקדמים מרוכבים. ואין ערך שעבורו אין פתרון.</p>'}}
+
+// F2: z^2 + 2mz + w = 0, w = u^2  (complex m)
+function famF2(){const u=rc(3),w=u.mul(u),U=pC(u),Uc=pC(u.conj());
+ return {prompt:pIntro(false)+E(`z^2 + 2mz + ${pP(w)} = 0`),ans:mkMulti([
+   {k:'one',correct:`m = ±(${U})`,opts:[`m = ±(${U})`,`m = ${U}`,`m = ±(${Uc})`,NONE]},
+   {k:'none',correct:NONE,opts:[NONE,`m = ±(${U})`,`m = 0`]},
+   {k:'two',correct:`m ≠ ±(${U})`,opts:[`m ≠ ±(${U})`,`m ≠ ${U}`,'לכל m',NONE]}]),
+  sol:E(`Δ = 4m^2 - 4${pP(w)} = 4(m^2 - ${pP(w)})`)+`<p>פתרון יחיד כאשר ${M('Δ = 0')}, כלומר ${M(`m^2 = ${pC(w)}`)}. פותרים כמו ${M('z^2 = w')}: נציב ${M('m = x + yi')}:</p>`+
+   E(`x^2 - y^2 = ${pF(w.re)},   2xy = ${pF(w.im)},   x^2 + y^2 = ${pF(u.abs2())}`)+E(`⇒   m = ±${pP(u)}`)+
+   cases([[`${M(`m = ±${pP(u)}`)}:`,`${M('Δ = 0')}, פתרון יחיד ${M('z = -m')}.`],[`אחרת:`,`${M('Δ ≠ 0')}, שני פתרונות.`]])+'<p>אין ערך שעבורו אין פתרון.</p>'}}
+
+function genCount(L){
+ if(Math.random()<.2){let pool=BANK.map((b,i)=>i).filter(i=>BANK[i].L===L);if(pool.length>1)pool=pool.filter(i=>i!==lastBank[L]);const i=pick(pool);lastBank[L]=i;const b=BANK[i];const opts=b.opts||CNT;
+  return {prompt:(b.pre||'<p>כמה פתרונות יש למשוואה?</p>')+E(b.q),ans:{type:'choice',opts:opts.map(optH),correct:opts.indexOf(b.a),show:optH(b.a)},sol:b.sol}}
+ return pick(L===1?[famA,famC]:L===2?[famB,famE1,famE2,famC]:[famF1,famF2,famB,famE1])();
+}
+
+// ---------- trig: helpers
+function specialZ(set){const th=pick(set);let r;
+ if(th%90===0)r=S(ri(1,8));else if(th%45===0)r=Math.random()<.6?S(ri(1,5),2):S(2*ri(1,3));
+ else{const u=Math.random();r=u<.55?S(2*ri(1,4)):u<.8?S(2*ri(1,2),3):S(ri(1,5))}
+ const [c,s]=cs(th);return {th,r,a:mulS(r,c),b:mulS(r,s)}}
+function trigSteps(a,b,r,th,showPlane=true,lab='z'){const A2=sq(a),B2=sq(b),N=A2.add(B2),av=sv(a),bv=sv(b);
+ let s=`<p>כאן ${M(`a = ${pSv(a)}`)} ו־${M(`b = ${pSv(b)}`)}. הגודל:</p>`+E(`r = |z| = √(${pF(A2)} + ${pF(B2)}) = √${pF(N)} = ${pSm(r)}`);
+ if(!av||!bv){const where=av>0?'על החלק החיובי של הציר הממשי':av<0?'על החלק השלילי של הציר הממשי':bv>0?'על החלק החיובי של הציר המדומה':'על החלק השלילי של הציר המדומה';
+  s+=`<p>הנקודה נמצאת ${where}, ולכן ${M(`θ = ${th}°`)}.</p>`}
+ else{const q=quad(av,bv),ref=refOf(th);s+=`<p>זווית הייחוס ${M('α')}:</p>`+E(`tan α = |[b|a]| = ${TAN[ref]}   ⇒   α = ${ref}°`)+`<p>הנקודה ברביע ${QN[q]}, ולכן:</p>`+E(`θ = ${QX(q,ref)} = ${th}°`)}
+ return s+E(`${lab} = ${pPol(r,th)}`)+(showPlane?plane([{x:av,y:bv,lab:'z'}]):'')}
+function algSteps(r,th,lab='z'){const [c,s]=cs(th),a=mulS(r,c),b=mulS(r,s),R=pSm(r);
+ return E(`a = r*cos θ = ${R}*cos ${th}° = ${R}*${pSp(c)} = ${pSv(a)}`)+E(`b = r*sin θ = ${R}*sin ${th}° = ${R}*${pSp(s)} = ${pSv(b)}`)+E(`${lab} = ${pSC(a,b)}`)+plane([{x:sv(a),y:sv(b),lab:'z'}])}
+function improper(kind,r,al){const R=isOne(r)?'':pSm(r);
+ switch(kind){
+  case 'minusSin':return {show:`${R}(cos ${al}° - i sin ${al}°)`,th:norm(-al),why:`<p>הסימן בין האיברים שלילי. משתמשים ב־${M(`cos ${al}° = cos(-${al}°)`)} וב־${M(`-sin ${al}° = sin(-${al}°)`)}: הזווית היא ${M(`-${al}°`)}, ששקולה ל־${M(norm(-al)+'°')}.</p>`};
+  case 'negR':return {show:`-${R}(cos ${al}° + i sin ${al}°)`,th:norm(al+180),why:`<p>הגודל ${M('r')} חייב להיות חיובי. משתמשים ב־${M(`-cos ${al}° = cos(${al}° + 180°)`)} וב־${M(`-sin ${al}° = sin(${al}° + 180°)`)}: הזווית היא ${M(norm(al+180)+'°')}.</p>`};
+  case 'swap':return {show:`${R}(sin ${al}° + i cos ${al}°)`,th:norm(90-al),why:`<p>הסדר הפוך. משתמשים ב־${M(`sin ${al}° = cos(90° - ${al}°)`)} וב־${M(`cos ${al}° = sin(90° - ${al}°)`)}: הזווית היא ${M(norm(90-al)+'°')}.</p>`};
+  case 'minusCos':return {show:`${R}(-cos ${al}° + i sin ${al}°)`,th:norm(180-al),why:`<p>משתמשים ב־${M(`-cos ${al}° = cos(180° - ${al}°)`)} וב־${M(`sin ${al}° = sin(180° - ${al}°)`)}: הזווית היא ${M(norm(180-al)+'°')}.</p>`};
+  case 'negAngle':return {show:`${R}(cos(-${al}°) + i sin(-${al}°))`,th:norm(-al),why:`<p>זווית של ${M(`-${al}°`)} שקולה ל־${M(norm(-al)+'°')}.</p>`};
+  default:return {show:pPol(r,al),th:al,why:''}}}
+const IMPROPER=['minusSin','negR','swap','minusCos','negAngle'];
+const ptOf=(r,th)=>({x:sv(r)*Math.cos(th*Math.PI/180),y:sv(r)*Math.sin(th*Math.PI/180),lab:'z'});
+
+function genToTrig(L){
+ if(L===1||(L===2&&Math.random()<.78)){const o=specialZ(L===1?AX45:A30.concat([45,135,225,315]));
+  return {prompt:'<p>רשמו בהצגה טריגונומטרית:</p>'+E(`z = ${pSC(o.a,o.b)}`),ans:polar(sv(o.r),o.th,pPol(o.r,o.th)),sol:trigSteps(o.a,o.b,o.r,o.th)}}
+ if(L===2){const tr=pick([[3,4],[4,3],[5,12],[12,5],[8,6],[6,8],[1,2],[2,1]]),x=tr[0]*pick([1,-1]),y=tr[1]*pick([1,-1]),N=x*x+y*y,rt=Math.sqrt(N),rD=Number.isInteger(rt)?String(rt):'√'+N;
+  let th=Math.atan2(y,x)*180/Math.PI;th=norm(th);const q=quad(x,y),ref=Math.atan(Math.abs(y/x))*180/Math.PI,thR=Math.round(th*100)/100;
+  const show=CIS?`${rD}cis ${thR.toFixed(2)}°`:`${rD}(cos ${thR.toFixed(2)}° + i sin ${thR.toFixed(2)}°)`;
+  return {prompt:'<p>רשמו בהצגה טריגונומטרית (עגלו את הזווית לשתי ספרות אחרי הנקודה):</p>'+E(`z = ${pC(new C(x,y))}`),ans:polar(rt,th,show,true),
+   sol:`<p>הגודל:</p>`+E(`r = √(${pSq(x)} + ${pSq(y)}) = √${N} = ${rD}`)+`<p>זווית הייחוס ${M('α')}:</p>`+E(`tan α = |[b|a]| = [${Math.abs(y)}|${Math.abs(x)}]   ⇒   α ≈ ${ref.toFixed(2)}°`)+
+    `<p>הנקודה ברביע ${QN[q]}, ולכן:</p>`+E(`θ ≈ ${QX(q,ref.toFixed(2))} = ${thR.toFixed(2)}°`)+E(`z ≈ ${show}`)+plane([{x,y,lab:'z'}])}}
+ if(Math.random()<.6){const kind=pick(IMPROPER),al=pick([10,20,25,35,40,50,70,80,110,130,160]),r=S(ri(2,8)),o=improper(kind,r,al);
+  return {prompt:'<p>ההצגה הזאת אינה טריגונומטרית תקנית. רשמו אותה בהצגה תקנית:</p>'+E(`z = ${o.show}`),ans:polar(sv(r),o.th,pPol(r,o.th)),sol:o.why+E(`z = ${pPol(r,o.th)}`)+plane([ptOf(r,o.th)])}}
+ const th=5*ri(1,71),r=S(ri(2,7)),v=pick(['zb','-z','-zb']),R=pSm(r);
+ const tgt=v==='zb'?norm(-th):v==='-z'?norm(th+180):norm(180-th);
+ let sol;
+ if(v==='zb')sol='<p>בצמוד הגודל נשאר והזווית מחליפה סימן:</p>'+E(`zb = ${R}(cos(-${th}°) + i sin(-${th}°)) = ${pPol(r,tgt)}`);
+ else if(v==='-z')sol=`<p>${M('-z')} סימטרי ל־${M('z')} ביחס לראשית: אותו גודל, והזווית גדלה ב־${M('180°')}:</p>`+E(`θ = ${th}° + 180° = ${th+180}°`)+(th+180>=360?`<p>זווית שקולה: ${M(`${th+180}° - 360° = ${tgt}°`)}.</p>`:'')+E(`-z = ${pPol(r,tgt)}`);
+ else sol=`<p>קודם הצמוד: ${M(`zb = ${pPol(r,norm(-th))}`)}. אחר כך הכפלה ב־${M('-1')} מוסיפה ${M('180°')}:</p>`+E(`θ = ${norm(-th)}° + 180° = ${norm(-th)+180}°`)+(norm(-th)+180>=360?`<p>זווית שקולה: ${M(`${tgt}°`)}.</p>`:'')+E(`-zb = ${pPol(r,tgt)}`);
+ return {prompt:`<p>נתון ${M(`z = ${pPol(r,th)}`)}. רשמו בהצגה טריגונומטרית את:</p>`+E(v),ans:polar(sv(r),tgt,pPol(r,tgt)),sol:sol+plane([ptOf(r,tgt)])};
+}
+
+function genToAlg(L){
+ if(L<3){const o=specialZ(L===1?AX45:A30);
+  return {prompt:'<p>רשמו בהצגה אלגברית:</p>'+E(`z = ${pPol(o.r,o.th)}`),ans:csetS([[o.a,o.b]]),sol:algSteps(o.r,o.th)}}
+ const kind=pick(IMPROPER),al=pick([30,45,60,120,135,150]),r=pick([S(2),S(4),S(6),S(2,2),S(4,2),S(3)]),o=improper(kind,r,al),[c,s]=cs(o.th);
+ return {prompt:'<p>רשמו בהצגה אלגברית:</p>'+E(`z = ${o.show}`),ans:csetS([[mulS(r,c),mulS(r,s)]]),sol:'<p>קודם מעבירים להצגה תקנית.</p>'+o.why+E(`z = ${pPol(r,o.th)}`)+algSteps(r,o.th)};
+}
+
+function multCore(r1,t1,r2,t2,names='z_1*z_2'){const R=mulS(r1,r2),Tt=t1+t2;
+ return '<p>בכפל כופלים את הגדלים ומחברים את הזוויות:</p>'+E(`r = ${pSm(r1)}*${pSm(r2)} = ${pSm(R)}`)+E(`θ = ${t1}° + ${t2}° = ${Tt}°`)+(Tt>=360?`<p>זווית שקולה: ${M(`${Tt}° - 360° = ${Tt-360}°`)}.</p>`:'')+E(`${names} = ${pPol(R,norm(Tt))}`)}
+function genMult(L){
+ const ang=()=>5*ri(1,71);
+ const given=(a,b)=>'<p>נתונים:</p>'+E(`z_1 = ${a}`)+E(`z_2 = ${b}`);
+ if(L===1){const r1=S(ri(1,6)),r2=S(ri(1,6)),t1=ang(),t2=ang(),R=mulS(r1,r2),th=norm(t1+t2);
+  return {prompt:given(pPol(r1,t1),pPol(r2,t2))+`<p>חשבו את ${M('z_1*z_2')} בהצגה טריגונומטרית.</p>`,ans:polar(sv(R),th,pPol(R,th)),sol:multCore(r1,t1,r2,t2)+plane([ptOf(R,th)])}}
+ if(L===2){
+  if(Math.random()<.5){const Tt=pick([30,45,60,90,120,135,150,180,210,225,240,270,300,315,330]);let t1,t2;do{t1=ang();t2=norm(Tt-t1)}while(t2===0);
+   const r1=S(ri(1,4)),r2=S(ri(1,4)),R=mulS(r1,r2),[c,s]=cs(Tt);
+   return {prompt:given(pPol(r1,t1),pPol(r2,t2))+`<p>חשבו את ${M('z_1*z_2')} ורשמו את התוצאה בהצגה אלגברית.</p>`,ans:csetS([[mulS(R,c),mulS(R,s)]]),sol:multCore(r1,t1,r2,t2)+'<p>עכשיו עוברים להצגה אלגברית:</p>'+algSteps(R,Tt,'z_1*z_2')}}
+  const o=specialZ([45,135,225,315,30,60,120,150,210,240,300,330,90,270]),r2=S(ri(1,5)),t2=ang(),R=mulS(o.r,r2),th=norm(o.th+t2);
+  return {prompt:given(pSC(o.a,o.b),pPol(r2,t2))+`<p>חשבו את ${M('z_1*z_2')} בהצגה טריגונומטרית.</p>`,ans:polar(sv(R),th,pPol(R,th)),
+   sol:`<p>קודם מעבירים את ${M('z_1')} להצגה טריגונומטרית.</p>`+trigSteps(o.a,o.b,o.r,o.th,false,'z_1')+multCore(o.r,o.th,r2,t2)+plane([ptOf(R,th)])}}
+ const v=pick(['imp','imp','three','iz']);
+ if(v==='imp'){const k1=pick(['minusSin','negR','swap','minusCos','proper']),k2=pick(['minusSin','negR','swap','minusCos']),a1=10*ri(1,8),a2=10*ri(1,8),r1=S(ri(1,5)),r2=S(ri(1,5));
+  const o1=improper(k1,r1,a1),o2=improper(k2,r2,a2),R=mulS(r1,r2),th=norm(o1.th+o2.th);
+  return {prompt:given(o1.show,o2.show)+`<p>חשבו את ${M('z_1*z_2')} בהצגה טריגונומטרית.</p>`,ans:polar(sv(R),th,pPol(R,th)),
+   sol:'<p>קודם מעבירים כל מספר להצגה תקנית.</p>'+(o1.why?`<p class="lbl">${M('z_1')}:</p>`+o1.why:'')+E(`z_1 = ${pPol(r1,o1.th)}`)+`<p class="lbl">${M('z_2')}:</p>`+o2.why+E(`z_2 = ${pPol(r2,o2.th)}`)+multCore(r1,o1.th,r2,o2.th)+plane([ptOf(R,th)])}}
+ if(v==='three'){const r1=S(ri(1,4)),r2=S(ri(1,4)),r3=S(ri(1,3)),t1=ang(),t2=ang(),t3=ang(),R=mulS(mulS(r1,r2),r3),Tt=t1+t2-t3,th=norm(Tt);
+  return {prompt:'<p>נתונים:</p>'+E(`z_1 = ${pPol(r1,t1)}`)+E(`z_2 = ${pPol(r2,t2)}`)+E(`z_3 = ${pPol(r3,t3)}`)+`<p>חשבו את ${M('z_1*z_2*zb_3')} בהצגה טריגונומטרית.</p>`,ans:polar(sv(R),th,pPol(R,th)),
+   sol:'<p>לצמוד אותו גודל וזווית נגדית:</p>'+E(`zb_3 = ${pPol(r3,-t3)}`)+'<p>כופלים את הגדלים ומחברים את הזוויות:</p>'+E(`r = ${pSm(r1)}*${pSm(r2)}*${pSm(r3)} = ${pSm(R)}`)+E(`θ = ${t1}° + ${t2}° - ${t3}° = ${Tt}°`)+(Tt!==th?`<p>זווית שקולה בין ${M('0°')} ל־${M('360°')}: ${M(th+'°')}.</p>`:'')+E(`z_1*z_2*zb_3 = ${pPol(R,th)}`)+plane([ptOf(R,th)])}}
+ const r=S(ri(2,6)),t=ang(),w=pick(['i*zb','-i*z','-i*zb']),ia=w.startsWith('-')?270:90,zt=w.endsWith('zb')?-t:t,Tt=ia+zt,th=norm(Tt);
+ return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E(w),ans:polar(sv(r),th,pPol(r,th)),
+  sol:`<p>גם ${M(ia===90?'i':'-i')} הוא מספר בהצגה טריגונומטרית, עם גודל 1:</p>`+E(`${ia===90?'i':'-i'} = ${pPol(S(1),ia)}`)+(zt<0?E(`zb = ${pPol(r,-t)}`):'')+
+   '<p>כופלים את הגדלים ומחברים את הזוויות:</p>'+E(`θ = ${ia}° + ${pA(zt)} = ${Tt}°`)+(Tt!==th?`<p>זווית שקולה: ${M(th+'°')}.</p>`:'')+E(`${w} = ${pPol(r,th)}`)+plane([ptOf(r,th)])};
+}
+
+// ---------- answer parsing / checking
+function parseNum(s){
+ s=String(s).trim();if(s==='')return {empty:true};
+ s=s.replace(/[\u2212\u2013\u2014]/g,'-').replace(/,/g,'.').replace(/sqrt/gi,'√').replace(/[×·]/g,'*').replace(/÷/g,'/').replace(/\s+/g,'');
+ s=s.replace(/√\(([^()]*)\)/g,'S($1)').replace(/√(\d+(?:\.\d+)?)/g,'S($1)');
+ s=s.replace(/(\d|\))S/g,'$1*S').replace(/\)(?=[\dS(])/g,')*').replace(/(\d)\(/g,'$1*(');
+ if(/√/.test(s)||!/^[0-9+\-*/().S]*$/.test(s))return {err:true};
+ try{const v=Function('S','"use strict";return ('+s+');')(Math.sqrt);if(typeof v!=='number'||!isFinite(v))return {err:true};return {v}}catch(e){return {err:true}}
+}
+const near=(a,b,t)=>Math.abs(a-b)<=t+1e-3*Math.abs(b);
+function checkAns(ans,raw){ // raw: {key:string}
+ const keys=Object.keys(raw);if(keys.every(k=>String(raw[k]).trim()===''))return {empty:true};
+ const val={};for(const k of keys){const p=parseNum(raw[k]);if(p.err)return {err:k};val[k]=p.empty?0:p.v}
+ if(ans.type==='cset'){const n=ans.vals.length,u=[];for(let i=0;i<n;i++)u.push([val['re'+i],val['im'+i]]);
+  const e=(p,q)=>near(p[0],q[0],.006)&&near(p[1],q[1],.006);
+  const ok=n===1?e(u[0],ans.vals[0]):(e(u[0],ans.vals[0])&&e(u[1],ans.vals[1]))||(e(u[0],ans.vals[1])&&e(u[1],ans.vals[0]));return {ok}}
+ if(ans.type==='reals')return {ok:ans.fields.every((f,i)=>near(val['f'+i],f.v,.006))};
+ if(ans.type==='polar'){const rOk=near(val.r,ans.r,ans.approx?.02:.006);let d=norm(val.th-ans.th);if(d>180)d=360-d;const tOk=d<=(ans.approx?.6:.15);return {ok:rOk&&tOk,rOk,tOk}}
+ return {ok:false};
+}
+
+// ---------- geometric sequences with complex numbers (no De Moivre)
+function qPow(q,m){const val=pw(q,m);
+ if(m===0)return {h:'',val};
+ if(m===1)return {h:'',val};
+ if(q.im.z())return {h:E(`(${pF(q.re)})^{${m}} = ${pF(val.re)}`),val};
+ if(q.re.z()){const k=q.im.n,r=m%4,qb=k===1?'i':pP(q);
+  const h=(k===1?'':Math.abs(k)===1?E(`${qb}^{${m}} = (-1)^{${m}}*i^{${m}}`):E(`${qb}^{${m}} = ${pN(k)}^{${m}}*i^{${m}}`))+
+   E(`${m} = 4*${Math.floor(m/4)} + ${r}   ⇒   i^{${m}} = i^{${r}} = ${pC(IP[r])}`)+(k===1?'':E(`${qb}^{${m}} = ${pC(val)}`));
+  return {h,val}}
+ const s2=q.mul(q),k=Math.floor(m/2),sk=pw(s2,k);
+ let h=E(`${pP(q)}^2 = ${pC(s2)}`)+E(`${pP(q)}^{${m}} = ${m%2?`(${pP(q)}^2)^{${k}}*${pP(q)}`:`(${pP(q)}^2)^{${k}}`} = ${pP(s2)}^{${k}}${m%2?`*${pP(q)}`:''}`);
+ if(k>1)h+=E(`${pP(s2)}^{${k}} = ${pN(s2.im)}^{${k}}*i^{${k}} = ${pC(sk)}`);
+ if(m%2)h+=E(`${pCo(sk)}*${pP(q)} = ${pC(val)}`);
+ return {h,val}}
+function divBy(X,d){return d.im.z()?E(`[${pC(X)}|${pF(d.re)}] = ${pC(X.div(d))}`):divSteps(X,d)}
+function sqrtSteps(w,u,name){ // solve name^2 = w, roots ±u
+ return `<p>נציב ${M(`${name} = x + yi`)} ומשווים חלקים, ונוסיף את ${M(`|${name}|^2 = |w|`)}:</p>`+E(`x^2 - y^2 = ${pF(w.re)},   2xy = ${pF(w.im)},   x^2 + y^2 = ${pF(u.abs2())}`)+
+  E(`x^2 = ${pF(u.re.mul(u.re))},   y^2 = ${pF(u.im.mul(u.im))}`)+`<p>הסימנים של ${M('x')} ו־${M('y')} נקבעים לפי ${M(`2xy = ${pF(w.im)}`)}:</p>`+E(`${name} = ±${pP(u)}`)}
+const QI=[new C(0,1),new C(0,-1)],Q1I=[new C(1,1),new C(1,-1),new C(-1,1),new C(-1,-1)],QKI=[new C(0,2),new C(0,-2)];
+const geoIntro=(a1,q)=>`<p>בסדרה הנדסית ${M(`a_1 = ${pC(a1)}`)} ו־${M(`q = ${pC(q)}`)}.</p>`;
+function geoTerm(qs,lo,hi){const a1=rc(4),q=pick(qs),n=ri(lo,hi),m=n-1,P=qPow(q,m),an=a1.mul(P.val);
+ return {prompt:geoIntro(a1,q)+`<p>מצאו את ${M(`a_{${n}}`)}.</p>`,ans:cset([an]),
+  sol:E('a_{n} = a_1*q^{n-1}')+E(`a_{${n}} = ${pP(a1)}*${pP(q)}^{${m}}`)+'<p>מחשבים את החזקה:</p>'+P.h+E(`a_{${n}} = ${pP(a1)}*${pCo(P.val)} = ${pC(an)}`)}}
+function geoSum(qs,lo,hi){const a1=rc(4),q=pick(qs),n=ri(lo,hi),P=qPow(q,n),one=new C(1,0),num=P.val.sub(one),den=q.sub(one);
+ let sol=E('S_{n} = [a_1(q^n - 1)|q - 1]')+`<p>מחשבים את ${M(`q^{${n}}`)}:</p>`+P.h;
+ if(num.abs2().v===0){sol+=`<p>${M(`q^{${n}} = 1`)}, ולכן המונה מתאפס:</p>`+E(`S_{${n}} = 0`)+(q.re.z()?'<p class="note">כשהמנה היא '+M('±i')+', כל ארבעה איברים עוקבים מתבטלים בסכום.</p>':'');return {prompt:geoIntro(a1,q)+`<p>חשבו את ${M(`S_{${n}}`)}, סכום ${n} האיברים הראשונים.</p>`,ans:cset([new C(0,0)]),sol}}
+ const X=a1.mul(num);
+ sol+=E(`S_{${n}} = [${pP(a1)}(${pC(P.val)} - 1)|${pC(q)} - 1] = [${pP(a1)}${pP(num)}|${pC(den)}] = [${pC(X)}|${pC(den)}]`)+divBy(X,den);
+ return {prompt:geoIntro(a1,q)+`<p>חשבו את ${M(`S_{${n}}`)}, סכום ${n} האיברים הראשונים.</p>`,ans:cset([X.div(den)]),sol}}
+function geoFindQ(){const a1=rc(4),q=pick([new C(0,1),new C(0,-1),new C(1,1),new C(1,-1),new C(0,2),new C(-1,1),new C(2,1),new C(1,2)]),a2=a1.mul(q),a3=a2.mul(q);
+ return {prompt:`<p>בסדרה הנדסית ${M(`a_1 = ${pC(a1)}`)} ו־${M(`a_2 = ${pC(a2)}`)}. מצאו את ${M('a_3')}.</p>`,ans:cset([a3]),
+  sol:'<p>קודם מוצאים את המנה:</p>'+E('q = [a_2|a_1]')+divSteps(a2,a1)+`<p>ולכן ${M(`q = ${pC(q)}`)}, ו־${M('a_3 = a_2*q')}:</p>`+mulSteps(a2,q)}}
+function geoFindA1(){const a1=rc(4),q=pick([new C(1,1),new C(1,-1),new C(0,2),new C(-1,1),new C(0,1),new C(0,-1),new C(2,1)]),s2=q.mul(q),a3=a1.mul(s2);
+ return {prompt:`<p>בסדרה הנדסית ${M(`a_3 = ${pC(a3)}`)} ו־${M(`q = ${pC(q)}`)}. מצאו את ${M('a_1')}.</p>`,ans:cset([a1]),
+  sol:E('a_3 = a_1*q^2   ⇒   a_1 = [a_3|q^2]')+sqSteps(q)+(s2.im.z()||s2.re.z()?'':'')+divBy(a3,s2)}}
+function geoIsGeo(){const q=pick([new C(0,1),new C(1,1),new C(0,2),new C(1,-1),new C(-1,1)]),a1=rc(3),a2=a1.mul(q),yes=Math.random()<.5,a3=yes?a2.mul(q):a2.mul(q).add(pick([new C(1,0),new C(0,1),new C(0,-1),new C(-1,0)]));
+ return {prompt:'<p>האם המספרים הבאים הם שלושה איברים עוקבים בסדרה הנדסית?</p>'+E(`${pC(a1)},   ${pC(a2)},   ${pC(a3)}`),ans:{type:'choice',opts:['כן','לא'],correct:yes?0:1,show:yes?'כן':'לא'},
+  sol:'<p>בודקים אם המנה בין איברים עוקבים קבועה.</p><p class="lbl">מנה ראשונה:</p>'+divSteps(a2,a1)+'<p class="lbl">מנה שנייה:</p>'+divSteps(a3,a2)+
+   (yes?`<p>שתי המנות שוות ל־${M(pC(q))}, ולכן זו סדרה הנדסית.</p>`:'<p>המנות שונות, ולכן המספרים אינם סדרה הנדסית.</p>')}}
+function geoMid(){let a,c;do{a=rc(2);c=rc(2)}while(false);const b=a.mul(c).mul(c),u=a.mul(c),w=a.mul(b);
+ return {prompt:`<p>מצאו את כל המספרים ${M('z')} שעבורם ${M(`${pC(a)},   z,   ${pC(b)}`)} הם שלושה איברים עוקבים בסדרה הנדסית.</p>`,ans:cset([u,u.neg()]),
+  sol:`<p>בסדרה הנדסית ${M('[z|a_1] = [a_3|z]')}, ולכן ${M('z^2 = a_1*a_3')}:</p>`+mulSteps(a,b)+E(`z^2 = ${pC(w)}`)+sqrtSteps(w,u,'z')}}
+function geoSumEO(){const q=pick([new C(1,1),new C(1,-1),new C(0,2),new C(0,-2),new C(0,1)]),a1=rc(3),even=Math.random()<.5,k=ri(3,5);
+ const Q=q.mul(q),b1=even?a1.mul(q):a1,P=qPow(Q,k),one=new C(1,0),num=P.val.sub(one),den=Q.sub(one);
+ const pl=even?'הזוגיים':'האי־זוגיים',list=even?'a_2, a_4, a_6, ...':'a_1, a_3, a_5, ...';
+ let sol=`<p>האיברים במקומות ${pl} (${M(list)}) הם סדרה הנדסית חדשה, שהמנה שלה ${M('q^2')}:</p>`+sqSteps(q)+
+  `<p>האיבר הראשון שלה: ${M(even?`b_1 = a_2 = a_1*q = ${pP(a1)}${pP(q)} = ${pC(b1)}`:`b_1 = a_1 = ${pC(a1)}`)}.</p>`+E(`S = [b_1(Q^k - 1)|Q - 1],   Q = ${pC(Q)},   k = ${k}`)+`<p>מחשבים את ${M(`Q^{${k}}`)}:</p>`+P.h;
+ let S;
+ if(num.abs2().v===0){S=new C(0,0);sol+=`<p>${M(`Q^{${k}} = 1`)}, ולכן הסכום הוא 0.</p>`}
+ else{const X=b1.mul(num);S=X.div(den);sol+=E(`S = [${pP(b1)}(${pC(P.val)} - 1)|${pC(Q)} - 1] = [${pC(X)}|${pC(den)}]`)+divBy(X,den)}
+ return {prompt:geoIntro(a1,q)+`<p>חשבו את סכום ${k} האיברים הראשונים שנמצאים במקומות ${pl}.</p>`,ans:cset([S]),sol}}
+function geoQFromTerms(){const q=rc(2),a2=rc(3),w=q.mul(q),a4=a2.mul(w);
+ return {prompt:`<p>בסדרה הנדסית ${M(`a_2 = ${pC(a2)}`)} ו־${M(`a_4 = ${pC(a4)}`)}. מצאו את כל הערכים האפשריים של המנה ${M('q')}.</p>`,ans:cset([q,q.neg()]),
+  sol:E('a_4 = a_2*q^2   ⇒   q^2 = [a_4|a_2]')+divSteps(a4,a2)+E(`q^2 = ${pC(w)}`)+sqrtSteps(w,q,'q')+'<p>שתי המנות אפשריות, כלומר יש שתי סדרות מתאימות.</p>'}}
+function geoSumCore(a1,q,N,name){const P=qPow(q,N),one=new C(1,0),num=P.val.sub(one),den=q.sub(one);
+ let sol=E(`S_{n} = [a_1(q^n - 1)|q - 1]`)+`<p>כאן ${M(`a_1 = ${pC(a1)}`)}, ${M(`q = ${pC(q)}`)}, ומספר האיברים ${M(`n = ${N}`)}. מחשבים את ${M(`q^{${N}}`)}:</p>`+P.h;
+ if(num.abs2().v===0)return {S:new C(0,0),sol:sol+`<p>${M(`q^{${N}} = 1`)}, ולכן המונה מתאפס:</p>`+E(`${name} = 0`)};
+ const X=a1.mul(num);
+ sol+=E(`${name} = [${pP(a1)}(${pC(P.val)} - 1)|${pC(q)} - 1] = [${pC(X)}|${pC(den)}]`)+divBy(X,den);
+ return {S:X.div(den),sol}}
+function geoSumExp(kind){
+ if(kind==='i'){const start=pick([0,1]),n=ri(10,50),N=start?n:n+1,a1=start?new C(0,1):new C(1,0),q=new C(0,1),R=geoSumCore(a1,q,N,'S');
+  const ex=start?`i + i^2 + i^3 + ... + i^{${n}}`:`1 + i + i^2 + ... + i^{${n}}`;
+  return {prompt:'<p>חשבו את הסכום:</p>'+E(ex),ans:cset([R.S]),sol:`<p>זה סכום של סדרה הנדסית עם ${M(`a_1 = ${pC(a1)}`)} ו־${M('q = i')}. ${start?`יש בה ${M(`${n}`)} איברים`:`יש בה ${M(`${n} + 1 = ${N}`)} איברים, כי מתחילים מ־${M('i^0 = 1')}`}.</p>`+R.sol}}
+ const q=pick(Q1I),n=ri(4,9),R=geoSumCore(q,q,n,'S');
+ return {prompt:'<p>חשבו את הסכום:</p>'+E(`${pP(q)} + ${pP(q)}^2 + ${pP(q)}^3 + ... + ${pP(q)}^{${n}}`),ans:cset([R.S]),
+  sol:`<p>זה סכום של סדרה הנדסית שהאיבר הראשון שלה והמנה שלה שווים ל־${M(pC(q))}, ויש בה ${M(`${n}`)} איברים.</p>`+R.sol}}
+function geoSumFindA1(){let q,n;do{q=pick([new C(1,1),new C(1,-1),new C(0,2),new C(0,-2),new C(0,1),new C(-1,1)]);n=q.abs2().v===1?pick([5,6,7,9,10,11]):ri(3,6)}while(pw(q,n).sub(new C(1,0)).abs2().v===0);
+ const a1=rc(3),one=new C(1,0),P=qPow(q,n),num=P.val.sub(one),den=q.sub(one),S=a1.mul(num).div(den),Y=S.mul(den);
+ return {prompt:`<p>בסדרה הנדסית ${M(`q = ${pC(q)}`)} וסכום ${n} האיברים הראשונים הוא ${M(`S_{${n}} = ${pC(S)}`)}. מצאו את ${M('a_1')}.</p>`,ans:cset([a1]),
+  sol:E(`S_{n} = [a_1(q^n - 1)|q - 1]   ⇒   a_1 = [S_{n}(q - 1)|q^n - 1]`)+`<p>מחשבים את ${M(`q^{${n}}`)}:</p>`+P.h+
+   E(`a_1 = [${pP(S)}(${pC(q)} - 1)|${pC(P.val)} - 1] = [${pP(S)}${pP(den)}|${pC(num)}]`)+'<p>במונה:</p>'+mulSteps(S,den)+divBy(Y,num)}}
+function genGeo(L){
+ const SEQ={1:['termI','sumI','findq','sumIExp','isGeo','sumI','findA1','sumKI'],2:['term1i','sum1i','sumIExp','mid','sumKI','sum1iExp','findA1','sum1i'],3:['sumEO','sumFindA1','qFrom','sum1iExp','sumEO','sumFindA1','mid','sumEO']};
+ const ck='geo'+L;lastBank[ck]=(lastBank[ck]??-1)+1;const v=SEQ[L][lastBank[ck]%8];
+ switch(v){
+  case 'termI':return geoTerm(QI,10,60);
+  case 'term1i':return geoTerm(Q1I,4,12);
+  case 'sumI':return geoSum(QI,5,40);
+  case 'sumKI':return geoSum(QKI,3,6);
+  case 'sum1i':return geoSum([new C(1,1),new C(1,-1)],4,10);
+  case 'sumIExp':return geoSumExp('i');
+  case 'sum1iExp':return geoSumExp('1i');
+  case 'sumFindA1':return geoSumFindA1();
+  case 'findq':return geoFindQ();
+  case 'findA1':return geoFindA1();
+  case 'isGeo':return geoIsGeo();
+  case 'mid':return geoMid();
+  case 'sumEO':return geoSumEO();
+  default:return geoQFromTerms()}}
+
+const GENS={arith:genArith,conj:genConj,eq:genEq,count:genCount,toTrig:genToTrig,toAlg:genToAlg,mult:genMult,geo:genGeo};
+
+// ---------- extra trig exercises: multiply by a negative number, division
+function divCore(r1,t1,r2,t2,name,sign='-'){const R=S(r1.c.div(r2.c)),Tt=sign==='-'?t1-t2:t1+t2,th=norm(Tt);
+ return '<p>בחילוק מחלקים את הגדלים ומחסרים את הזוויות:</p>'+E(`r = [${pSm(r1)}|${pSm(r2)}] = ${pSm(R)}`)+E(`θ = ${t1}° ${sign} ${t2}° = ${Tt}°`)+(Tt!==th?`<p>זווית שקולה בין ${M('0°')} ל־${M('360°')}: ${M(th+'°')}.</p>`:'')+E(`${name} = ${pPol(R,th)}`)}
+function genTrigExtra(kind){
+ const ang=()=>5*ri(1,71),rI=(a,b)=>S(ri(a,b));
+ if(kind==='neg'){const k=ri(2,6),r=rI(1,5),t=ang(),R=S(k*sv(r)),th=norm(t+180);
+  return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E(`-${k}*z`),ans:polar(sv(R),th,pPol(R,th)),
+   sol:`<p>קודם מעבירים את ${M(`-${k}`)} להצגה טריגונומטרית. הנקודה על החלק השלילי של הציר הממשי, ולכן הזווית ${M('180°')}:</p>`+E(`-${k} = ${pPol(S(k),180)}`)+multCore(S(k),180,r,t,`-${k}*z`)+plane([ptOf(R,th)])}}
+ if(kind==='negAlg'){const k=ri(2,5),o=specialZ([30,45,60,120,135,150,210,225,240,300,315,330]),R=mulS(S(k),o.r),th=norm(o.th+180);
+  return {prompt:'<p>נתונים:</p>'+E(`z_1 = -${k}`)+E(`z_2 = ${pSC(o.a,o.b)}`)+`<p>חשבו את ${M('z_1*z_2')} בהצגה טריגונומטרית.</p>`,ans:polar(sv(R),th,pPol(R,th)),
+   sol:`<p>מעבירים את שני המספרים להצגה טריגונומטרית. ${M(`z_1 = -${k}`)} נמצא על החלק השלילי של הציר הממשי:</p>`+E(`z_1 = ${pPol(S(k),180)}`)+`<p class="lbl">${M('z_2')}:</p>`+trigSteps(o.a,o.b,o.r,o.th,false,'z_2')+multCore(S(k),180,o.r,o.th)+plane([ptOf(R,th)])}}
+ if(kind==='div'||kind==='divAlg'){let r2=rI(1,4),r1=S(sv(r2)*ri(1,4)),t1,t2,th;
+  if(kind==='divAlg'){const Tt=pick([30,45,60,120,135,150,210,225,240,300,315,330]);t2=ang();t1=norm(Tt+t2);if(t1===0)t1=360;th=Tt}else{t1=ang();t2=ang();th=norm(t1-t2)}
+  const R=S(r1.c.div(r2.c)),[c,s]=kind==='divAlg'?cs(th):[0,0];
+  return {prompt:'<p>נתונים:</p>'+E(`z_1 = ${pPol(r1,t1)}`)+E(`z_2 = ${pPol(r2,t2)}`)+`<p>חשבו את ${M('[z_1|z_2]')} ${kind==='divAlg'?'ורשמו את התוצאה בהצגה אלגברית':'בהצגה טריגונומטרית'}.</p>`,
+   ans:kind==='divAlg'?csetS([[mulS(R,c),mulS(R,s)]]):polar(sv(R),th,pPol(R,th)),
+   sol:divCore(r1,t1,r2,t2,'[z_1|z_2]')+(kind==='divAlg'?'<p>עכשיו עוברים להצגה אלגברית:</p>'+algSteps(R,th,'[z_1|z_2]'):plane([ptOf(R,th)]))}}
+ if(kind==='divI'){const r=rI(2,8),t=ang(),th=norm(t-90);
+  return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E('[z|i]'),ans:polar(sv(r),th,pPol(r,th)),
+   sol:`<p>כותבים את ${M('i')} בהצגה טריגונומטרית (גודל 1, על החלק החיובי של הציר המדומה):</p>`+E(`i = ${pPol(S(1),90)}`)+divCore(r,t,S(1),90,'[z|i]')+plane([ptOf(r,th)])}}
+ if(kind==='iDiv'){const r=pick([S(2),S(4),S(5)]),t=ang(),R=S(new F(1,sv(r))),th=norm(90-t);
+  return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E('[i|z]'),ans:polar(sv(R),th,pPol(R,th)),
+   sol:E(`i = ${pPol(S(1),90)}`)+divCore(S(1),90,r,t,'[i|z]')+plane([ptOf(R,th)])}}
+ if(kind==='divNeg'){const k=pick([2,3,4]),r=S(k*ri(1,3)),t=ang(),R=S(new F(sv(r),k)),th=norm(t-180);
+  return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E(`[z|-${k}]`),ans:polar(sv(R),th,pPol(R,th)),
+   sol:`<p>מעבירים את ${M(`-${k}`)} להצגה טריגונומטרית:</p>`+E(`-${k} = ${pPol(S(k),180)}`)+divCore(r,t,S(k),180,`[z|-${k}]`)+plane([ptOf(R,th)])}}
+ if(kind==='negDiv'){const k=ri(2,8),r=pick([S(2),S(4)]),t=ang(),R=S(new F(k,sv(r))),th=norm(180-t);
+  return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E(`[-${k}|z]`),ans:polar(sv(R),th,pPol(R,th)),
+   sol:E(`-${k} = ${pPol(S(k),180)}`)+divCore(S(k),180,r,t,`[-${k}|z]`)+plane([ptOf(R,th)])}}
+ if(kind==='divConj'){const r=rI(2,6),t=ang(),th=norm(2*t);
+  return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E('[z|zb]'),ans:polar(1,th,pPol(S(1),th)),
+   sol:'<p>לצמוד אותו גודל וזווית נגדית:</p>'+E(`zb = ${pPol(r,-t)}`)+'<p>בחילוק מחלקים את הגדלים ומחסרים את הזוויות:</p>'+E(`r = [${pSm(r)}|${pSm(r)}] = 1`)+E(`θ = ${t}° - (-${t}°) = ${2*t}°`)+(2*t!==th?`<p>זווית שקולה: ${M(th+'°')}.</p>`:'')+E(`[z|zb] = ${pPol(S(1),th)}`)+plane([ptOf(S(1),th)])}}
+ // divConj2: z1 / conj(z2)
+ const r2=rI(1,3),r1=S(sv(r2)*ri(1,4)),t1=ang(),t2=ang(),R=S(r1.c.div(r2.c)),Tt=t1+t2,th=norm(Tt);
+ return {prompt:'<p>נתונים:</p>'+E(`z_1 = ${pPol(r1,t1)}`)+E(`z_2 = ${pPol(r2,t2)}`)+`<p>חשבו את ${M('[z_1|zb_2]')} בהצגה טריגונומטרית.</p>`,ans:polar(sv(R),th,pPol(R,th)),
+  sol:'<p>לצמוד אותו גודל וזווית נגדית:</p>'+E(`zb_2 = ${pPol(r2,-t2)}`)+'<p>בחילוק מחלקים את הגדלים ומחסרים את הזוויות, וחיסור של זווית שלילית הוא חיבור:</p>'+E(`r = [${pSm(r1)}|${pSm(r2)}] = ${pSm(R)}`)+E(`θ = ${t1}° - (-${t2}°) = ${Tt}°`)+(Tt!==th?`<p>זווית שקולה: ${M(th+'°')}.</p>`:'')+E(`[z_1|zb_2] = ${pPol(R,th)}`)+plane([ptOf(R,th)])};
+}
+const PLAN={
+ toTrig:Array.from({length:16},(_,i)=>i+1),
+ toAlg:[2,9,14,18,20],
+ mult:[1,10,'neg','negAlg','neg','negAlg',9,12,14,16,17,18,19,23,'div','divAlg','divI','iDiv','divNeg','negDiv','divConj','divConj2'],
+};
+// ---------- Bagrut-style questions
+const BAGRUT=[
+ {stem:`<p>נתונה המשוואה ${M('z^2 - 4z + 13 = 0')}.</p>`,parts:[
+  {a:'z = 2 ± 3i',q:'פתרו את המשוואה.',sol:E('Δ = 16 - 52 = -36   ⇒   √Δ = ±6i')+E('z_{1,2} = [4 ± 6i|2] = 2 ± 3i')},
+  {a:'-[5|13] + [12|13]i',q:`נסמן ${M('z_1 = 2 + 3i')} ו־${M('z_2 = 2 - 3i')}. חשבו את ${M('[z_1|z_2]')} בהצגה אלגברית.`,sol:'<p>כופלים את המונה ואת המכנה בצמוד של המכנה:</p>'+E('[2 + 3i|2 - 3i] = [(2 + 3i)^2|(2 - 3i)(2 + 3i)] = [4 + 12i - 9|13]')+E('= -[5|13] + [12|13]i')},
+  {a:'z = [1|3] + [4|3]i',q:`מצאו את המספר ${M('z')} המקיים ${M('2z + i*zb = z_1')}.`,sol:`<p>נציב ${M('z = x + yi')}:</p>`+E('2x + 2yi + i(x - yi) = (2x + y) + (x + 2y)i = 2 + 3i')+E('2x + y = 2,   x + 2y = 3')+E('x = [1|3],   y = [4|3]')+E('z = [1|3] + [4|3]i')},
+  {a:'פתרון יחיד: k = 9 ; לא ממשיים: k < 9',q:`עבור אילו ערכים ממשיים של ${M('k')} יש למשוואה ${M('z^2 - 4z + 13 = k')} פתרון יחיד? ועבור אילו ערכים הפתרונות אינם ממשיים?`,sol:E('z^2 - 4z + (13 - k) = 0,   Δ = 16 - 4(13 - k) = 4k - 36')+`<p>פתרון יחיד כאשר ${M('Δ = 0')}, כלומר ${M('k = 9')}, ואז ${M('z = 2')}.</p><p>פתרונות שאינם ממשיים כאשר ${M('Δ < 0')}, כלומר ${M('k < 9')}.</p>`}]},
+ {stem:`<p>נתונים ${M('z_1 = -√3 + i')} ו־${M('z_2 = 4cis 120°')}.</p>`,parts:[
+  {a:'z_1 = 2cis 150°',q:`רשמו את ${M('z_1')} בהצגה טריגונומטרית.`,sol:E('r = √(3 + 1) = 2,   tan α = |[1|-√3]| = [√3|3]   ⇒   α = 30°')+'<p>הנקודה ברביע השני, ולכן:</p>'+E('θ = 180° - 30° = 150°')+E('z_1 = 2cis 150° = 2(cos 150° + i sin 150°)')},
+  {a:'z_1*z_2 = 8cis 270° = -8i',q:`חשבו את ${M('z_1*z_2')} בהצגה טריגונומטרית ובהצגה אלגברית.`,sol:'<p>כופלים את הגדלים ומחברים את הזוויות:</p>'+E('z_1*z_2 = 2*4 cis(150° + 120°) = 8cis 270°')+E('= 8(0 + i*(-1)) = -8i')},
+  {a:'[z_2|z_1] = 2cis 330° = √3 - i',q:`חשבו את ${M('[z_2|z_1]')} בהצגה טריגונומטרית ובהצגה אלגברית.`,sol:'<p>מחלקים את הגדלים ומחסרים את הזוויות:</p>'+E('[z_2|z_1] = [4|2]cis(120° - 150°) = 2cis(-30°) = 2cis 330°')+E('= 2([√3|2] - [1|2]i) = √3 - i')},
+  {a:'[z_2|i] = 4cis 30° = 2√3 + 2i',q:`חשבו את ${M('[z_2|i]')}.`,sol:E('i = cis 90°')+E('[z_2|i] = 4cis(120° - 90°) = 4cis 30° = 2√3 + 2i')},
+  {a:'i',q:`חשבו את ${M('[z_2|-2zb_1]')}.`,sol:'<p>מעבירים את המכנה להצגה טריגונומטרית. לצמוד אותו גודל וזווית נגדית, ו־'+M('-2 = 2cis 180°')+':</p>'+E('zb_1 = 2cis(-150°) = 2cis 210°')+E('-2zb_1 = 2cis 180°*2cis 210° = 4cis 390° = 4cis 30°')+E('[z_2|-2zb_1] = [4|4]cis(120° - 30°) = cis 90° = i')}]},
+ {stem:`<p>נתונים ${M('z_1 = a + 2i')}, כאשר ${M('a')} ממשי, ו־${M('z_2 = 1 - i')}.</p>`,parts:[
+  {a:'(a + 2) + (2 - a)i',q:`הביעו את ${M('z_1*z_2')} באמצעות ${M('a')}.`,sol:E('(a + 2i)(1 - i) = a - ai + 2i - 2i^2 = (a + 2) + (2 - a)i')},
+  {a:'a = -2',q:`מצאו את ${M('a')} שעבורו ${M('z_1*z_2')} מדומה טהור.`,sol:`<p>החלק הממשי מתאפס: ${M('a + 2 = 0')}, כלומר ${M('a = -2')}. החלק המדומה הוא אז ${M('4 ≠ 0')}, ולכן ${M('z_1*z_2 = 4i')}.</p>`},
+  {a:'[z_1|z_2] = -2',q:`עבור ${M('a')} שמצאתם, חשבו את ${M('[z_1|z_2]')}.`,sol:E('[-2 + 2i|1 - i] = [(-2 + 2i)(1 + i)|(1 - i)(1 + i)] = [-2 - 2i + 2i + 2i^2|2] = [-4|2] = -2')},
+  {a:'z_1 = 2√2(cos 135° + i sin 135°)',q:`עבור אותו ${M('a')}, רשמו את ${M('z_1')} בהצגה טריגונומטרית.`,sol:E('r = √(4 + 4) = 2√2,   tan α = 1   ⇒   α = 45°')+'<p>הנקודה ברביע השני:</p>'+E('θ = 180° - 45° = 135°')+E('z_1 = 2√2(cos 135° + i sin 135°)')}]},
+ {stem:`<p>נתונה המשוואה ${M('z^2 + |z|^2 = c')}, כאשר ${M('c')} מספר מרוכב.</p>`,parts:[
+  {a:'z = ±(√2 + 2√2 i)',q:`פתרו את המשוואה עבור ${M('c = 4 + 8i')}.`,sol:`<p>נציב ${M('z = x + yi')}. האיבר ${M('y^2')} מתבטל:</p>`+E('2x^2 + 2xyi = 4 + 8i')+E('x^2 = 2   ⇒   x = ±√2,   y = [4|x]')+E('z_1 = √2 + 2√2 i,   z_2 = -√2 - 2√2 i')},
+  {a:'#אינסוף פתרונות',q:`כמה פתרונות יש למשוואה עבור ${M('c = 0')}?`,sol:E('2x^2 + 2xyi = 0   ⇒   x = 0')+'<p>אין תנאי על '+M('y')+': כל מספר מדומה טהור הוא פתרון, כלומר אינסוף פתרונות.</p>'},
+  {a:'שני פתרונות: z = ±√2',q:`כמה פתרונות יש עבור ${M('c = 4')}?`,sol:E('2x^2 = 4,   2xy = 0   ⇒   x = ±√2,   y = 0')+`<p>שני פתרונות: ${M('√2')} ו־${M('-√2')}.</p>`},
+  {a:'#אין פתרון',q:`הראו שעבור ${M('c = -2 + i')} אין פתרון.`,sol:E('2x^2 = -2')+`<p>אין ${M('x')} ממשי שמקיים זאת, ולכן אין פתרון.</p>`}]},
+ {stem:`<p>המספר ${M('1 + 2i')} הוא פתרון של המשוואה ${M('z^2 + bz + c = 0')}, כאשר ${M('b')} ו־${M('c')} ממשיים.</p>`,parts:[
+  {a:'b = -2,   c = 5',q:`מצאו את ${M('b')} ואת ${M('c')}.`,sol:`<p>גם הצמוד ${M('1 - 2i')} פתרון. לפי נוסחאות ויאטה:</p>`+E('-b = (1 + 2i) + (1 - 2i) = 2   ⇒   b = -2')+E('c = (1 + 2i)(1 - 2i) = 1 + 4 = 5')},
+  {a:'-6',q:`נסמן ${M('z_1 = 1 + 2i')} ו־${M('z_2 = 1 - 2i')}. חשבו את ${M('z_1^2 + z_2^2')}.`,sol:E('z_1^2 + z_2^2 = (z_1 + z_2)^2 - 2z_1z_2 = 4 - 10 = -6')},
+  {a:'-[3|5] + [4|5]i',q:`חשבו את ${M('[z_1|z_2]')}.`,sol:E('[1 + 2i|1 - 2i] = [(1 + 2i)^2|5] = [-3 + 4i|5] = -[3|5] + [4|5]i')},
+  {a:'w = ±(1 + 2i)',q:`מצאו את כל המספרים ${M('w')} המקיימים ${M('w^2 = -3 + 4i')}.`,sol:E('x^2 - y^2 = -3,   2xy = 4,   x^2 + y^2 = 5')+E('x^2 = 1,   y^2 = 4,   xy = 2 > 0')+E('w_1 = 1 + 2i,   w_2 = -1 - 2i')+`<p>וזה לא מקרי: בסעיף ג׳ ראינו ש־${M('(1 + 2i)^2 = -3 + 4i')}.</p>`}]},
+];
+
+// ---------- app
+const TOPICS=[
+ {id:'arith',g:'alg',name:'פעולות חשבון',desc:'חיבור, חיסור, כפל, חילוק וחזקות של '+M('i')},
+ {id:'conj',g:'alg',name:'צמוד',desc:`חישובים עם ${M('zb')}, ומשוואות עם ${M('z')}, ${M('zb')} ו־${M('|z|')}`},
+ {id:'eq',g:'alg',name:'משוואות',desc:`משוואות ריבועיות, ${M('z^2 = w')} ומקדמים מרוכבים`},
+ {id:'count',g:'alg',name:'מספר הפתרונות וחקירה עם פרמטר',desc:`משוואות ליניאריות וריבועיות עם ${M('m')} ממשי או מרוכב: פתרון יחיד, אין פתרון, אינסוף`},
+ {id:'toTrig',g:'trig',name:'מאלגברית לטריגונומטרית',desc:`מציאת ${M('r')} ו־${M('θ')}, כולל הצגות לא תקניות`},
+ {id:'toAlg',g:'trig',name:'מטריגונומטרית לאלגברית',desc:`חישוב ${M('a')} ו־${M('b')} מתוך ${M('r')} ו־${M('θ')}`},
+ {id:'mult',g:'trig',name:'כפל וחילוק בהצגה טריגונומטרית',desc:'כולל כפל וחילוק במספר שלילי, ב־'+M('i')+' ובצמוד'},
+ {id:'geo',g:'geo',name:'סדרה הנדסית עם מספרים מרוכבים',desc:`איבר כללי, סכום, מציאת המנה, איבר אמצעי וסכום במקומות זוגיים ואי־זוגיים`},
+];
+const tName=id=>TOPICS.find(t=>t.id===id).name;
+const st={view:'home',topic:null,level:{},q:null,sess:{},exam:null};
+let prog={};try{prog=JSON.parse(localStorage.getItem('cx12-progress')||'{}')||{}}catch(e){prog={}}
+const saveProg=()=>{try{localStorage.setItem('cx12-progress',JSON.stringify(prog))}catch(e){}};
+function record(id,ok){prog[id]=prog[id]||{ok:0,n:0};prog[id].n++;if(ok)prog[id].ok++;saveProg();st.sess[id]=st.sess[id]||{ok:0,n:0};st.sess[id].n++;if(ok)st.sess[id].ok++}
+const app=document.getElementById('app');
+const reduced=()=>window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const toTop=()=>window.scrollTo({top:0,behavior:'auto'});
+
+const HERO=`<header class="hero"><div><h1>מספרים מרוכבים</h1><p class="sub">תרגול למבחן, כיתה י״ב, 5 יח״ל</p></div>
+<svg class="hero-plane" viewBox="0 0 120 120" aria-hidden="true" direction="ltr"><circle cx="60" cy="64" r="40" class="hc"/><line x1="8" y1="64" x2="112" y2="64" class="ax-re"/><line x1="60" y1="116" x2="60" y2="8" class="ax-im"/><path d="M 76 64 A 16 16 0 0 0 68 50.14" class="hero-arc"/><g class="hero-vec"><line x1="60" y1="64" x2="80" y2="29.36" class="vec"/><circle cx="80" cy="29.36" r="4" class="pt"/></g></svg></header>`;
+
+function renderHome(){st.view='home';
+ const rows=g=>TOPICS.filter(t=>t.g===g).map(t=>`<button class="row" data-act="topic" data-id="${t.id}"><span class="rt"><span class="rn">${t.name}</span><span class="rd">${t.desc}</span></span><span class="rp">${countOf(t.id)} תרגילים</span></button>`).join('');
+ app.innerHTML=HERO+`<p class="intro">בכל נושא יש דף תרגילים מסודר מהקל לקשה. לכל תרגיל אפשר לפתוח תשובה סופית ופתרון מלא, צעד אחר צעד.</p>
+ <section class="grp alg"><h2>הצגה אלגברית <span class="form">${M('z = a + bi')}</span></h2><div class="list">${rows('alg')}</div></section>
+ <section class="grp trig"><h2>הצגה טריגונומטרית <span class="form">${M('z = r(cos θ + i sin θ)')}</span></h2><div class="list">${rows('trig')}</div></section>
+ <section class="grp geo"><h2>סדרה הנדסית <span class="form">${M('a_{n} = a_1*q^{n-1}')}</span></h2><div class="list">${rows('geo')}</div></section>
+ <section class="grp exam"><h2>לקראת המבחן</h2><div class="list">
+  <button class="row" data-act="bagrut"><span class="rt"><span class="rn">תרגול של כל הנושאים יחד</span><span class="rd">שאלות עם סעיפים שמשלבות כמה נושאים</span></span></button>
+  <button class="row" data-act="exam"><span class="rt"><span class="rn">מבחן מסכם</span><span class="rd">10 שאלות מכל הנושאים, וציון בסוף</span></span></button>
+ </div></section>
+ <p class="tip">במבחן המסכם אפשר לכתוב מספר שלם, שבר (${M('-3/5')}), שורש (${M('2√3')} או ${M('√2/2')}) או מספר עשרוני. שדה ריק נחשב ${M('0')}.</p>
+`;
+ toTop()}
+
+function ansUI(ans){
+ if(ans.type==='multi')return ans.subs.map((s,si)=>`<div class="sub"><p class="sq">${s.q}</p><div class="choices wide">${s.opts.map((o,i)=>`<button class="ch" data-act="pick" data-s="${si}" data-i="${i}" aria-pressed="false">${o}</button>`).join('')}</div></div>`).join('');
+ if(ans.type==='choice')return `<div class="choices">${ans.opts.map((o,i)=>`<button class="ch" data-act="choose" data-i="${i}">${o}</button>`).join('')}</div>`;
+ const inp=(k,cls,ph,al)=>`<input class="ai ${cls}" data-k="${k}" ${ph?`placeholder="${ph}"`:''} aria-label="${al}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done">`;
+ let h='';
+ if(ans.type==='cset'){const n=ans.vals.length;for(let i=0;i<n;i++)h+=`<div class="arow" dir="ltr"><span class="alab">${M(n>1?`z_${i+1}`:'z')} =</span>${inp('re'+i,'in-re','ממשי','חלק ממשי')}<span class="op">+</span>${inp('im'+i,'in-im','מדומה','חלק מדומה')}<span class="op m"><i>i</i></span></div>`;
+  if(n>1)h+='<p class="hint">הסדר בין הפתרונות לא משנה.</p>'}
+ if(ans.type==='reals')ans.fields.forEach((f,i)=>h+=`<div class="arow" dir="ltr"><span class="alab">${M(f.label)} =</span>${inp('f'+i,'','',f.label)}</div>`);
+ if(ans.type==='polar')h+=`<div class="arow" dir="ltr"><span class="alab">${M('r')} =</span>${inp('r','','','גודל')}</div><div class="arow" dir="ltr"><span class="alab">${M('θ')} =</span>${inp('th','','','זווית במעלות')}<span class="op">°</span></div><p class="hint">הזווית במעלות. כל זווית שקולה מתקבלת.</p>`;
+ return h+`<div class="keys" dir="ltr">${[['√','√'],['/','/'],['-','−'],['(','('],[')',')']].map(([k,l])=>`<button class="key" data-key="${k}" tabindex="-1" aria-label="הוספת ${l}">${l}</button>`).join('')}</div>`}
+
+function qPanel(q){return `<section class="panel"><div class="prompt">${q.prompt}</div><div class="answer" id="ansbox">${ansUI(q.ans)}</div>
+ <div class="actions" id="acts">${q.ans.type==='choice'?'':'<button class="btn" data-act="check">בדיקה</button>'}<button class="btn ghost" data-act="reveal">הצג פתרון</button></div><div id="res" aria-live="polite"></div></section>`}
+
+const PER=24;
+function seeded(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const TRIGT=new Set(['toTrig','toAlg','mult']);
+const cisNote=q=>CIS?Object.assign(q,{sol:`<p class="note">תזכורת: ${M('r cis θ = r(cos θ + i sin θ)')}</p>`+q.sol}):q;
+function buildSet(id,set){const orig=Math.random;let h=0;for(const ch of id)h=(h*31+ch.charCodeAt(0))|0;Math.random=seeded(h+set*7919);
+ for(const k in lastBank)delete lastBank[k];
+ const out=[],seen=new Set();
+ const trig=TRIGT.has(id);
+ try{for(let n=0;n<PER;n++){const L=n<PER/3?1:n<2*PER/3?2:3;CIS=trig&&n%3===1;let q,t=0;do{q=GENS[id](L);t++}while(seen.has(q.prompt)&&t<25);seen.add(q.prompt);out.push(cisNote(q))}
+  if(PLAN[id])return PLAN[id].map((x,j)=>{if(typeof x==='number')return out[x-1];CIS=j%3===1;let q,t=0;do{q=genTrigExtra(x);t++}while(seen.has(q.prompt)&&t<25);seen.add(q.prompt);return cisNote(q)})}finally{Math.random=orig;CIS=false}
+ return out}
+const countOf=id=>PLAN[id]?PLAN[id].length:PER;
+const ansText=a=>{if(a.startsWith('#'))return a.slice(1);if(!/[\u0590-\u05FF]/.test(a))return M(a);
+ return a.split(' ; ').map(seg=>{const k=seg.indexOf(': ');if(k>0&&/[\u0590-\u05FF]/.test(seg.slice(0,k)))return `${seg.slice(0,k)}: ${/[\u0590-\u05FF]/.test(seg.slice(k+2))?seg.slice(k+2):M(seg.slice(k+2))}`;return M(seg)}).join('<br>')};
+function exItem(q,n,pre){const id=pre+n;let body=q.prompt;
+ if(q.ans.type==='multi')body+=`<ol class="subs">${q.ans.subs.map(s=>`<li>${s.q}</li>`).join('')}</ol>`;
+ return `<article class="panel ex"><h3 class="exn">תרגיל ${n}</h3><div class="prompt">${body}</div>${revealBtns(id,q.ans.show,q.sol)}</article>`}
+function revealBtns(id,ansHTML,solHTML){return `<div class="actions"><button class="btn ghost tog" data-act="tog" data-t="a-${id}" aria-expanded="false" aria-controls="a-${id}">תשובה סופית</button><button class="btn ghost tog" data-act="tog" data-t="s-${id}" aria-expanded="false" aria-controls="s-${id}">פתרון מלא</button></div>
+ <div id="a-${id}" class="final-box" hidden><span class="al">התשובה:</span> ${ansHTML}</div><div id="s-${id}" class="sol" hidden><h3>פתרון מלא</h3>${solHTML}</div>`}
+function startPractice(id,set){st.view='practice';st.topic=id;st.set=set||1;renderPractice()}
+function renderPractice(){const t=TOPICS.find(x=>x.id===st.topic),list=buildSet(st.topic,st.set);
+ app.innerHTML=`<nav class="top"><button class="back" data-act="home">חזרה לנושאים</button>${st.set>1?`<span class="score">סט ${st.set}</span>`:''}</nav>
+ <h2 class="ttl">${t.name}</h2><p class="intro">${list.length} תרגילים, מהקל לקשה. פתרו כל תרגיל, ואז בדקו בעזרת “תשובה סופית” או “פתרון מלא”.</p>
+ ${list.map((q,k)=>exItem(q,k+1,st.topic+'-'+st.set+'-')).join('')}
+ <div class="more"><p>רוצים עוד?</p><div class="actions">${st.set>1?'<button class="btn ghost" data-act="set" data-d="-1">לסט הקודם</button>':''}<button class="btn" data-act="set" data-d="1">סט נוסף של ${list.length} תרגילים</button></div></div>`;toTop()}
+const cur=()=>st.view==='exam'?st.exam.items[st.exam.i]:{id:st.topic,q:st.q};
+function warn(t){document.getElementById('res').innerHTML=`<div class="fb warn">${t}</div>`}
+function doCheck(){const c=cur(),raw={};
+ if(c.q.ans.type==='multi'){const subs=[...document.querySelectorAll('#ansbox .sub')];const sel=subs.map(s=>{const b=s.querySelector('.ch[aria-pressed="true"]');return b?+b.dataset.i:-1});
+  if(sel.includes(-1))return warn('בחרו תשובה בכל אחת מהשאלות.');
+  let ok=true;subs.forEach((s,si)=>{const cor=c.q.ans.subs[si].correct;s.querySelectorAll('.ch').forEach((b,j)=>{if(j===cor)b.classList.add('right');else if(j===sel[si]){b.classList.add('wrong');ok=false}})});
+  return finish(ok,{ok})}
+ document.querySelectorAll('#ansbox .ai').forEach(el=>{raw[el.dataset.k]=el.value;el.removeAttribute('aria-invalid')});
+ const r=checkAns(c.q.ans,raw);
+ if(r.empty)return warn('כתבו תשובה לפני הבדיקה, או לחצו על “הצג פתרון”.');
+ if(r.err){const el=document.querySelector(`#ansbox .ai[data-k="${r.err}"]`);if(el){el.setAttribute('aria-invalid','true');el.focus()}return warn(`המספר שסומן לא בפורמט מוכר. אפשר לכתוב למשל ${M('3')}, ${M('-2/5')}, ${M('2√3')} או ${M('1.5')}.`)}
+ finish(r.ok,r)}
+function doChoose(i){const c=cur(),ok=i===c.q.ans.correct;document.querySelectorAll('#ansbox .ch').forEach((b,j)=>{b.disabled=true;if(j===c.q.ans.correct)b.classList.add('right');else if(j===i)b.classList.add('wrong')});finish(ok,{ok})}
+function doReveal(){if(st.view==='exam'){finish(false,{ok:false},true);return}showResult(null,true)}
+function finish(ok,r,revealed){const c=cur();record(c.id,ok);if(st.view==='exam')c.ok=ok;showResult(r,revealed)}
+function showResult(r,revealed){const c=cur();
+ document.querySelectorAll('#ansbox input,#ansbox .ch').forEach(el=>el.disabled=true);
+ let fb='';
+ if(r&&!revealed){if(r.ok)fb='<div class="fb ok"><strong>נכון!</strong></div>';else{let x='';if(c.q.ans.type==='polar'){if(r.rOk&&!r.tOk)x=' הגודל נכון, הזווית לא.';else if(!r.rOk&&r.tOk)x=' הזווית נכונה, הגודל לא.'}fb=`<div class="fb no"><strong>לא נכון.</strong>${x} הנה הפתרון המלא.</div>`}}
+ document.getElementById('res').innerHTML=fb+`<p class="final"><span>התשובה:</span> ${c.q.ans.show}</p><div class="sol"><h3>פתרון</h3>${c.q.sol}</div>`;
+ const last=st.view==='exam'&&st.exam.i===st.exam.items.length-1;
+ document.getElementById('acts').innerHTML=`<button class="btn" data-act="next">${st.view==='exam'?(last?'לסיכום המבחן':'השאלה הבאה'):'תרגיל הבא'}</button>`;
+ const sc=document.querySelector('.score');if(sc&&st.view==='practice'){const s=st.sess[st.topic];if(s)sc.textContent=`נכון ${s.ok} מתוך ${s.n}`}
+ if(st.view==='exam')renderDots();
+ document.getElementById('res').scrollIntoView({behavior:reduced()?'auto':'smooth',block:'start'})}
+function next(){if(st.view==='exam'){st.exam.i++;renderExam();return}st.q=GENS[st.topic](st.level[st.topic]||1);renderPractice()}
+
+function startExam(){const ids=Object.keys(GENS),list=shuffle(ids.concat(shuffle(ids).slice(0,10-ids.length)));st.exam={i:0,items:list.map(id=>{CIS=TRIGT.has(id)&&Math.random()<.4;const q=cisNote(GENS[id](pick([2,2,3])));CIS=false;return {id,q,ok:null}})};st.view='exam';renderExam()}
+function dotsHTML(){return st.exam.items.map((it,j)=>`<span class="${it.ok===true?'ok':it.ok===false?'no':j===st.exam.i?'cur':''}"></span>`).join('')}
+function renderDots(){const d=document.querySelector('.dots');if(d)d.innerHTML=dotsHTML()}
+function renderExam(){const ex=st.exam;
+ if(ex.i>=ex.items.length){const ok=ex.items.filter(x=>x.ok).length,wrong=[...new Set(ex.items.filter(x=>!x.ok).map(x=>x.id))];
+  app.innerHTML=`<nav class="top"><button class="back" data-act="home">חזרה לנושאים</button></nav><h2 class="ttl">סיכום המבחן</h2>
+  <section class="panel"><p class="big"><span dir="ltr">${ok}/${ex.items.length}</span></p><div class="dots">${dotsHTML()}</div>
+  <ol class="sum">${ex.items.map(x=>`<li><span>${tName(x.id)}</span><span class="${x.ok?'yes':'nope'}">${x.ok?'נכון':'לא נכון'}</span></li>`).join('')}</ol>
+  ${wrong.length?`<p>כדאי לתרגל עוד:</p><div class="again">${wrong.map(id=>`<button class="btn ghost" data-act="topic" data-id="${id}">${tName(id)}</button>`).join('')}</div>`:'<p>כל התשובות נכונות. מוכנים למבחן.</p>'}
+  <div class="actions"><button class="btn" data-act="exam">מבחן חדש</button></div></section>`;toTop();return}
+ const it=ex.items[ex.i];
+ app.innerHTML=`<nav class="top"><button class="back" data-act="home">יציאה מהמבחן</button><span class="score">שאלה ${ex.i+1} מתוך ${ex.items.length}</span></nav>
+ <div class="dots">${dotsHTML()}</div><h2 class="ttl small">${tName(it.id)}</h2>${qPanel(it.q)}`;toTop()}
+
+function renderBagrut(){st.view='bagrut';
+ app.innerHTML=`<nav class="top"><button class="back" data-act="home">חזרה לנושאים</button></nav><h2 class="ttl">תרגול של כל הנושאים יחד</h2>
+ <p class="intro">פתרו כל סעיף על דף, ורק אז פתחו את התשובה או את הפתרון.</p>`+
+ BAGRUT.map((b,i)=>`<section class="panel bq"><h3>שאלה ${i+1}</h3>${b.stem}<ol class="parts">${b.parts.map((p,j)=>`<li><div>${p.q}</div>${revealBtns('b'+i+'-'+j,ansText(p.a),p.sol)}</li>`).join('')}</ol></section>`).join('');toTop()}
+
+let lastInput=null;
+document.addEventListener('focusin',e=>{if(e.target.matches&&e.target.matches('input.ai'))lastInput=e.target});
+function insertKey(ch){let el=lastInput&&document.body.contains(lastInput)&&!lastInput.disabled?lastInput:document.querySelector('#ansbox .ai:not(:disabled)');if(!el)return;
+ const s=el.selectionStart??el.value.length,e=el.selectionEnd??s;el.value=el.value.slice(0,s)+ch+el.value.slice(e);el.focus();try{el.setSelectionRange(s+ch.length,s+ch.length)}catch(_){}}
+app.addEventListener('mousedown',e=>{if(e.target.closest('.key'))e.preventDefault()});
+app.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.ai')){e.preventDefault();doCheck()}});
+app.addEventListener('click',e=>{const b=e.target.closest('[data-act],[data-key]');if(!b)return;
+ if(b.dataset.key){insertKey(b.dataset.key);return}
+ const a=b.dataset.act;
+ if(a==='home')renderHome();else if(a==='topic')startPractice(b.dataset.id,1);else if(a==='set'){st.set=Math.max(1,st.set+(+b.dataset.d));renderPractice()}else if(a==='tog'){const el=document.getElementById(b.dataset.t);const open=el.hidden;el.hidden=!open;b.setAttribute('aria-expanded',String(open))}
+ else if(a==='check')doCheck();else if(a==='reveal')doReveal();else if(a==='choose')doChoose(+b.dataset.i);else if(a==='pick'){b.parentNode.querySelectorAll('.ch').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'))}else if(a==='next')next();
+ else if(a==='exam')startExam();else if(a==='bagrut')renderBagrut();else if(a==='reset'){if(confirm('לאפס את ההתקדמות בכל הנושאים?')){prog={};saveProg();renderHome()}}});
+renderHome();
 </script>
-</body></html>
+</body>
+</html>
