@@ -25,7 +25,7 @@ h1,h2,h3{font-family:"Frank Ruhl Libre","David Libre",Georgia,serif;font-weight:
 .grp h2{font-size:1.35rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.3em .8em;margin-bottom:10px}
 .form{font-size:1rem;color:var(--muted);font-weight:400;font-family:"Noto Serif",serif}
 .list{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.alg{--gc:var(--re)}.trig{--gc:var(--im)}.exam{--gc:var(--ink)}
+.alg{--gc:var(--re)}.trig{--gc:var(--im)}.geo{--gc:var(--muted)}.exam{--gc:var(--ink)}
 .row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:right;background:none;border:0;border-top:1px solid var(--line);padding:14px 18px;color:inherit;font:inherit;cursor:pointer;position:relative}
 .row:first-child{border-top:0}
 .row::before{content:"";position:absolute;inset-inline-start:0;top:12px;bottom:12px;width:3px;border-radius:0 2px 2px 0;background:var(--gc)}
@@ -600,7 +600,99 @@ function checkAns(ans,raw){ // raw: {key:string}
  if(ans.type==='polar'){const rOk=near(val.r,ans.r,ans.approx?.02:.006);let d=norm(val.th-ans.th);if(d>180)d=360-d;const tOk=d<=(ans.approx?.6:.15);return {ok:rOk&&tOk,rOk,tOk}}
  return {ok:false};
 }
-const GENS={arith:genArith,conj:genConj,eq:genEq,count:genCount,toTrig:genToTrig,toAlg:genToAlg,mult:genMult};
+
+// ---------- geometric sequences with complex numbers (no De Moivre)
+function qPow(q,m){const val=pw(q,m);
+ if(m===0)return {h:'',val};
+ if(m===1)return {h:'',val};
+ if(q.im.z())return {h:E(`(${pF(q.re)})^{${m}} = ${pF(val.re)}`),val};
+ if(q.re.z()){const k=q.im.n,r=m%4,qb=k===1?'i':pP(q);
+  const h=(k===1?'':Math.abs(k)===1?E(`${qb}^{${m}} = (-1)^{${m}}*i^{${m}}`):E(`${qb}^{${m}} = ${pN(k)}^{${m}}*i^{${m}}`))+
+   E(`${m} = 4*${Math.floor(m/4)} + ${r}   ⇒   i^{${m}} = i^{${r}} = ${pC(IP[r])}`)+(k===1?'':E(`${qb}^{${m}} = ${pC(val)}`));
+  return {h,val}}
+ const s2=q.mul(q),k=Math.floor(m/2),sk=pw(s2,k);
+ let h=E(`${pP(q)}^2 = ${pC(s2)}`)+E(`${pP(q)}^{${m}} = ${m%2?`(${pP(q)}^2)^{${k}}*${pP(q)}`:`(${pP(q)}^2)^{${k}}`} = ${pP(s2)}^{${k}}${m%2?`*${pP(q)}`:''}`);
+ if(k>1)h+=E(`${pP(s2)}^{${k}} = ${pN(s2.im)}^{${k}}*i^{${k}} = ${pC(sk)}`);
+ if(m%2)h+=E(`${pCo(sk)}*${pP(q)} = ${pC(val)}`);
+ return {h,val}}
+function divBy(X,d){return d.im.z()?E(`[${pC(X)}|${pF(d.re)}] = ${pC(X.div(d))}`):divSteps(X,d)}
+function sqrtSteps(w,u,name){ // solve name^2 = w, roots ±u
+ return `<p>נציב ${M(`${name} = x + yi`)} ומשווים חלקים, ונוסיף את ${M(`|${name}|^2 = |w|`)}:</p>`+E(`x^2 - y^2 = ${pF(w.re)},   2xy = ${pF(w.im)},   x^2 + y^2 = ${pF(u.abs2())}`)+
+  E(`x^2 = ${pF(u.re.mul(u.re))},   y^2 = ${pF(u.im.mul(u.im))}`)+`<p>הסימנים של ${M('x')} ו־${M('y')} נקבעים לפי ${M(`2xy = ${pF(w.im)}`)}:</p>`+E(`${name} = ±${pP(u)}`)}
+const QI=[new C(0,1),new C(0,-1)],Q1I=[new C(1,1),new C(1,-1),new C(-1,1),new C(-1,-1)],QKI=[new C(0,2),new C(0,-2)];
+const geoIntro=(a1,q)=>`<p>בסדרה הנדסית ${M(`a_1 = ${pC(a1)}`)} ו־${M(`q = ${pC(q)}`)}.</p>`;
+function geoTerm(qs,lo,hi){const a1=rc(4),q=pick(qs),n=ri(lo,hi),m=n-1,P=qPow(q,m),an=a1.mul(P.val);
+ return {prompt:geoIntro(a1,q)+`<p>מצאו את ${M(`a_{${n}}`)}.</p>`,ans:cset([an]),
+  sol:E('a_{n} = a_1*q^{n-1}')+E(`a_{${n}} = ${pP(a1)}*${pP(q)}^{${m}}`)+'<p>מחשבים את החזקה:</p>'+P.h+E(`a_{${n}} = ${pP(a1)}*${pCo(P.val)} = ${pC(an)}`)}}
+function geoSum(qs,lo,hi){const a1=rc(4),q=pick(qs),n=ri(lo,hi),P=qPow(q,n),one=new C(1,0),num=P.val.sub(one),den=q.sub(one);
+ let sol=E('S_{n} = [a_1(q^n - 1)|q - 1]')+`<p>מחשבים את ${M(`q^{${n}}`)}:</p>`+P.h;
+ if(num.abs2().v===0){sol+=`<p>${M(`q^{${n}} = 1`)}, ולכן המונה מתאפס:</p>`+E(`S_{${n}} = 0`)+(q.re.z()?'<p class="note">כשהמנה היא '+M('±i')+', כל ארבעה איברים עוקבים מתבטלים בסכום.</p>':'');return {prompt:geoIntro(a1,q)+`<p>חשבו את ${M(`S_{${n}}`)}, סכום ${n} האיברים הראשונים.</p>`,ans:cset([new C(0,0)]),sol}}
+ const X=a1.mul(num);
+ sol+=E(`S_{${n}} = [${pP(a1)}(${pC(P.val)} - 1)|${pC(q)} - 1] = [${pP(a1)}${pP(num)}|${pC(den)}] = [${pC(X)}|${pC(den)}]`)+divBy(X,den);
+ return {prompt:geoIntro(a1,q)+`<p>חשבו את ${M(`S_{${n}}`)}, סכום ${n} האיברים הראשונים.</p>`,ans:cset([X.div(den)]),sol}}
+function geoFindQ(){const a1=rc(4),q=pick([new C(0,1),new C(0,-1),new C(1,1),new C(1,-1),new C(0,2),new C(-1,1),new C(2,1),new C(1,2)]),a2=a1.mul(q),a3=a2.mul(q);
+ return {prompt:`<p>בסדרה הנדסית ${M(`a_1 = ${pC(a1)}`)} ו־${M(`a_2 = ${pC(a2)}`)}. מצאו את ${M('a_3')}.</p>`,ans:cset([a3]),
+  sol:'<p>קודם מוצאים את המנה:</p>'+E('q = [a_2|a_1]')+divSteps(a2,a1)+`<p>ולכן ${M(`q = ${pC(q)}`)}, ו־${M('a_3 = a_2*q')}:</p>`+mulSteps(a2,q)}}
+function geoFindA1(){const a1=rc(4),q=pick([new C(1,1),new C(1,-1),new C(0,2),new C(-1,1),new C(0,1),new C(0,-1),new C(2,1)]),s2=q.mul(q),a3=a1.mul(s2);
+ return {prompt:`<p>בסדרה הנדסית ${M(`a_3 = ${pC(a3)}`)} ו־${M(`q = ${pC(q)}`)}. מצאו את ${M('a_1')}.</p>`,ans:cset([a1]),
+  sol:E('a_3 = a_1*q^2   ⇒   a_1 = [a_3|q^2]')+sqSteps(q)+(s2.im.z()||s2.re.z()?'':'')+divBy(a3,s2)}}
+function geoIsGeo(){const q=pick([new C(0,1),new C(1,1),new C(0,2),new C(1,-1),new C(-1,1)]),a1=rc(3),a2=a1.mul(q),yes=Math.random()<.5,a3=yes?a2.mul(q):a2.mul(q).add(pick([new C(1,0),new C(0,1),new C(0,-1),new C(-1,0)]));
+ return {prompt:'<p>האם המספרים הבאים הם שלושה איברים עוקבים בסדרה הנדסית?</p>'+E(`${pC(a1)},   ${pC(a2)},   ${pC(a3)}`),ans:{type:'choice',opts:['כן','לא'],correct:yes?0:1,show:yes?'כן':'לא'},
+  sol:'<p>בודקים אם המנה בין איברים עוקבים קבועה.</p><p class="lbl">מנה ראשונה:</p>'+divSteps(a2,a1)+'<p class="lbl">מנה שנייה:</p>'+divSteps(a3,a2)+
+   (yes?`<p>שתי המנות שוות ל־${M(pC(q))}, ולכן זו סדרה הנדסית.</p>`:'<p>המנות שונות, ולכן המספרים אינם סדרה הנדסית.</p>')}}
+function geoMid(){let a,c;do{a=rc(2);c=rc(2)}while(false);const b=a.mul(c).mul(c),u=a.mul(c),w=a.mul(b);
+ return {prompt:`<p>מצאו את כל המספרים ${M('z')} שעבורם ${M(`${pC(a)},   z,   ${pC(b)}`)} הם שלושה איברים עוקבים בסדרה הנדסית.</p>`,ans:cset([u,u.neg()]),
+  sol:`<p>בסדרה הנדסית ${M('[z|a_1] = [a_3|z]')}, ולכן ${M('z^2 = a_1*a_3')}:</p>`+mulSteps(a,b)+E(`z^2 = ${pC(w)}`)+sqrtSteps(w,u,'z')}}
+function geoSumEO(){const q=pick([new C(1,1),new C(1,-1),new C(0,2),new C(0,-2),new C(0,1)]),a1=rc(3),even=Math.random()<.5,k=ri(3,5);
+ const Q=q.mul(q),b1=even?a1.mul(q):a1,P=qPow(Q,k),one=new C(1,0),num=P.val.sub(one),den=Q.sub(one);
+ const pl=even?'הזוגיים':'האי־זוגיים',list=even?'a_2, a_4, a_6, ...':'a_1, a_3, a_5, ...';
+ let sol=`<p>האיברים במקומות ${pl} (${M(list)}) הם סדרה הנדסית חדשה, שהמנה שלה ${M('q^2')}:</p>`+sqSteps(q)+
+  `<p>האיבר הראשון שלה: ${M(even?`b_1 = a_2 = a_1*q = ${pP(a1)}${pP(q)} = ${pC(b1)}`:`b_1 = a_1 = ${pC(a1)}`)}.</p>`+E(`S = [b_1(Q^k - 1)|Q - 1],   Q = ${pC(Q)},   k = ${k}`)+`<p>מחשבים את ${M(`Q^{${k}}`)}:</p>`+P.h;
+ let S;
+ if(num.abs2().v===0){S=new C(0,0);sol+=`<p>${M(`Q^{${k}} = 1`)}, ולכן הסכום הוא 0.</p>`}
+ else{const X=b1.mul(num);S=X.div(den);sol+=E(`S = [${pP(b1)}(${pC(P.val)} - 1)|${pC(Q)} - 1] = [${pC(X)}|${pC(den)}]`)+divBy(X,den)}
+ return {prompt:geoIntro(a1,q)+`<p>חשבו את סכום ${k} האיברים הראשונים שנמצאים במקומות ${pl}.</p>`,ans:cset([S]),sol}}
+function geoQFromTerms(){const q=rc(2),a2=rc(3),w=q.mul(q),a4=a2.mul(w);
+ return {prompt:`<p>בסדרה הנדסית ${M(`a_2 = ${pC(a2)}`)} ו־${M(`a_4 = ${pC(a4)}`)}. מצאו את כל הערכים האפשריים של המנה ${M('q')}.</p>`,ans:cset([q,q.neg()]),
+  sol:E('a_4 = a_2*q^2   ⇒   q^2 = [a_4|a_2]')+divSteps(a4,a2)+E(`q^2 = ${pC(w)}`)+sqrtSteps(w,q,'q')+'<p>שתי המנות אפשריות, כלומר יש שתי סדרות מתאימות.</p>'}}
+function geoSumCore(a1,q,N,name){const P=qPow(q,N),one=new C(1,0),num=P.val.sub(one),den=q.sub(one);
+ let sol=E(`S_{n} = [a_1(q^n - 1)|q - 1]`)+`<p>כאן ${M(`a_1 = ${pC(a1)}`)}, ${M(`q = ${pC(q)}`)}, ומספר האיברים ${M(`n = ${N}`)}. מחשבים את ${M(`q^{${N}}`)}:</p>`+P.h;
+ if(num.abs2().v===0)return {S:new C(0,0),sol:sol+`<p>${M(`q^{${N}} = 1`)}, ולכן המונה מתאפס:</p>`+E(`${name} = 0`)};
+ const X=a1.mul(num);
+ sol+=E(`${name} = [${pP(a1)}(${pC(P.val)} - 1)|${pC(q)} - 1] = [${pC(X)}|${pC(den)}]`)+divBy(X,den);
+ return {S:X.div(den),sol}}
+function geoSumExp(kind){
+ if(kind==='i'){const start=pick([0,1]),n=ri(10,50),N=start?n:n+1,a1=start?new C(0,1):new C(1,0),q=new C(0,1),R=geoSumCore(a1,q,N,'S');
+  const ex=start?`i + i^2 + i^3 + ... + i^{${n}}`:`1 + i + i^2 + ... + i^{${n}}`;
+  return {prompt:'<p>חשבו את הסכום:</p>'+E(ex),ans:cset([R.S]),sol:`<p>זה סכום של סדרה הנדסית עם ${M(`a_1 = ${pC(a1)}`)} ו־${M('q = i')}. ${start?`יש בה ${M(`${n}`)} איברים`:`יש בה ${M(`${n} + 1 = ${N}`)} איברים, כי מתחילים מ־${M('i^0 = 1')}`}.</p>`+R.sol}}
+ const q=pick(Q1I),n=ri(4,9),R=geoSumCore(q,q,n,'S');
+ return {prompt:'<p>חשבו את הסכום:</p>'+E(`${pP(q)} + ${pP(q)}^2 + ${pP(q)}^3 + ... + ${pP(q)}^{${n}}`),ans:cset([R.S]),
+  sol:`<p>זה סכום של סדרה הנדסית שהאיבר הראשון שלה והמנה שלה שווים ל־${M(pC(q))}, ויש בה ${M(`${n}`)} איברים.</p>`+R.sol}}
+function geoSumFindA1(){let q,n;do{q=pick([new C(1,1),new C(1,-1),new C(0,2),new C(0,-2),new C(0,1),new C(-1,1)]);n=q.abs2().v===1?pick([5,6,7,9,10,11]):ri(3,6)}while(pw(q,n).sub(new C(1,0)).abs2().v===0);
+ const a1=rc(3),one=new C(1,0),P=qPow(q,n),num=P.val.sub(one),den=q.sub(one),S=a1.mul(num).div(den),Y=S.mul(den);
+ return {prompt:`<p>בסדרה הנדסית ${M(`q = ${pC(q)}`)} וסכום ${n} האיברים הראשונים הוא ${M(`S_{${n}} = ${pC(S)}`)}. מצאו את ${M('a_1')}.</p>`,ans:cset([a1]),
+  sol:E(`S_{n} = [a_1(q^n - 1)|q - 1]   ⇒   a_1 = [S_{n}(q - 1)|q^n - 1]`)+`<p>מחשבים את ${M(`q^{${n}}`)}:</p>`+P.h+
+   E(`a_1 = [${pP(S)}(${pC(q)} - 1)|${pC(P.val)} - 1] = [${pP(S)}${pP(den)}|${pC(num)}]`)+'<p>במונה:</p>'+mulSteps(S,den)+divBy(Y,num)}}
+function genGeo(L){
+ const SEQ={1:['termI','sumI','findq','sumIExp','isGeo','sumI','findA1','sumKI'],2:['term1i','sum1i','sumIExp','mid','sumKI','sum1iExp','findA1','sum1i'],3:['sumEO','sumFindA1','qFrom','sum1iExp','sumEO','sumFindA1','mid','sumEO']};
+ const ck='geo'+L;lastBank[ck]=(lastBank[ck]??-1)+1;const v=SEQ[L][lastBank[ck]%8];
+ switch(v){
+  case 'termI':return geoTerm(QI,10,60);
+  case 'term1i':return geoTerm(Q1I,4,12);
+  case 'sumI':return geoSum(QI,5,40);
+  case 'sumKI':return geoSum(QKI,3,6);
+  case 'sum1i':return geoSum([new C(1,1),new C(1,-1)],4,10);
+  case 'sumIExp':return geoSumExp('i');
+  case 'sum1iExp':return geoSumExp('1i');
+  case 'sumFindA1':return geoSumFindA1();
+  case 'findq':return geoFindQ();
+  case 'findA1':return geoFindA1();
+  case 'isGeo':return geoIsGeo();
+  case 'mid':return geoMid();
+  case 'sumEO':return geoSumEO();
+  default:return geoQFromTerms()}}
+
+const GENS={arith:genArith,conj:genConj,eq:genEq,count:genCount,toTrig:genToTrig,toAlg:genToAlg,mult:genMult,geo:genGeo};
 
 // ---------- extra trig exercises: multiply by a negative number, division
 function divCore(r1,t1,r2,t2,name,sign='-'){const R=S(r1.c.div(r2.c)),Tt=sign==='-'?t1-t2:t1+t2,th=norm(Tt);
@@ -683,6 +775,7 @@ const TOPICS=[
  {id:'toTrig',g:'trig',name:'מאלגברית לטריגונומטרית',desc:`מציאת ${M('r')} ו־${M('θ')}, כולל הצגות לא תקניות`},
  {id:'toAlg',g:'trig',name:'מטריגונומטרית לאלגברית',desc:`חישוב ${M('a')} ו־${M('b')} מתוך ${M('r')} ו־${M('θ')}`},
  {id:'mult',g:'trig',name:'כפל וחילוק בהצגה טריגונומטרית',desc:'כולל כפל וחילוק במספר שלילי, ב־'+M('i')+' ובצמוד'},
+ {id:'geo',g:'geo',name:'סדרה הנדסית עם מספרים מרוכבים',desc:`איבר כללי, סכום, מציאת המנה, איבר אמצעי וסכום במקומות זוגיים ואי־זוגיים`},
 ];
 const tName=id=>TOPICS.find(t=>t.id===id).name;
 const st={view:'home',topic:null,level:{},q:null,sess:{},exam:null};
@@ -701,6 +794,7 @@ function renderHome(){st.view='home';
  app.innerHTML=HERO+`<p class="intro">בכל נושא יש דף תרגילים מסודר מהקל לקשה. לכל תרגיל אפשר לפתוח תשובה סופית ופתרון מלא, צעד אחר צעד.</p>
  <section class="grp alg"><h2>הצגה אלגברית <span class="form">${M('z = a + bi')}</span></h2><div class="list">${rows('alg')}</div></section>
  <section class="grp trig"><h2>הצגה טריגונומטרית <span class="form">${M('z = r(cos θ + i sin θ)')}</span></h2><div class="list">${rows('trig')}</div></section>
+ <section class="grp geo"><h2>סדרה הנדסית <span class="form">${M('a_{n} = a_1*q^{n-1}')}</span></h2><div class="list">${rows('geo')}</div></section>
  <section class="grp exam"><h2>לקראת המבחן</h2><div class="list">
   <button class="row" data-act="bagrut"><span class="rt"><span class="rn">תרגול של כל הנושאים יחד</span><span class="rd">שאלות עם סעיפים שמשלבות כמה נושאים</span></span></button>
   <button class="row" data-act="exam"><span class="rt"><span class="rn">מבחן מסכם</span><span class="rd">10 שאלות מכל הנושאים, וציון בסוף</span></span></button>
@@ -775,7 +869,7 @@ function showResult(r,revealed){const c=cur();
  document.getElementById('res').scrollIntoView({behavior:reduced()?'auto':'smooth',block:'start'})}
 function next(){if(st.view==='exam'){st.exam.i++;renderExam();return}st.q=GENS[st.topic](st.level[st.topic]||1);renderPractice()}
 
-function startExam(){const ids=Object.keys(GENS),list=shuffle(ids.concat(shuffle(ids).slice(0,3)));st.exam={i:0,items:list.map(id=>{CIS=TRIGT.has(id)&&Math.random()<.4;const q=cisNote(GENS[id](pick([2,2,3])));CIS=false;return {id,q,ok:null}})};st.view='exam';renderExam()}
+function startExam(){const ids=Object.keys(GENS),list=shuffle(ids.concat(shuffle(ids).slice(0,10-ids.length)));st.exam={i:0,items:list.map(id=>{CIS=TRIGT.has(id)&&Math.random()<.4;const q=cisNote(GENS[id](pick([2,2,3])));CIS=false;return {id,q,ok:null}})};st.view='exam';renderExam()}
 function dotsHTML(){return st.exam.items.map((it,j)=>`<span class="${it.ok===true?'ok':it.ok===false?'no':j===st.exam.i?'cur':''}"></span>`).join('')}
 function renderDots(){const d=document.querySelector('.dots');if(d)d.innerHTML=dotsHTML()}
 function renderExam(){const ex=st.exam;
