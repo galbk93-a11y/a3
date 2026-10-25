@@ -173,7 +173,7 @@ const IP=[new C(1,0),new C(0,1),new C(-1,0),new C(0,-1)];
 
 // ---------- plain math markup -> HTML
 const ZB='<span class="ov"><i>z</i></span>';
-const FN=new Set(['sin','cos','tan','cis','Re','Im']);
+const FN=new Set(['sin','cos','tan','cis','Re','Im','arg']);
 function T(s){
  s=String(s);
  s=s.replace(/zb/g,'\u0001').replace(/>=/g,'\u2265').replace(/<=/g,'\u2264');
@@ -698,6 +698,8 @@ const GENS={arith:genArith,conj:genConj,eq:genEq,count:genCount,toTrig:genToTrig
 function divCore(r1,t1,r2,t2,name,sign='-'){const R=S(r1.c.div(r2.c)),Tt=sign==='-'?t1-t2:t1+t2,th=norm(Tt);
  return '<p>בחילוק מחלקים את הגדלים ומחסרים את הזוויות:</p>'+E(`r = [${pSm(r1)}|${pSm(r2)}] = ${pSm(R)}`)+E(`θ = ${t1}° ${sign} ${t2}° = ${Tt}°`)+(Tt!==th?`<p>זווית שקולה בין ${M('0°')} ל־${M('360°')}: ${M(th+'°')}.</p>`:'')+E(`${name} = ${pPol(R,th)}`)}
 function genTrigExtra(kind){
+ if(kind.startsWith('u:'))return genUnit(kind.slice(2));
+ if(kind.startsWith('s:'))return SYM[kind.slice(2)]();
  const ang=()=>5*ri(1,71),rI=(a,b)=>S(ri(a,b));
  if(kind==='neg'){const k=ri(2,6),r=rI(1,5),t=ang(),R=S(k*sv(r)),th=norm(t+180);
   return {prompt:`<p>נתון ${M(`z = ${pPol(r,t)}`)}. חשבו בהצגה טריגונומטרית:</p>`+E(`-${k}*z`),ans:polar(sv(R),th,pPol(R,th)),
@@ -731,10 +733,117 @@ function genTrigExtra(kind){
  return {prompt:'<p>נתונים:</p>'+E(`z_1 = ${pPol(r1,t1)}`)+E(`z_2 = ${pPol(r2,t2)}`)+`<p>חשבו את ${M('[z_1|zb_2]')} בהצגה טריגונומטרית.</p>`,ans:polar(sv(R),th,pPol(R,th)),
   sol:'<p>לצמוד אותו גודל וזווית נגדית:</p>'+E(`zb_2 = ${pPol(r2,-t2)}`)+'<p>בחילוק מחלקים את הגדלים ומחסרים את הזוויות, וחיסור של זווית שלילית הוא חיבור:</p>'+E(`r = [${pSm(r1)}|${pSm(r2)}] = ${pSm(R)}`)+E(`θ = ${t1}° - (-${t2}°) = ${Tt}°`)+(Tt!==th?`<p>זווית שקולה: ${M(th+'°')}.</p>`:'')+E(`[z_1|zb_2] = ${pPol(R,th)}`)+plane([ptOf(R,th)])};
 }
+
+// ---------- polar form from conditions (unit circle, z ± zb, z·zb)
+const QSG={1:[1,1],2:[-1,1],3:[-1,-1],4:[1,-1]};
+function genUnit(kind){
+ if(['argY','argX','rcisX','negAng','mult2','eqAng'].includes(kind))return genArg(kind);
+ const RP=[[3,4,5],[4,3,5],[5,12,13],[12,5,13],[8,15,17],[15,8,17],[7,24,25],[20,21,29]];
+ let x,y,r,q,given,cond,solStart;
+ if(kind==='ux'||kind==='uy'){const [a,b,c]=pick(RP);q=pick([2,3,4,2,3,4,1]);const [sx,sy]=QSG[q];x=S(new F(sx*a,c));y=S(new F(sy*b,c));r=S(1);
+  const gx=kind==='ux',G=gx?x:y,O=gx?'y':'x',Oval=gx?y:x,oneMinus=new F(1).sub(sq(G));
+  given=`<p>המספר המרוכב ${M('z = x + yi')} נמצא על מעגל היחידה, כלומר ${M('|z| = 1')}. נתון ${M(`${gx?'x':'y'} = ${pSv(G)}`)}.</p><p>מצאו את ההצגה הטריגונומטרית של ${M('z')}, אם נתון שהוא ברביע ${QN[q]}.</p>`;
+  solStart=`<p>על מעגל היחידה ${M('x^2 + y^2 = 1')}:</p>`+E(`${O}^2 = 1 - (${pSv(G)})^2 = 1 - ${pF(sq(G))} = ${pF(oneMinus)}   ⇒   ${O} = ±${pSm(sAbs(Oval))}`)+
+   `<p>ברביע ${QN[q]} ${M(O)} ${sv(Oval)>0?'חיובי':'שלילי'}, ולכן ${M(`${O} = ${pSv(Oval)}`)}.</p>`}
+ else if(kind==='zmz'){const P=pick([[new F(1,3),S(new F(2,3),2)],[new F(2,3),S(new F(1,3),5)],[new F(1,4),S(new F(1,4),15)],[new F(3,4),S(new F(1,4),7)],[new F(3,5),S(new F(4,5))],[new F(5,13),S(new F(12,13))]]);
+  q=pick([2,3,4,2,3,4,1]);const [sx,sy]=QSG[q];y=S(P[0].mul(sy));x=S(P[1].c.mul(sx),P[1].k);r=S(1);const k=y.c.mul(2);
+  given=`<p>המספר המרוכב ${M('z')} נמצא על מעגל היחידה ומקיים ${M(`z - zb = ${pT([[k,'i']])}`)}.</p><p>מצאו את ההצגה הטריגונומטרית של ${M('z')}, אם נתון שהוא ברביע ${QN[q]}.</p>`;
+  solStart=`<p>נציב ${M('z = x + yi')}:</p>`+E(`z - zb = (x + yi) - (x - yi) = 2yi = ${pT([[k,'i']])}   ⇒   y = ${pSv(y)}`)+
+   `<p>על מעגל היחידה ${M('x^2 + y^2 = 1')}:</p>`+E(`x^2 = 1 - ${pF(sq(y))} = ${pF(sq(x))}   ⇒   x = ±${pSm(sAbs(x))}`)+`<p>ברביע ${QN[q]} ${M('x')} ${sv(x)>0?'חיובי':'שלילי'}, ולכן ${M(`x = ${pSv(x)}`)}.</p>`}
+ else{const [a,b,c]=pick(RP),m=c<=13?pick([1,1,2]):1;q=pick([2,3,4,2,3,4,1]);const [sx,sy]=QSG[q];x=S(sx*a*m);y=S(sy*b*m);r=S(c*m);const R2=c*c*m*m;
+  if(kind==='zpz'){given=`<p>נתון ${M(`|z| = ${c*m}`)} ו־${M(`z + zb = ${2*sx*a*m}`)}.</p><p>מצאו את ההצגה הטריגונומטרית של ${M('z')}, אם נתון שהוא ברביע ${QN[q]}.</p>`;
+   solStart=`<p>נציב ${M('z = x + yi')}:</p>`+E(`z + zb = 2x = ${2*sx*a*m}   ⇒   x = ${sx*a*m}`)+E(`x^2 + y^2 = ${R2}   ⇒   y^2 = ${R2} - ${a*a*m*m} = ${b*b*m*m}   ⇒   y = ±${b*m}`)+`<p>ברביע ${QN[q]} ${M('y')} ${sy>0?'חיובי':'שלילי'}, ולכן ${M(`y = ${sy*b*m}`)}.</p>`}
+  else{given=`<p>נתון ${M(`z*zb = ${R2}`)} ו־${M(`z - zb = ${pT([[2*sy*b*m,'i']])}`)}.</p><p>מצאו את ההצגה הטריגונומטרית של ${M('z')}, אם נתון שהוא ברביע ${QN[q]}.</p>`;
+   solStart=`<p>נציב ${M('z = x + yi')}:</p>`+E(`z*zb = x^2 + y^2 = ${R2}   ⇒   |z| = ${c*m}`)+E(`z - zb = 2yi = ${pT([[2*sy*b*m,'i']])}   ⇒   y = ${sy*b*m}`)+E(`x^2 = ${R2} - ${b*b*m*m} = ${a*a*m*m}   ⇒   x = ±${a*m}`)+`<p>ברביע ${QN[q]} ${M('x')} ${sx>0?'חיובי':'שלילי'}, ולכן ${M(`x = ${sx*a*m}`)}.</p>`}}
+ const xv=sv(x),yv=sv(y),th=norm(Math.atan2(yv,xv)*180/Math.PI),ref=Math.atan(Math.abs(yv/xv))*180/Math.PI,thR=Math.round(th*100)/100,rv=sv(r),R=rv===1?'':pSm(r);
+ const show=CIS?`${R}cis ${thR.toFixed(2)}°`:(R?`${R}(cos ${thR.toFixed(2)}° + i sin ${thR.toFixed(2)}°)`:`cos ${thR.toFixed(2)}° + i sin ${thR.toFixed(2)}°`);
+ const ratio=(x.k===1&&y.k===1)?` = [${pFm(y.c.div(x.c))}]`.replace(/\[(\d+)\]/,'$1').replace(/\[(\[.*\])\]/,'$1'):'';
+ const sol=solStart+E(`z = ${pSC(x,y)}`)+`<p>הגודל: ${M(`r = ${pSm(r)}`)}. זווית הייחוס ${M('α')}:</p>`+E(`tan α = |[b|a]|${ratio} ≈ ${Math.abs(yv/xv).toFixed(4)}   ⇒   α ≈ ${ref.toFixed(2)}°`)+
+  `<p>הנקודה ברביע ${QN[q]}, ולכן:</p>`+E(`θ ≈ ${QX(q,ref.toFixed(2))} = ${thR.toFixed(2)}°`)+E(`z ≈ ${show}`)+plane([{x:xv,y:yv,lab:'z'}]);
+ return {prompt:given+'<p class="note">עגלו את הזווית לשתי ספרות אחרי הנקודה.</p>',ans:polar(rv,th,show,true),sol}}
+
+
+// ---------- arg / equal polar forms
+const NONAX=[30,60,120,150,210,240,300,330,45,135,225,315];
+const tanTxt=t=>{const r=refOf(t),neg=(norm(t)>90&&norm(t)<180)||(norm(t)>270);return (neg?'-':'')+({30:'1/√3',45:'1',60:'√3'})[r]};
+function nicePoint(fn){let o,t=0;do{o=specialZ(NONAX);t++}while(!fn(o)&&t<200);return o}
+function genArg(kind){
+ const info=(show)=>({type:'info',show});
+ if(kind==='argY'||kind==='argX'){const gy=kind==='argY',o=nicePoint(o=>(gy?o.b:o.a).k===1&&(gy?o.b:o.a).c.d===1),G=gy?o.b:o.a,Oth=gy?o.a:o.b;
+  const zf=gy?pTS([[S(1),'x'],[G,'i']]):pTS([[G,''],[S(1),'yi']]);
+  return {prompt:`<p>המספר המרוכב ${M('z')} מקיים ${M(`z = ${zf}`)}. נתון ${M(`arg(z) = ${o.th}°`)}.</p><ol class="subs"><li>מצאו את ההצגה האלגברית של ${M('z')}.</li><li>מצאו את ההצגה הטריגונומטרית של ${M('z')}.</li></ol>`,
+   ans:info(`<span class="multi-ans"><span>א. ${M(`z = ${pSC(o.a,o.b)}`)}</span><span>ב. ${M(`z = ${pPol(o.r,o.th)}`)}</span></span>`),
+   sol:`<p>${M('arg(z)')} היא הזווית ${M('θ')}, ו־${M('tan θ = [y|x]')}:</p>`+E(`tan ${o.th}° = ${tanTxt(o.th)}`)+
+    (gy?E(`[${pSv(G)}|x] = ${tanTxt(o.th)}   ⇒   x = ${pSv(o.a)}`):E(`[y|${pSv(G)}] = ${tanTxt(o.th)}   ⇒   y = ${pSv(o.b)}`))+
+    `<p class="note">בדיקת סימנים: הזווית ${M(o.th+'°')} ברביע ${QN[quad(sv(o.a),sv(o.b))]}, ושם ${M('x')} ${sv(o.a)>0?'חיובי':'שלילי'} ו־${M('y')} ${sv(o.b)>0?'חיובי':'שלילי'}.</p>`+
+    E(`z = ${pSC(o.a,o.b)}`)+'<p>הגודל:</p>'+E(`r = √(${pF(sq(o.a))} + ${pF(sq(o.b))}) = √${pF(sq(o.r))} = ${pSm(o.r)}`)+E(`z = ${pPol(o.r,o.th)}`)+plane([{x:sv(o.a),y:sv(o.b),lab:'z'}])}}
+ if(kind==='rcisX'){const o=nicePoint(o=>o.a.c.d===1&&o.b.c.d===1),[c,s]=cs(o.th);
+  return {prompt:`<p>נתון ${M(`r cis ${o.th}° = ${pTS([[S(1),'x'],[o.b,'i']])}`)}. מצאו את ${M('r')} ואת ${M('x')}.</p>`,ans:info(M(`r = ${pSm(o.r)},   x = ${pSv(o.a)}`)),
+   sol:'<p>פותחים את ההצגה הטריגונומטרית ומשווים חלקים:</p>'+E(`r cis ${o.th}° = r cos ${o.th}° + i*r sin ${o.th}° = ${pSp(c)}r + ${pSp(s)}r*i`)+
+    `<p>חלקים מדומים:</p>`+E(`${pSp(s)}r = ${pSv(o.b)}   ⇒   r = ${pSm(o.r)}`)+'<p>חלקים ממשיים:</p>'+E(`x = r cos ${o.th}° = ${pSm(o.r)}*${pSp(c)} = ${pSv(o.a)}`)}}
+ if(kind==='negAng'){const k=ri(2,9),al=5*ri(2,34),v=pick(['neg','minusR','big']);let rhs,th,why;
+  if(v==='neg'){rhs=`${k}cis(-${al}°)`;th=norm(-al);why=`<p>הזווית ${M(`-${al}°`)} שקולה ל־${M(`-${al}° + 360° = ${th}°`)}.</p>`}
+  else if(v==='minusR'){rhs=`-${k}cis ${al}°`;th=norm(al+180);why=`<p>הגודל ${M('r')} חייב להיות חיובי. ${M(`-1 = cis 180°`)}, ולכן ${M(`-${k}cis ${al}° = ${k}cis(${al}° + 180°)`)}.</p>`}
+  else{const big=al+360;rhs=`${k}cis ${big}°`;th=al;why=`<p>הזווית ${M(`${big}°`)} גדולה מ־${M('360°')}: ${M(`${big}° - 360° = ${al}°`)}.</p>`}
+  return {prompt:`<p>נתון ${M(`r cis θ = ${rhs}`)}. מצאו את ${M('r')} ואת ${M('θ')} ${M('(0° <= θ < 360°)')}.</p>`,ans:info(M(`r = ${k},   θ = ${th}°`)),
+   sol:why+E(`r cis θ = ${k}cis ${th}°   ⇒   r = ${k},   θ = ${th}°`)}}
+ if(kind==='mult2'){const n=pick([2,2,3]),k=ri(2,9),be=n===2?10*ri(1,35):30*ri(1,11),ths=[];for(let j=0;j<n;j++)ths.push((be+360*j)/n);
+  return {prompt:`<p>נתון ${M(`r cis ${n}θ = ${k}cis ${be}°`)}. מצאו את ${M('r')} ואת ${M('θ')} ${M('(0° <= θ < 360°)')}.</p>`,ans:info(M(`r = ${k},   θ = ${ths.map(t=>t+'°').join(',  ')}`)),
+   sol:'<p>שני מספרים בהצגה טריגונומטרית שווים כאשר הגדלים שווים, והזוויות שוות עד כדי כפולה של '+M('360°')+':</p>'+E(`r = ${k},   ${n}θ = ${be}° + 360°*k`)+E(`θ = ${be/n}° + ${360/n}°*k`)+
+    `<p>מציבים ${M('k = 0, 1'+(n===3?', 2':''))} כדי לקבל את כל הזוויות בתחום:</p>`+E(`θ = ${ths.map(t=>t+'°').join(',   ')}`)+`<p class="note">עבור ${M(`k = ${n}`)} כבר מקבלים ${M(`${be/n+360}° >= 360°`)}, מחוץ לתחום.</p>`}}
+ // eqAng: cis(nθ) = cis(mθ)
+ const pr=pick([[4,1],[3,1],[5,1],[3,-1],[2,-1],[5,2]]),n=pr[0],m=pr[1],d=n-m,step=360/d,ths=[];for(let j=0;j<d;j++)ths.push(step*j);
+ const mT=m===1?'θ':m===-1?'(-θ)':`${m}θ`;
+ return {prompt:`<p>נתון ${M(`r cis ${n}θ = r cis ${mT}`)}, כאשר ${M('r > 0')}. מצאו את ${M('θ')} ${M('(0° <= θ < 360°)')}.</p>`,ans:info(M(`θ = ${ths.map(t=>(Number.isInteger(t)?t:t.toFixed(2))+'°').join(',  ')}`)),
+  sol:'<p>הגדלים שווים, ולכן מספיק שהזוויות יהיו שוות עד כדי כפולה של '+M('360°')+':</p>'+E(`${n}θ = ${m===1?'θ':m===-1?'-θ':m+'θ'} + 360°*k   ⇒   ${d}θ = 360°*k   ⇒   θ = ${step}°*k`)+
+   `<p>מציבים ${M(`k = 0, 1, ..., ${d-1}`)}:</p>`+E(`θ = ${ths.map(t=>t+'°').join(',   ')}`)};
+}
+
+
+// ---------- symbolic polar form in terms of r and θ, and proofs
+const FRH=(a,b)=>`<span class="fr"><span>${T(a)}</span><span>${T(b)}</span></span>`;
+const OV=s=>`<span class="ov">${T(s)}</span>`;
+const Mh=h=>`<span class="m">${h}</span>`;
+const LET=['א','ב','ג','ד','ה'];
+function symCard(items){ // items: [expr, answer, solHTML]
+ return {prompt:`<p>נתון ${M('z = r cis θ')}, כאשר ${M('r > 0')}. רשמו בהצגה טריגונומטרית, באמצעות ${M('r')} ו־${M('θ')}, את המספרים:</p><ol class="subs">${items.map(it=>`<li>${typeof it[0]==='string'?M(it[0]):Mh(it[0].h)}</li>`).join('')}</ol>`,
+  ans:{type:'info',show:'<span class="multi-ans">'+items.map((it,i)=>`<span>${LET[i]}. ${Mh((typeof it[0]==='string'?T(it[0]):it[0].h)+' '+T('= '+it[1]))}</span>`).join('')+'</span>'},
+  sol:'<p>כותבים כל גורם בהצגה טריגונומטרית: '+M('zb = r cis(-θ)')+', '+M('i = cis 90°')+', '+M('-1 = cis 180°')+', '+M('-i = cis 270°')+'. בכפל כופלים גדלים ומחברים זוויות, ובחילוק מחלקים גדלים ומחסרים זוויות.</p>'+
+   items.map((it,i)=>`<p class="lbl">${LET[i]}. ${typeof it[0]==='string'?M(it[0]):Mh(it[0].h)}</p>`+it[2]).join('')}}
+const SYM={
+ A:()=>symCard([
+  ['-zb','r cis(180° - θ)',E('-zb = cis 180°*r cis(-θ) = r cis(180° - θ)')],
+  ['[1|zb]','[1|r]cis θ',E('[1|zb] = [cis 0°|r cis(-θ)] = [1|r]cis(0° - (-θ)) = [1|r]cis θ')],
+  ['i*zb','r cis(90° - θ)',E('i*zb = cis 90°*r cis(-θ) = r cis(90° - θ)')],
+  ['-2z','2r cis(θ + 180°)',E('-2z = 2cis 180°*r cis θ = 2r cis(θ + 180°)')]]),
+ B:()=>symCard([
+  ['[z|i]','r cis(θ - 90°)',E('[z|i] = [r cis θ|cis 90°] = r cis(θ - 90°)')],
+  ['[zb|z]','cis(-2θ)',E('[zb|z] = [r cis(-θ)|r cis θ] = [r|r]cis(-θ - θ) = cis(-2θ)')],
+  ['[-i|z]','[1|r]cis(270° - θ)',E('[-i|z] = [cis 270°|r cis θ] = [1|r]cis(270° - θ)')],
+  ['[z*z|zb]','r cis 3θ',E('z*z = r^2 cis 2θ')+E('[z*z|zb] = [r^2 cis 2θ|r cis(-θ)] = r cis(2θ - (-θ)) = r cis 3θ')]]),
+ C:()=>symCard([
+  ['z*zb','r^2 cis 0°',E('z*zb = r cis θ*r cis(-θ) = r^2 cis 0° = r^2')],
+  ['-zb^2','r^2 cis(180° - 2θ)',E('zb^2 = zb*zb = r^2 cis(-2θ)')+E('-zb^2 = cis 180°*r^2 cis(-2θ) = r^2 cis(180° - 2θ)')],
+  [{h:FRH('|z|','z')},'cis(-θ)',E('|z| = r = r cis 0°')+`<div class="eq"><span class="part">${FRH('|z|','z')}</span> <span class="part">${T('= [r cis 0°|r cis θ] = cis(-θ)')}</span></div>`],
+  ['z - zb','2r sin θ*cis 90°',E('z - zb = (r cos θ + i r sin θ) - (r cos θ - i r sin θ) = 2r sin θ*i')+E('= 2r sin θ*cis 90°')+`<p class="note">זו הצגה טריגונומטרית תקנית רק כש־${M('sin θ > 0')}. כש־${M('sin θ < 0')} הגודל הוא ${M('-2r sin θ')} והזווית ${M('270°')}.</p>`]]),
+ P1:()=>({prompt:`<p>הוכיחו שלכל מספר מרוכב ${M('z ≠ 0')} מתקיים:</p><ol class="subs"><li>${M('|-z| = |z|')}</li><li>${M('|[z|zb]| = 1')}</li><li>${M('[1|zb] = [z|z*zb]')}</li></ol>`,
+  ans:{type:'info',show:'ההוכחות בפתרון המלא.'},
+  sol:`<p>נכתוב ${M('z = r cis θ')}, כלומר ${M('|z| = r')}, ו־${M('zb = r cis(-θ)')}.</p>`+
+   `<p class="lbl">א.</p>`+E('-z = cis 180°*r cis θ = r cis(θ + 180°)')+`<p>הגודל של ${M('-z')} הוא ${M('r')}, ולכן ${M('|-z| = r = |z|')}.</p>`+
+   `<p class="lbl">ב.</p>`+E('[z|zb] = [r cis θ|r cis(-θ)] = [r|r]cis(θ - (-θ)) = 1*cis 2θ')+`<p>הגודל הוא 1, ולכן ${M('|[z|zb]| = 1')}.</p>`+
+   `<p class="lbl">ג.</p>`+E('[1|zb] = [cis 0°|r cis(-θ)] = [1|r]cis θ')+E('[z|z*zb] = [r cis θ|r^2] = [1|r]cis θ')+'<p>שני האגפים שווים לאותו מספר, ולכן הם שווים.</p>'}),
+ P2:()=>({prompt:`<p>הוכיחו שלכל שני מספרים מרוכבים ${M('z_1')} ו־${M('z_2')} (${M('z_2 ≠ 0')}) מתקיים:</p><ol class="subs"><li>${Mh(OV('z_1*z_2')+' = '+T('zb_1*zb_2'))}</li><li>${Mh(T('|[z_1|z_2]| =')+' '+FRH('|z_1|','|z_2|'))}</li><li>${Mh(OV('[z_1|z_2]')+' = '+T('[zb_1|zb_2]'))}</li></ol>`,
+  ans:{type:'info',show:'ההוכחות בפתרון המלא.'},
+  sol:`<p>נכתוב ${M('z_1 = r_1 cis θ_1')} ו־${M('z_2 = r_2 cis θ_2')}. אז ${M('zb_1 = r_1 cis(-θ_1)')} ו־${M('zb_2 = r_2 cis(-θ_2)')}.</p>`+
+   `<p class="lbl">א.</p>`+E('z_1*z_2 = r_1r_2 cis(θ_1 + θ_2)')+`<div class="eq"><span class="part">${OV('z_1*z_2')}</span> <span class="part">${T('= r_1r_2 cis(-θ_1 - θ_2)')}</span></div>`+E('zb_1*zb_2 = r_1 cis(-θ_1)*r_2 cis(-θ_2) = r_1r_2 cis(-θ_1 - θ_2)')+'<p>קיבלנו את אותו מספר בשני האגפים.</p>'+
+   `<p class="lbl">ב.</p>`+E('[z_1|z_2] = [r_1|r_2]cis(θ_1 - θ_2)')+`<p>הגודל של המנה הוא ${Mh(T('[r_1|r_2] =')+' '+FRH('|z_1|','|z_2|'))}.</p>`+
+   `<p class="lbl">ג.</p>`+`<div class="eq"><span class="part">${OV('[z_1|z_2]')}</span> <span class="part">${T('= [r_1|r_2]cis(-(θ_1 - θ_2)) = [r_1|r_2]cis(θ_2 - θ_1)')}</span></div>`+E('[zb_1|zb_2] = [r_1 cis(-θ_1)|r_2 cis(-θ_2)] = [r_1|r_2]cis(-θ_1 + θ_2)')+'<p>שני האגפים שווים.</p>'})
+};
+
 const PLAN={
- toTrig:Array.from({length:16},(_,i)=>i+1),
+ toTrig:Array.from({length:16},(_,i)=>i+1).concat(['u:ux','u:zmz','u:uy','u:zpz','u:zzb','u:argY','u:rcisX','u:negAng','u:mult2','u:argX','u:eqAng']),
  toAlg:[2,9,14,18,20],
- mult:[1,10,'neg','negAlg','neg','negAlg',9,12,14,16,17,18,19,23,'div','divAlg','divI','iDiv','divNeg','negDiv','divConj','divConj2'],
+ mult:[1,10,'neg','negAlg','neg','negAlg',9,12,14,16,17,18,19,23,'div','divAlg','divI','iDiv','divNeg','negDiv','divConj','divConj2','s:A','s:B','s:C','s:P1','s:P2'],
 };
 // ---------- Bagrut-style questions
 const BAGRUT=[
